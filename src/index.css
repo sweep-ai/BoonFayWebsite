@@ -112,16 +112,26 @@ All colors MUST be HSL.
   }
 
   ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #18181b; /* dark: zinc-900 */
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
+    background: #27272a; /* dark: zinc-800 */
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #a8a8a8;
+    background: #3f3f46; /* dark: zinc-700 */
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    background: #18181b;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    background: #27272a;
+  }
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: #3f3f46;
   }
 }
 
