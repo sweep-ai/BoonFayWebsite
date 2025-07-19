@@ -74,14 +74,7 @@ const Hero = () => {
           <div className="relative w-full max-w-3xl mb-8 md:mb-12">
             <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-green-500 opacity-70 blur-md" />
             <div className="relative w-full aspect-w-16 aspect-h-9 bg-muted rounded-xl overflow-hidden flex items-center justify-center shadow-2xl backdrop-blur-md">
-              <iframe
-                className="w-full h-full min-h-[300px] sm:min-h-[400px] md:min-h-[600px]"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Demo Video"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/gm4EInAHIKk?si=tVDdy7HYegQJ_sNv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
           </div>
 
