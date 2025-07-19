@@ -64,7 +64,7 @@ const Hero = () => {
       <section className="relative min-h-screen bg-background pt-16 md:pt-20 pb-12 md:pb-16 flex flex-col items-center justify-center">
         <div className="container mx-auto px-4 max-w-2xl flex flex-col items-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-center mb-6 md:mb-10">
-            Your 16-Week Weight Loss Program
+            Drop <span className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent drop-shadow-lg" style={{textShadow: '0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(34, 197, 94, 0.3)'}}>30+</span> Pounds With the Best <span className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent drop-shadow-lg" style={{textShadow: '0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(34, 197, 94, 0.3)'}}>Transformation</span> Program of Your Life
           </h1>
           <p className="text-lg md:text-20 text-muted-foreground font-medium text-center mb-8 md:mb-12 text-gray-200 max-w-2xl md:max-w-3xl lg:max-w-4xl leading-relaxed md:leading-loose">
             The 16-week transformation program is designed for busy professionals, fathers, and hardworking men who want real results without overhauling their lifestyle. You’ll get fully customized workouts, macro-based meal planning tailored to your preferences, and 24/7 accountability coaching—so you can lose weight, build strength, and feel confident again, all while keeping the life you love.
@@ -88,21 +88,65 @@ const Hero = () => {
           {/* Main CTA: Start Program in a glowing card */}
           <div className="relative w-full max-w-md mb-6">
             <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-green-500 opacity-70 blur-md" />
-            <div className="relative bg-card/80 backdrop-blur-md rounded-xl shadow-2xl z-10 p-0">
+            <div className="relative bg-card/80 backdrop-blur-md rounded-xl shadow-2xl z-10 p-6">
+              <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Start Your Transformation</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground mb-4">
+                <li className="flex items-start gap-2">
+                  <span className="text-green-400 mt-1">✓</span>
+                  <span>Immediate access to your 16-week program</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-400 mt-1">✓</span>
+                  <span>Customized workouts and meal plans</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-400 mt-1">✓</span>
+                  <span>24/7 coaching and accountability</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-400 mt-1">✓</span>
+                  <span>Lifetime access to all materials</span>
+                </li>
+              </ul>
               <Button
                 size="lg"
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
-                onClick={() => window.location.href = '/Payment'}
+                onClick={() => window.location.href = '/payment'}
               >
-                Start My Journey Now
+                👉 Start My Journey Now
               </Button>
             </div>
+          </div>
+
+          <div className="flex items-center w-full my-6 pb-6">
+            <div className="flex-grow border-t border-muted" />
+            <span className="mx-4 text-muted-foreground text-sm">or</span>
+            <div className="flex-grow border-t border-muted" />
           </div>
 
           {/* Secondary CTA: Book Consultation in a glowing card */}
           <div className="relative w-full max-w-md mb-8">
             <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-green-500 opacity-70 blur-md" />
-            <div className="relative bg-card/80 backdrop-blur-md rounded-xl shadow-2xl z-10 p-0">
+            <div className="relative bg-card/80 backdrop-blur-md rounded-xl shadow-2xl z-10 p-6">
+              <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Free Strategy Session</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground mb-4">
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-400 mt-1">✓</span>
+                  <span>30-minute personalized consultation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-400 mt-1">✓</span>
+                  <span>Goal assessment and current situation review</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-400 mt-1">✓</span>
+                  <span>Personalized recommendations</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-400 mt-1">✓</span>
+                  <span>No sales pitch or pressure</span>
+                </li>
+              </ul>
               <Button
                 variant="outline"
                 size="lg"
