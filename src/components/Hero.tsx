@@ -117,7 +117,7 @@ const Hero = () => {
             <div className="flex-grow border-t border-muted" />
           </div>
 
-          {/* Secondary CTA: Book Consultation in a glowing card */}
+          {/* Secondary CTA: Booking Consultation in a glowing card */}
           <div className="relative w-full max-w-md mb-8">
             <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-green-500 opacity-70 blur-md" />
             <div className="relative bg-card/80 backdrop-blur-md rounded-xl shadow-2xl z-10 p-6">
