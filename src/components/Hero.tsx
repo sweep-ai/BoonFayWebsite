@@ -71,10 +71,23 @@ const Hero = () => {
           </p>
 
           {/* Centered Demo Video with card glow */}
-          <div className="relative w-full max-w-3xl mb-8 md:mb-12">
-            <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-green-500 opacity-70 blur-md" />
-            <div className="relative w-full aspect-w-16 aspect-h-9 bg-muted rounded-xl overflow-hidden flex items-center justify-center shadow-2xl backdrop-blur-md">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/gm4EInAHIKk?si=tVDdy7HYegQJ_sNv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div className="mb-8 md:mb-12 flex justify-center items-center">
+            <div className="relative inline-block max-w-sm md:max-w-md lg:max-w-lg">
+              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-green-500 opacity-70 blur-md pointer-events-none" />
+              <div className="relative bg-muted rounded-xl overflow-hidden shadow-2xl backdrop-blur-md inline-block">
+                <video
+                  className="rounded-xl block w-full"
+                  style={{ display: 'block', height: 'auto', maxWidth: '100%' }}
+                  src="/BoonFayVSL.mp4"
+                  controls
+                  playsInline
+                  autoPlay
+                  muted
+                  poster="/placeholder.svg"
+                >
+                  Sorry, your browser does not support embedded videos.
+                </video>
+              </div>
             </div>
           </div>
 
@@ -121,7 +134,7 @@ const Hero = () => {
           <div className="relative w-full max-w-md mb-8">
             <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-green-500 opacity-70 blur-md" />
             <div className="relative bg-card/80 backdrop-blur-md rounded-xl shadow-2xl z-10 p-6">
-              <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Free Strategy Session</h3>
+              <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Free Fitness Consultation</h3>
               <ul className="space-y-2 text-sm text-muted-foreground mb-4">
                 <li className="flex items-start gap-2">
                   <span className="text-blue-400 mt-1">✓</span>

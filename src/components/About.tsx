@@ -9,10 +9,10 @@ const About = () => {
           {/* Left Column - Image */}
           <div className="relative animate-fade-in order-first lg:order-last">
             {/* Gradient border for image */}
-            <div className="absolute -inset-2 rounded-2xl z-0 bg-gradient-to-r from-blue-600 to-green-500 opacity-70 blur-md" />
-            <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl z-10">
+            <div className="absolute -inset-1 rounded-xl md:rounded-2xl bg-gradient-to-r from-blue-600 to-green-500 opacity-70 blur-md pointer-events-none" />
+            <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl z-10 bg-gray-800/30">
               <img
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="/profile2.jpeg"
                 alt="Professional fitness consultation"
                 className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover"
               />
