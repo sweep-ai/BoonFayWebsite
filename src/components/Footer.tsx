@@ -27,8 +27,7 @@ const Footer = () => {
                 Boon Fay Fitness
               </h3>
               <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                Helping men over 40 achieve sustainable weight loss without giving up their lifestyle. 
-                Real solutions for real life.
+              Helping men and women achieve sustainable weight loss without giving up their lifestyle. 
               </p>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Heart className="w-3 h-3 md:w-4 md:h-4 text-red-400" />
@@ -81,7 +80,7 @@ const Footer = () => {
               <div className="space-y-2 md:space-y-3">
                 <div className="flex items-center gap-2 md:gap-3 text-gray-400">
                   <Mail className="w-4 h-4 md:w-5 md:h-5" />
-                  <span className="text-sm md:text-base">Fayboon3@gmail.com</span>
+                  <span className="text-sm md:text-base">Boonfaypt@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-2 md:gap-3 text-gray-400">
                   <Phone className="w-4 h-4 md:w-5 md:h-5" />

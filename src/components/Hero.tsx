@@ -64,7 +64,8 @@ const Hero = () => {
       <section className="relative min-h-screen bg-background pt-16 md:pt-20 pb-12 md:pb-16 flex flex-col items-center justify-center">
         <div className="container mx-auto px-4 max-w-2xl flex flex-col items-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-center mb-6 md:mb-10">
-            Drop <span className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent drop-shadow-lg" style={{textShadow: '0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(34, 197, 94, 0.3)'}}>30+</span> Pounds With the Best <span className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent drop-shadow-lg" style={{textShadow: '0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(34, 197, 94, 0.3)'}}>Transformation</span> Program of Your Life
+            Lose 30+ Pounds With the Best Transformation Program of Your Life
+            {/* Drop <span className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent drop-shadow-lg" style={{textShadow: '0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(34, 197, 94, 0.3)'}}>30+</span> Pounds With the Best <span className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent drop-shadow-lg" style={{textShadow: '0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(34, 197, 94, 0.3)'}}>Transformation</span> Program of Your Life */}
           </h1>
           <p className="text-lg md:text-20 text-muted-foreground font-medium text-center mb-8 md:mb-12 text-gray-200 max-w-2xl md:max-w-3xl lg:max-w-4xl leading-relaxed md:leading-loose">
             The 16-week transformation program is designed for busy professionals, fathers, and hardworking men who want real results without overhauling their lifestyle. You’ll get fully customized workouts, macro-based meal planning tailored to your preferences, and 24/7 accountability coaching—so you can lose weight, build strength, and feel confident again, all while keeping the life you love.
@@ -147,10 +148,6 @@ const Hero = () => {
                 <li className="flex items-start gap-2">
                   <span className="text-blue-400 mt-1">✓</span>
                   <span>Personalized recommendations</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-400 mt-1">✓</span>
-                  <span>No sales pitch or pressure</span>
                 </li>
               </ul>
               <Button

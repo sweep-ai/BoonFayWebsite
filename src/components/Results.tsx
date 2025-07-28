@@ -15,7 +15,7 @@ const Results = () => {
       result: "Lost 25lbs and still eats out weekly",
       quote: "Boon showed me how to make smart choices without giving up my favorite restaurants. I'm in the best shape of my adult life.",
       beforeAfter: "25lbs lighter, 4 inches off waist",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+      image: "/Testimonial1.jpeg"
     },
     {
       name: "Mike Rodriguez",
@@ -23,15 +23,15 @@ const Results = () => {
       result: "Built muscle while traveling for work",
       quote: "The hotel gym workouts were a game-changer. I actually got stronger during my busiest quarter.",
       beforeAfter: "15lbs muscle gain, energy through the roof",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
-    },
+        image: "/Testimonial2.jpeg"
+      },
     {
       name: "David Chen",
       age: 44,
       result: "Down 30lbs without counting calories",
       quote: "I thought I'd have to track every bite forever. Boon taught me habits that work automatically.",
       beforeAfter: "30lbs down, off blood pressure medication",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+      image: "/Testimonial3.jpeg"
     }
   ];
 
