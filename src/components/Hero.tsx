@@ -68,7 +68,7 @@ const Hero = () => {
             {/* Drop <span className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent drop-shadow-lg" style={{textShadow: '0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(34, 197, 94, 0.3)'}}>30+</span> Pounds With the Best <span className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent drop-shadow-lg" style={{textShadow: '0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(34, 197, 94, 0.3)'}}>Transformation</span> Program of Your Life */}
           </h1>
           <p className="text-lg md:text-20 text-muted-foreground font-medium text-center mb-8 md:mb-12 text-gray-200 max-w-2xl md:max-w-3xl lg:max-w-4xl leading-relaxed md:leading-loose">
-            The 16-week transformation program is designed for busy professionals, fathers, and hardworking men who want real results without overhauling their lifestyle. You’ll get fully customized workouts, macro-based meal planning tailored to your preferences, and 24/7 accountability coaching—so you can lose weight, build strength, and feel confident again, all while keeping the life you love.
+            The 16-week transformation program is designed for busy professionals, fathers, and hardworking men who want real results without overhauling their lifestyle. You’ll get fully customized workouts, macro-based meal planning tailored to your preferences, and 24/7 accountability coaching so you can lose weight, build strength, and feel confident again, all while keeping the life you love.
           </p>
 
           {/* Centered Demo Video with card glow */}
