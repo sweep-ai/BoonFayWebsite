@@ -15,7 +15,7 @@ const Results = () => {
       result: "Lost 25lbs and still eats out weekly",
       quote: "Boon showed me how to make smart choices without giving up my favorite restaurants. I'm in the best shape of my adult life.",
       beforeAfter: "25lbs lighter, 4 inches off waist",
-      image: "/Testimonial1.jpeg"
+      image: "/Testimonial3.jpeg"
     },
     {
       name: "Mike Rodriguez",
@@ -31,7 +31,7 @@ const Results = () => {
       result: "Down 30lbs without counting calories",
       quote: "I thought I'd have to track every bite forever. Boon taught me habits that work automatically.",
       beforeAfter: "30lbs down, off blood pressure medication",
-      image: "/Testimonial3.jpeg"
+      image: "/Testimonial1.jpeg"
     }
   ];
 
