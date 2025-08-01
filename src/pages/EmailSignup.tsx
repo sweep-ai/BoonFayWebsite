@@ -38,7 +38,7 @@ const EmailSignup = () => {
     <div className="min-h-screen flex flex-col items-center justify-center bg-background px-4 py-12 relative overflow-hidden">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-contain bg-left bg-no-repeat opacity-20"
+        className="absolute inset-0 bg-contain bg-center md:bg-left bg-no-repeat opacity-20"
         style={{
           backgroundImage: "url('/Squeezebg.png')"
         }}
