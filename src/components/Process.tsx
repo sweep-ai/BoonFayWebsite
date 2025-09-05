@@ -1,5 +1,6 @@
 
 import { Dumbbell, Utensils, Users } from 'lucide-react';
+import { Analytics } from "@vercel/analytics/next"
 
 const pillars = [
   {

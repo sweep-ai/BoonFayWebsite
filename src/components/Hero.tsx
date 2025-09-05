@@ -4,6 +4,7 @@ import { Calendar, Mail, Star, Award, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import StrategyCallModal from './StrategyCallModal';
+import { Analytics } from "@vercel/analytics/next"
 
 const Hero = () => {
   const [email, setEmail] = useState('');

@@ -4,13 +4,14 @@ import { Star, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import StrategyCallModal from './StrategyCallModal';
 import Process from './Process';
+import { Analytics } from "@vercel/analytics/next"
 
 const Results = () => {
   const [showModal, setShowModal] = useState(false);
 
   const testimonials = [
     {
-      name: "John Patterson",
+      name: "John",
       age: 52,
       result: "Lost 25lbs and still eats out weekly",
       quote: "Boon showed me how to make smart choices without giving up my favorite restaurants. I'm in the best shape of my adult life.",
@@ -18,7 +19,7 @@ const Results = () => {
       image: "/Testimonial3.jpeg"
     },
     {
-      name: "Mike Rodriguez",
+      name: "Mike",
       age: 47,
       result: "Built muscle while traveling for work",
       quote: "The hotel gym workouts were a game-changer. I actually got stronger during my busiest quarter.",
@@ -26,7 +27,7 @@ const Results = () => {
         image: "/Testimonial2.jpeg"
       },
     {
-      name: "David Chen",
+      name: "David",
       age: 44,
       result: "Down 30lbs without counting calories",
       quote: "I thought I'd have to track every bite forever. Boon taught me habits that work automatically.",

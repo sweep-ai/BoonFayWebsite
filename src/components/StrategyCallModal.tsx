@@ -1,6 +1,7 @@
 
 import { X, Calendar, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Analytics } from "@vercel/analytics/next"
 
 interface StrategyCallModalProps {
   isOpen: boolean;

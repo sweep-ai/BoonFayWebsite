@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Mail, Send, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Analytics } from "@vercel/analytics/next"
 
 const NewsletterFooter = () => {
   const [email, setEmail] = useState('');
