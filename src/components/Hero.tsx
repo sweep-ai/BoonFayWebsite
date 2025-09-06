@@ -93,6 +93,26 @@ const Hero = () => {
             </div>
           </div>
 
+          {/* Money Back Guarantee Section */}
+          <div className="mb-8 md:mb-12 flex justify-center items-center">
+            <div className="relative w-full max-w-2xl">
+              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-green-600 to-green-500 opacity-70 blur-md pointer-events-none" />
+              <div className="relative bg-green-600/20 backdrop-blur-md rounded-xl shadow-2xl border-2 border-green-500/50 p-6 md:p-8">
+                <div className="text-center">
+                  <h2 className="text-2xl md:text-3xl font-bold text-green-100 mb-4">
+                    100% Money Back Guarantee
+                  </h2>
+                  <p className="text-lg md:text-xl text-green-50 mb-4 leading-relaxed">
+                    I believe in this program so much, I'm putting my money where my mouth is. Give me 16 weeks, follow the plan, and if you don't make progress, I'll refund you every dollar.
+                  </p>
+                  <p className="text-xl md:text-2xl font-bold text-green-200">
+                    No excuses. No risk.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Main CTA: Start Program in a glowing card */}
           <div className="relative w-full max-w-md mb-6">
             <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-green-500 opacity-70 blur-md" />

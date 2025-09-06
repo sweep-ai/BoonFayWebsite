@@ -1,5 +1,6 @@
 
 import { Target, Heart, TrendingUp } from 'lucide-react';
+import { Analytics } from "@vercel/analytics/next"
 
 const About = () => {
   return (
