@@ -66,7 +66,7 @@ const Hero = () => {
         <div className="container mx-auto px-4 max-w-2xl flex flex-col items-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-center mb-6 md:mb-10">
             Lose 30+ Pounds With the Best Transformation Program of Your Life
-            {/* Drop <span className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent drop-shadow-lg" style={{textShadow: '0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(34, 197, 94, 0.3)'}}>30+</span> Pounds With the Best <span className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent drop-shadow-lg" style={{textShadow: '0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(34, 197, 94, 0.3)'}}>Transformation</span> Program of Your Life */}
+            {/* Drop <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent drop-shadow-lg text-glow-white">30+</span> Pounds With the Best <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent drop-shadow-lg text-glow-white">Transformation</span> Program of Your Life */}
           </h1>
           <p className="text-lg md:text-20 text-muted-foreground font-medium text-center mb-8 md:mb-12 text-gray-200 max-w-2xl md:max-w-3xl lg:max-w-4xl leading-relaxed md:leading-loose">
             The 16-week transformation program is designed for busy professionals, fathers, and hardworking men who want real results without overhauling their lifestyle. You’ll get fully customized workouts, macro-based meal planning tailored to your preferences, and 24/7 accountability coaching so you can lose weight, build strength, and feel confident again, all while keeping the life you love.
@@ -75,7 +75,7 @@ const Hero = () => {
           {/* Centered Demo Video with card glow */}
           <div className="mb-8 md:mb-12 flex justify-center items-center">
             <div className="relative inline-block max-w-sm md:max-w-md lg:max-w-lg">
-              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-green-500 opacity-70 blur-md pointer-events-none" />
+              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-white to-gray-400 opacity-70 blur-md pointer-events-none glow-white" />
               <div className="relative bg-muted rounded-xl overflow-hidden shadow-2xl backdrop-blur-md inline-block">
                 <video
                   className="rounded-xl block w-full"
@@ -96,16 +96,16 @@ const Hero = () => {
           {/* Money Back Guarantee Section */}
           <div className="mb-8 md:mb-12 flex justify-center items-center">
             <div className="relative w-full max-w-2xl">
-              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-green-600 to-green-500 opacity-70 blur-md pointer-events-none" />
-              <div className="relative bg-green-600/20 backdrop-blur-md rounded-xl shadow-2xl border-2 border-green-500/50 p-6 md:p-8">
+              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-gray-300 to-white opacity-70 blur-md pointer-events-none glow-gray" />
+              <div className="relative bg-gray-100/20 backdrop-blur-md rounded-xl shadow-2xl border-2 border-gray-300/50 p-6 md:p-8">
                 <div className="text-center">
-                  <h2 className="text-2xl md:text-3xl font-bold text-green-100 mb-4">
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 text-glow-white">
                     100% Money Back Guarantee
                   </h2>
-                  <p className="text-lg md:text-xl text-green-50 mb-4 leading-relaxed">
+                  <p className="text-lg md:text-xl text-gray-700 mb-4 leading-relaxed">
                     I believe in this program so much, I'm putting my money where my mouth is. Give me 16 weeks, follow the plan, and if you don't make progress, I'll refund you every dollar.
                   </p>
-                  <p className="text-xl md:text-2xl font-bold text-green-200">
+                  <p className="text-xl md:text-2xl font-bold text-gray-900 text-glow-white">
                     No excuses. No risk.
                   </p>
                 </div>
@@ -115,30 +115,30 @@ const Hero = () => {
 
           {/* Main CTA: Start Program in a glowing card */}
           <div className="relative w-full max-w-md mb-6">
-            <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-green-500 opacity-70 blur-md" />
+            <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-white to-gray-400 opacity-70 blur-md glow-white" />
             <div className="relative bg-card/80 backdrop-blur-md rounded-xl shadow-2xl z-10 p-6">
               <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Start Your Transformation</h3>
               <ul className="space-y-2 text-sm text-muted-foreground mb-4">
                 <li className="flex items-start gap-2">
-                  <span className="text-green-400 mt-1">✓</span>
+                  <span className="text-gray-600 mt-1">✓</span>
                   <span>Immediate access to your 16-week program</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-400 mt-1">✓</span>
+                  <span className="text-gray-600 mt-1">✓</span>
                   <span>Customized workouts and meal plans</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-400 mt-1">✓</span>
+                  <span className="text-gray-600 mt-1">✓</span>
                   <span>24/7 coaching and accountability</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-400 mt-1">✓</span>
+                  <span className="text-gray-600 mt-1">✓</span>
                   <span>Lifetime access to all materials</span>
                 </li>
               </ul>
               <Button
                 size="lg"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
+                className="w-full bg-gradient-to-r from-white to-gray-200 hover:from-gray-100 hover:to-gray-300 text-gray-900 text-lg font-bold py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 glow-white"
                 onClick={() => window.location.href = '/payment'}
               >
                 👉 Start My Journey Now
@@ -154,27 +154,27 @@ const Hero = () => {
 
           {/* Secondary CTA: Booking Consultation in a glowing card */}
           <div className="relative w-full max-w-md mb-8">
-            <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-green-500 opacity-70 blur-md" />
+            <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-white to-gray-400 opacity-70 blur-md glow-white" />
             <div className="relative bg-card/80 backdrop-blur-md rounded-xl shadow-2xl z-10 p-6">
               <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Free Fitness Consultation</h3>
               <ul className="space-y-2 text-sm text-muted-foreground mb-4">
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-400 mt-1">✓</span>
+                  <span className="text-gray-600 mt-1">✓</span>
                   <span>30-minute personalized consultation</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-400 mt-1">✓</span>
+                  <span className="text-gray-600 mt-1">✓</span>
                   <span>Goal assessment and current situation review</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-400 mt-1">✓</span>
+                  <span className="text-gray-600 mt-1">✓</span>
                   <span>Personalized recommendations</span>
                 </li>
               </ul>
               <Button
                 variant="outline"
                 size="lg"
-                className="w-full border-blue-600 text-blue-600 hover:bg-blue-50 text-lg font-bold py-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105"
+                className="w-full border-gray-600 text-gray-600 hover:bg-gray-50 text-lg font-bold py-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105"
                 onClick={() => setShowModal(true)}
               >
                 Book a FREE Fitness Consultation

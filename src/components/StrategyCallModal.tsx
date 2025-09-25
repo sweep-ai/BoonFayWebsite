@@ -20,7 +20,7 @@ const StrategyCallModal = ({ isOpen, onClose }: StrategyCallModalProps) => {
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-3 sm:p-4">
       <div className="relative max-w-lg w-full max-h-[90vh] overflow-y-auto animate-scale-in">
         {/* Gradient border glow */}
-        <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-green-500 opacity-70 blur-md" />
+        <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-white to-gray-400 opacity-70 blur-md glow-white" />
         <div className="relative bg-card/80 backdrop-blur-md rounded-xl sm:rounded-2xl shadow-2xl z-10">
           <div className="flex items-center justify-between p-4 sm:p-6 border-b border-border">
             <h2 className="text-xl sm:text-2xl font-bold text-foreground">

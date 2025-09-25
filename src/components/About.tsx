@@ -10,7 +10,7 @@ const About = () => {
           {/* Left Column - Image */}
           <div className="relative animate-fade-in order-first lg:order-last">
             {/* Gradient border for image */}
-            <div className="absolute -inset-1 rounded-xl md:rounded-2xl bg-gradient-to-r from-blue-600 to-green-500 opacity-70 blur-md pointer-events-none" />
+            <div className="absolute -inset-1 rounded-xl md:rounded-2xl bg-gradient-to-r from-white to-gray-400 opacity-70 blur-md pointer-events-none glow-white" />
             <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl z-10 bg-gray-800/30">
               <img
                 src="/profile2.jpeg"
@@ -36,7 +36,7 @@ const About = () => {
               If you're ready to lose weight, build strength, and feel confident again, without sacrificing the things that matter most, you're in the right place.
             </p>
             <div className="relative mt-4">
-              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-green-500 opacity-70 blur-md" />
+              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-white to-gray-400 opacity-70 blur-md glow-white" />
               <div className="relative bg-card/80 backdrop-blur-md p-4 md:p-6 rounded-lg md:rounded-xl shadow-xl">
                 <h4 className="font-semibold text-primary mb-2 md:mb-3 text-sm md:text-base">Credentials & Experience</h4>
                 <ul className="space-y-1 md:space-y-2 text-muted-foreground text-sm md:text-base">

@@ -69,7 +69,7 @@ const NewsletterFooter = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-blue-900 to-green-900 text-primary-foreground p-3 md:p-4 shadow-lg z-40 animate-slide-in-bottom">
+    <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-gray-800 to-gray-900 text-primary-foreground p-3 md:p-4 shadow-lg z-40 animate-slide-in-bottom">
       <div className="container mx-auto max-w-4xl">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
           <div className="flex flex-col gap-1 flex-shrink-0">
@@ -78,7 +78,7 @@ const NewsletterFooter = () => {
           </div>
 
           {isSubmitted ? (
-            <div className="flex items-center gap-2 text-green-300 w-full sm:w-auto">
+            <div className="flex items-center gap-2 text-gray-300 w-full sm:w-auto">
               <Send className="w-4 h-4 md:w-5 md:h-5" />
               <span className="font-medium text-sm md:text-base">Thanks! Check your email.</span>
             </div>

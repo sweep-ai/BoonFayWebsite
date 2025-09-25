@@ -32,9 +32,9 @@ const Process = () => {
         <div className="grid gap-8 md:grid-cols-3">
           {pillars.map((pillar, idx) => (
             <div key={pillar.title} className="relative mt-4">
-              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-green-500 opacity-70 blur-md" />
+              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-white to-gray-400 opacity-70 blur-md glow-white" />
               <div className="relative bg-card/80 backdrop-blur-md p-6 flex flex-col items-center text-center rounded-xl shadow-xl z-10">
-                <div className="bg-primary text-primary-foreground rounded-full p-4 mb-4 shadow-lg shadow-blue-600/30">
+                <div className="bg-primary text-primary-foreground rounded-full p-4 mb-4 shadow-lg shadow-gray-400/30">
                   <pillar.icon className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2">{pillar.title}</h3>

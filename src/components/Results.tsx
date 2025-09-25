@@ -57,7 +57,7 @@ const Results = () => {
                 className="relative mt-4"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-green-500 opacity-70 blur-md" />
+                <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-white to-gray-400 opacity-70 blur-md glow-white" />
                 <div className="relative bg-card/80 backdrop-blur-md rounded-xl md:rounded-2xl p-6 md:p-8 shadow-xl z-10">
                   <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
                     <img
@@ -86,8 +86,8 @@ const Results = () => {
                     "{testimonial.quote}"
                   </blockquote>
 
-                  <div className="bg-green-900/30 p-3 md:p-4 rounded-lg">
-                    <p className="text-xs md:text-sm font-medium text-green-300">
+                  <div className="bg-gray-100/30 p-3 md:p-4 rounded-lg">
+                    <p className="text-xs md:text-sm font-medium text-gray-700">
                       Results: {testimonial.beforeAfter}
                     </p>
                   </div>
@@ -101,7 +101,7 @@ const Results = () => {
 
           {/* CTA Section */}
           <div className="relative text-center bg-primary text-primary-foreground rounded-xl md:rounded-2xl p-8 md:p-12 animate-fade-in mt-12 overflow-hidden shadow-2xl">
-            <div className="absolute -inset-1 rounded-2xl z-0 bg-gradient-to-r from-blue-600 to-green-500 opacity-60 blur-md" />
+            <div className="absolute -inset-1 rounded-2xl z-0 bg-gradient-to-r from-white to-gray-400 opacity-60 blur-md glow-white" />
             <div className="relative z-10">
               <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4">
                 Ready to Join Them?

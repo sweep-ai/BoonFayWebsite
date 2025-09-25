@@ -35,18 +35,10 @@ const EmailSignup = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-background px-4 py-12 relative overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover md:bg-contain bg-center md:bg-left bg-no-repeat opacity-20"
-        style={{
-          backgroundImage: "url('/Squeezebg.png')"
-        }}
-      />
-
+    <div className="min-h-screen flex flex-col items-center justify-center bg-background px-4 py-12">
       {/* Main Card with Glow Effect */}
       <div className="relative z-10 w-full max-w-md">
-        <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-600 to-green-500 opacity-70 blur-md pointer-events-none" />
+        <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-white to-gray-400 opacity-70 blur-md pointer-events-none glow-white" />
         <div className="relative bg-card/90 backdrop-blur-sm rounded-2xl shadow-2xl p-8">
           <h1 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-4 leading-tight">
             30 Days, 30 Lessons & 30 Ways to Take Control of Your Fitness
@@ -57,7 +49,7 @@ const EmailSignup = () => {
           </p>
 
           {isSubmitted ? (
-            <div className="flex flex-col items-center gap-2 text-green-300 font-bold bg-green-900/30 p-4 rounded-lg border border-green-700">
+            <div className="flex flex-col items-center gap-2 text-gray-700 font-bold bg-gray-100/30 p-4 rounded-lg border border-gray-300">
               <Send className="w-6 h-6" />
               <span className="text-lg">Thanks! Check your email for your first lesson.</span>
             </div>
@@ -69,7 +61,7 @@ const EmailSignup = () => {
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 required
-                className="text-base py-3 border-2 border-green-700 focus:border-green-400 focus:ring-green-400 bg-background text-foreground"
+                className="text-base py-3 border-2 border-gray-300 focus:border-gray-500 focus:ring-gray-500 bg-background text-foreground"
               />
               <Input
                 type="email"
@@ -77,11 +69,11 @@ const EmailSignup = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="text-base py-3 border-2 border-green-700 focus:border-green-400 focus:ring-green-400 bg-background text-foreground"
+                className="text-base py-3 border-2 border-gray-300 focus:border-gray-500 focus:ring-gray-500 bg-background text-foreground"
               />
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white font-bold text-lg py-3 border-2 border-transparent hover:border-blue-400 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
+                className="w-full bg-gradient-to-r from-white to-gray-200 hover:from-gray-100 hover:to-gray-300 text-gray-900 font-bold text-lg py-3 border-2 border-transparent hover:border-gray-400 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 glow-white"
               >
                 SUBSCRIBE NOW
               </Button>
