@@ -41,11 +41,11 @@ const EmailSignup = () => {
         <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-white to-gray-400 opacity-70 blur-md pointer-events-none glow-white" />
         <div className="relative bg-card/90 backdrop-blur-sm rounded-2xl shadow-2xl p-8">
           <h1 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-4 leading-tight">
-            30 Days, 30 Lessons & 30 Ways to Take Control of Your Fitness
+          90 Day Step by Step Formula That Will Revolutionize the Way You Look at Your Fitness Journey
           </h1>
           
           <p className="text-base text-muted-foreground text-center mb-6 leading-relaxed">
-            Every day for the next 30 days, I'll send you one short, value-packed email, straight to your inbox. Just drop your email, and you're in.
+          Every day for the next 90 days, I will send you one short email that takes the guesswork out of training, nutrition, and mindset. These are clear steps that stack on each other until fitness finally feels effortless.
           </p>
 
           {isSubmitted ? (
