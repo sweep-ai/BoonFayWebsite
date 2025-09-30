@@ -20,7 +20,7 @@ const Congrats = () => {
             className="w-full"
           >
             <button
-              className="w-full bg-gradient-to-r from-white to-gray-200 hover:from-gray-100 hover:to-gray-300 text-gray-900 text-lg font-bold py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 glow-white"
+              className="w-full bg-gradient-to-r from-white to-white/90 hover:from-white/95 hover:to-white/85 text-gray-900 text-lg font-bold py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 glow-white"
             >
               Fill Out My Program Survey
             </button>

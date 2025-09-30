@@ -22,17 +22,17 @@ const About = () => {
 
           {/* Right Column - Content */}
           <div className="space-y-6 md:space-y-8 animate-fade-in order-last lg:order-first" style={{ animationDelay: '0.2s' }}>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-50 mb-4 md:mb-6">Meet Boon!</h2>
-            <p className="text-base md:text-lg text-gray-100 leading-relaxed mb-4 md:mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6">Meet Boon!</h2>
+            <p className="text-base md:text-lg text-white/90 leading-relaxed mb-4 md:mb-6">
               My name is Boon Fay, I am a NASM certified personal trainer and former Division I college baseball player. After gaining significant weight for athletics, I personally lost over 65 pounds in one year, and completely transformed my body and mindset in the process.
             </p>
-            <p className="text-base md:text-lg text-gray-100 leading-relaxed mb-4 md:mb-6">
-              With over ten years of fitness experience and a blue belt in Brazilian Jiu-Jitsu, I’ve combined real-world training with proven, sustainable methods to help busy men and women achieve lasting results.
+            <p className="text-base md:text-lg text-white/90 leading-relaxed mb-4 md:mb-6">
+              With over ten years of fitness experience and a blue belt in Brazilian Jiu-Jitsu, I've combined real-world training with proven, sustainable methods to help busy men and women achieve lasting results.
             </p>
-            <p className="text-base md:text-lg text-gray-100 leading-relaxed mb-4 md:mb-6">
+            <p className="text-base md:text-lg text-white/90 leading-relaxed mb-4 md:mb-6">
               My coaching approach is built around real life. That means no extreme diets, no unrealistic gym routines, and no pressure to give up the lifestyle you enjoy. Instead, I design custom fitness and nutrition strategies that work with your schedule, family commitments, and personal goals.
             </p>
-            <p className="text-base md:text-lg text-gray-100 leading-relaxed mb-4 md:mb-6">
+            <p className="text-base md:text-lg text-white/90 leading-relaxed mb-4 md:mb-6">
               If you're ready to lose weight, build strength, and feel confident again, without sacrificing the things that matter most, you're in the right place.
             </p>
             <div className="relative mt-4">
