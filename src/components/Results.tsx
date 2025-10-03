@@ -87,7 +87,7 @@ const Results = () => {
                   </blockquote>
 
                   <div className="bg-white/30 p-3 md:p-4 rounded-lg">
-                    <p className="text-xs md:text-sm font-medium text-gray-800">
+                    <p className="text-xs md:text-sm font-medium text-white">
                       Results: {testimonial.beforeAfter}
                     </p>
                   </div>

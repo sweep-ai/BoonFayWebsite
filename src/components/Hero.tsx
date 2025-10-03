@@ -97,7 +97,7 @@ const Hero = () => {
           <div className="mb-8 md:mb-12 flex justify-center items-center">
             <div className="relative w-full max-w-2xl">
               <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-white to-white/80 opacity-70 blur-md pointer-events-none glow-white" />
-              <div className="relative bg-white/30 backdrop-blur-md rounded-xl shadow-2xl border-2 border-white/50 p-6 md:p-8">
+              <div className="relative bg-white backdrop-blur-md rounded-xl shadow-2xl border-2 border-white/50 p-6 md:p-8">
                 <div className="text-center">
                   <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-glow-white">
                     100% Money Back Guarantee
@@ -120,19 +120,19 @@ const Hero = () => {
               <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Start Your Transformation</h3>
               <ul className="space-y-2 text-sm text-muted-foreground mb-4">
                 <li className="flex items-start gap-2">
-                  <span className="text-gray-800 mt-1">✓</span>
+                  <span className="text-white mt-1">✓</span>
                   <span>Immediate access to your 16-week program</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-gray-800 mt-1">✓</span>
+                  <span className="text-white mt-1">✓</span>
                   <span>Customized workouts and meal plans</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-gray-800 mt-1">✓</span>
+                  <span className="text-white mt-1">✓</span>
                   <span>24/7 coaching and accountability</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-gray-800 mt-1">✓</span>
+                  <span className="text-white mt-1">✓</span>
                   <span>Lifetime access to all materials</span>
                 </li>
               </ul>
@@ -159,22 +159,22 @@ const Hero = () => {
               <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Free Fitness Consultation</h3>
               <ul className="space-y-2 text-sm text-muted-foreground mb-4">
                 <li className="flex items-start gap-2">
-                  <span className="text-gray-800 mt-1">✓</span>
+                  <span className="text-white mt-1">✓</span>
                   <span>30-minute personalized consultation</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-gray-800 mt-1">✓</span>
+                  <span className="text-white mt-1">✓</span>
                   <span>Goal assessment and current situation review</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-gray-800 mt-1">✓</span>
+                  <span className="text-white mt-1">✓</span>
                   <span>Personalized recommendations</span>
                 </li>
               </ul>
               <Button
                 variant="outline"
                 size="lg"
-                className="w-full border-white/60 text-gray-800 hover:bg-white/20 text-lg font-bold py-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105"
+                className="w-full border-white/60 text-white hover:bg-white/20 text-lg font-bold py-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105"
                 onClick={() => setShowModal(true)}
               >
                 Book a FREE Fitness Consultation
