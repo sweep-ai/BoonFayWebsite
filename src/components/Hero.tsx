@@ -64,12 +64,12 @@ const Hero = () => {
     <>
       <section className="relative min-h-screen bg-background pt-16 md:pt-20 pb-12 md:pb-16 flex flex-col items-center justify-center">
         <div className="container mx-auto px-4 max-w-2xl flex flex-col items-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-center mb-6 md:mb-10">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-center mb-6 md:mb-10">
             Lose 30+ Pounds With the Best Transformation Program of Your Life
             {/* Drop <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent drop-shadow-lg text-glow-white">30+</span> Pounds With the Best <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent drop-shadow-lg text-glow-white">Transformation</span> Program of Your Life */}
           </h1>
-          <p className="text-lg md:text-20 text-muted-foreground font-medium text-center mb-8 md:mb-12 text-white/90 max-w-2xl md:max-w-3xl lg:max-w-4xl leading-relaxed md:leading-loose">
-            The 16-week transformation program is designed for busy professionals, fathers, and hardworking men who want real results without overhauling their lifestyle. You’ll get fully customized workouts, macro-based meal planning tailored to your preferences, and 24/7 accountability coaching so you can lose weight, build strength, and feel confident again, all while keeping the life you love.
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-medium text-center mb-8 md:mb-12 text-white/90 max-w-2xl md:max-w-3xl lg:max-w-4xl leading-relaxed md:leading-loose">
+            The Lean For Life Blueprint is designed for busy professionals, fathers, and hardworking men who want real results without overhauling their lifestyle. You’ll get fully customized workouts, macro-based meal planning tailored to your preferences, and 24/7 accountability coaching so you can lose weight, build strength, and feel confident again, all while keeping the life you love.
           </p>
 
           {/* Centered Demo Video with card glow */}
@@ -80,7 +80,7 @@ const Hero = () => {
                 <video
                   className="rounded-xl block w-full"
                   style={{ display: 'block', height: 'auto', maxWidth: '100%' }}
-                  src="/BoonFayVSL.mp4"
+                  src="/VSL.mp4"
                   controls
                   playsInline
                   autoPlay

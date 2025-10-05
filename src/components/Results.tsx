@@ -96,6 +96,15 @@ const Results = () => {
             ))}
           </div>
 
+          {/* Robert Testimonial Image */}
+          <div className="flex justify-center mb-12 md:mb-16">
+            <img
+              src="/Robert-testimonial.png"
+              alt="Robert testimonial"
+              className="max-w-full h-auto rounded-lg shadow-lg"
+            />
+          </div>
+
           {/*Three Pillars Section*/}
           <Process />
 
@@ -110,11 +119,11 @@ const Results = () => {
                 Your transformation story could be next. Let's discuss your goals.
               </p>
               <Button 
-                onClick={() => setShowModal(true)}
+                onClick={() => window.location.href = '/payment'}
                 size="lg"
                 className="w-full sm:w-auto bg-card text-primary hover:bg-muted px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold hover:scale-105 transition-all duration-200"
               >
-                Book Your Free Strategy Call
+                Start Your Transformation
                 <ArrowRight className="w-4 h-4 md:w-5 md:h-5 ml-2" />
               </Button>
             </div>
