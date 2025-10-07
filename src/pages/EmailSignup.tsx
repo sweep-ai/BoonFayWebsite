@@ -78,6 +78,11 @@ const EmailSignup = () => {
               </div>
               
               {/* Blurred preview cards */}
+              <div className="bg-gray-700 rounded-lg p-2 sm:p-3 text-center mb-4">
+                <div className="text-xs sm:text-sm text-gray-400 mb-1">Target Calories</div>
+                <div className="text-lg sm:text-2xl font-bold text-white">2615</div>
+              </div>
+
               <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-4">
                 <div className="bg-gray-700 rounded-lg p-2 sm:p-3 text-center">
                   <div className="text-xs sm:text-sm text-gray-400 mb-1">BMR</div>
@@ -87,11 +92,6 @@ const EmailSignup = () => {
                   <div className="text-xs sm:text-sm text-gray-400 mb-1">TDEE</div>
                   <div className="text-sm sm:text-lg font-bold text-white">2615</div>
                 </div>
-              </div>
-              
-              <div className="bg-gray-700 rounded-lg p-2 sm:p-3 text-center mb-4">
-                <div className="text-xs sm:text-sm text-gray-400 mb-1">Target Calories</div>
-                <div className="text-lg sm:text-2xl font-bold text-white">2615</div>
               </div>
               
               <div className="grid grid-cols-3 gap-1 sm:gap-2">
