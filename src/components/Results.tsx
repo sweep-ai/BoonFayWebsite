@@ -27,12 +27,12 @@ const Results = () => {
         image: "/Testimonial2.jpeg"
       },
     {
-      name: "David",
+      name: "Robert",
       age: 44,
       result: "Down 30lbs without counting calories",
       quote: "I thought I'd have to track every bite forever. Boon taught me habits that work automatically.",
       beforeAfter: "30lbs down, off blood pressure medication",
-      image: "/Testimonial1.jpeg"
+      image: "/Testimonial1.jpg"
     }
   ];
 
@@ -96,13 +96,42 @@ const Results = () => {
             ))}
           </div>
 
-          {/* Robert Testimonial Image */}
-          <div className="flex justify-center mb-12 md:mb-16">
-            <img
-              src="/Robert-testimonial.png"
-              alt="Robert testimonial"
-              className="max-w-full h-auto rounded-lg shadow-lg"
-            />
+          {/* Robert Testimonial Image with Before/After Photos */}
+          <div className="flex flex-col gap-4 lg:gap-6 justify-center items-center mb-12 md:mb-16">
+            {/* Robert Testimonial Image - Above */}
+            <div className="flex-shrink-0">
+              <img
+                src="/Robert-testimonial.png"
+                alt="Robert testimonial"
+                className="w-96 h-auto rounded-lg shadow-lg"
+              />
+            </div>
+
+            {/* Robert Before and After Photos - Below */}
+            <div className="flex gap-3 items-center">
+              {/* Before Photo with Logo */}
+              <div className="relative">
+                <img
+                  src="/RobertBefore.png"
+                  alt="Robert before transformation"
+                  className="w-40 h-60 object-cover rounded-lg shadow-lg"
+                />
+                <img
+                  src="/Logo.jpeg"
+                  alt="Logo"
+                  className="absolute top-2 left-2 w-6 h-6 rounded-full shadow-md"
+                />
+              </div>
+              
+              {/* After Photo */}
+              <div className="relative">
+                <img
+                  src="/RobertAfter.png"
+                  alt="Robert after transformation"
+                  className="w-40 h-60 object-cover rounded-lg shadow-lg"
+                />
+              </div>
+            </div>
           </div>
 
           {/*Three Pillars Section*/}

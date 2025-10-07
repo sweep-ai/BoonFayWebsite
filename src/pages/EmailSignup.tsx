@@ -49,7 +49,7 @@ const EmailSignup = () => {
       {/* Favicon Logo */}
       <div className="mb-8">
         <img 
-          src="/Logo.png" 
+          src="/Logo.jpeg" 
           alt="Logo" 
           className="w-16 h-16 mx-auto"
         />
