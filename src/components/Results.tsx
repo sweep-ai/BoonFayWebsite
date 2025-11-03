@@ -112,7 +112,7 @@ const Results = () => {
               {/* Before Photo with Logo */}
               <div className="relative">
                 <img
-                  src="/RobertBefore.png"
+                  src="/RobertBefore.jpeg"
                   alt="Robert before transformation"
                   className="w-40 h-60 object-cover rounded-lg shadow-lg"
                 />
@@ -126,7 +126,7 @@ const Results = () => {
               {/* After Photo */}
               <div className="relative">
                 <img
-                  src="/RobertAfter.png"
+                  src="/RobertAfter.jpeg"
                   alt="Robert after transformation"
                   className="w-40 h-60 object-cover rounded-lg shadow-lg"
                 />
