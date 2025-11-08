@@ -146,14 +146,14 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="flex items-center w-full my-6 pb-6">
+          {/* <div className="flex items-center w-full my-6 pb-6">
             <div className="flex-grow border-t border-muted" />
             <span className="mx-4 text-muted-foreground text-sm">or</span>
             <div className="flex-grow border-t border-muted" />
-          </div>
+          </div> */}
 
           {/* Secondary CTA: Booking Consultation in a glowing card */}
-          <div className="relative w-full max-w-md mb-8">
+          {/* <div className="relative w-full max-w-md mb-8">
             <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-white to-gray-400 opacity-70 blur-md glow-white" />
             <div className="relative bg-card/80 backdrop-blur-md rounded-xl shadow-2xl z-10 p-6">
               <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Free Fitness Consultation</h3>
@@ -180,7 +180,7 @@ const Hero = () => {
                 Book a FREE Fitness Consultation
               </Button>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 

@@ -8,7 +8,7 @@ const Payment = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-background px-4 py-6 sm:py-8 md:py-12">
       <div className="relative w-full max-w-4xl mx-auto">
-        <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-white to-gray-400 opacity-70 blur-md glow-white" />
+        {/* <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-white to-gray-400 opacity-70 blur-md glow-white" /> */}
         <div className="relative bg-card/80 backdrop-blur-md rounded-2xl shadow-2xl z-10 p-4 sm:p-6 md:p-8">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-foreground mb-3 sm:mb-4">Choose Your Fitness Journey</h1>
           <p className="text-base sm:text-lg text-muted-foreground text-center mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto px-2">
