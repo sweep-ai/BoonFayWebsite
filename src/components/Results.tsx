@@ -63,11 +63,7 @@ const Results = () => {
                     <img
                       src={testimonial.image}
                       alt={testimonial.name}
-                      className={`w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border-2 border-primary shadow-lg ${
-                        testimonial.name === 'John' || testimonial.name === 'Mike' 
-                          ? 'object-[50%_60%]' 
-                          : ''
-                      }`}
+                      className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border-2 border-primary shadow-lg"
                     />
                     <div>
                       <h3 className="font-semibold text-foreground text-sm md:text-base">{testimonial.name}</h3>
@@ -113,6 +109,15 @@ const Results = () => {
 
             {/* Robert Before and After Photos - Below */}
             <div className="flex gap-3 items-center">
+              {/* Antonio Photo */}
+              <div className="relative">
+                <img
+                  src="/Antonio.png"
+                  alt="Antonio transformation"
+                  className="w-40 h-60 object-cover rounded-lg shadow-lg"
+                />
+              </div>
+              
               {/* Before Photo with Logo */}
               <div className="relative">
                 <img
