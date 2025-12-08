@@ -14,17 +14,17 @@ const Results = () => {
       name: "John",
       age: 52,
       result: "Lost 25lbs and still eats out weekly",
-      quote: "Boon showed me how to make smart choices without giving up my favorite restaurants. I'm in the best shape of my adult life.",
+      quote: "Boon showed me how to make smart choices without giving up my favorite foods. I'm in the best shape of my adult life.",
       beforeAfter: "25lbs lighter, 4 inches off waist",
-      image: "/Testimonial3.jpeg"
+      image: "/John.png"
     },
     {
       name: "Mike",
       age: 47,
       result: "Built muscle while traveling for work",
-      quote: "The hotel gym workouts were a game-changer. I actually got stronger during my busiest quarter.",
+      quote: "The at home workouts were a game-changer. I actually got stronger during my busiest semester.",
       beforeAfter: "15lbs muscle gain, energy through the roof",
-        image: "/Testimonial2.jpeg"
+        image: "/Mike.png"
       },
     {
       name: "Robert",
@@ -63,7 +63,11 @@ const Results = () => {
                     <img
                       src={testimonial.image}
                       alt={testimonial.name}
-                      className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border-2 border-primary shadow-lg"
+                      className={`w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border-2 border-primary shadow-lg ${
+                        testimonial.name === 'John' || testimonial.name === 'Mike' 
+                          ? 'object-[50%_60%]' 
+                          : ''
+                      }`}
                     />
                     <div>
                       <h3 className="font-semibold text-foreground text-sm md:text-base">{testimonial.name}</h3>
