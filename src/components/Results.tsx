@@ -111,69 +111,75 @@ const Results = () => {
               />
             </div>
 
-            {/* Robert Before and After Photos - Below */}
-            <div className="flex gap-3 items-center">
-              {/* Antonio Photo */}
-              <div className="relative">
-                <img
-                  src="/Antonio.png"
-                  alt="Antonio transformation"
-                  className="w-40 h-60 object-cover rounded-lg shadow-lg"
-                />
-                <img
-                  src="/Logo.jpeg"
-                  alt="Logo"
-                  className="absolute top-2 left-2 w-6 h-6 rounded-full shadow-md"
-                />
-              </div>
-              {/* Unknown Photo */}
-              <div className="relative">
-                <img
-                  src="/UnknownTestimonial.jpeg"
-                  alt="Antonio transformation"
-                  className="w-40 h-60 object-cover rounded-lg shadow-lg"
-                />
-                <img
-                  src="/Logo.jpeg"
-                  alt="Logo"
-                  className="absolute top-2 left-2 w-6 h-6 rounded-full shadow-md"
-                />
-              </div>
-              {/* Gerardo Photo */}
-              <div className="relative">
-                <img
-                  src="/Gerardo.jpeg"
-                  alt="Antonio transformation"
-                  className="w-40 h-60 object-cover rounded-lg shadow-lg"
-                />
-                <img
-                  src="/Logo.jpeg"
-                  alt="Logo"
-                  className="absolute top-2 left-2 w-6 h-6 rounded-full shadow-md"
-                />
-              </div>
-              
-              {/* Before Photo with Logo */}
-              <div className="relative">
-                <img
-                  src="/RobertBefore.jpeg"
-                  alt="Robert before transformation"
-                  className="w-40 h-60 object-cover rounded-lg shadow-lg"
-                />
-                <img
-                  src="/Logo.jpeg"
-                  alt="Logo"
-                  className="absolute top-2 left-2 w-6 h-6 rounded-full shadow-md"
-                />
+            {/* Testimonial Photos - Below */}
+            <div className="flex flex-col md:flex-row gap-3 md:gap-3 items-center">
+              {/* First Group: Antonio, Unknown, Gerardo - Stack on mobile */}
+              <div className="flex flex-col sm:flex-row gap-3 items-center">
+                {/* Antonio Photo */}
+                <div className="relative">
+                  <img
+                    src="/Antonio.png"
+                    alt="Antonio transformation"
+                    className="w-40 h-60 object-cover rounded-lg shadow-lg"
+                  />
+                  <img
+                    src="/Logo.jpeg"
+                    alt="Logo"
+                    className="absolute top-2 left-2 w-6 h-6 rounded-full shadow-md"
+                  />
+                </div>
+                {/* Unknown Photo */}
+                <div className="relative">
+                  <img
+                    src="/UnknownTestimonial.jpeg"
+                    alt="Unknown transformation"
+                    className="w-40 h-60 object-cover rounded-lg shadow-lg"
+                  />
+                  <img
+                    src="/Logo.jpeg"
+                    alt="Logo"
+                    className="absolute top-2 left-2 w-6 h-6 rounded-full shadow-md"
+                  />
+                </div>
+                {/* Gerardo Photo */}
+                <div className="relative">
+                  <img
+                    src="/Gerardo.jpeg"
+                    alt="Gerardo transformation"
+                    className="w-40 h-60 object-cover rounded-lg shadow-lg"
+                  />
+                  <img
+                    src="/Logo.jpeg"
+                    alt="Logo"
+                    className="absolute top-2 left-2 w-6 h-6 rounded-full shadow-md"
+                  />
+                </div>
               </div>
               
-              {/* After Photo */}
-              <div className="relative">
-                <img
-                  src="/RobertAfter.jpeg"
-                  alt="Robert after transformation"
-                  className="w-40 h-60 object-cover rounded-lg shadow-lg"
-                />
+              {/* Second Group: Robert Before and After - Always side by side */}
+              <div className="flex gap-3 items-center flex-shrink-0">
+                {/* Before Photo with Logo */}
+                <div className="relative">
+                  <img
+                    src="/RobertBefore.jpeg"
+                    alt="Robert before transformation"
+                    className="w-40 h-60 object-cover rounded-lg shadow-lg"
+                  />
+                  <img
+                    src="/Logo.jpeg"
+                    alt="Logo"
+                    className="absolute top-2 left-2 w-6 h-6 rounded-full shadow-md"
+                  />
+                </div>
+                
+                {/* After Photo */}
+                <div className="relative">
+                  <img
+                    src="/RobertAfter.jpeg"
+                    alt="Robert after transformation"
+                    className="w-40 h-60 object-cover rounded-lg shadow-lg"
+                  />
+                </div>
               </div>
             </div>
           </div>
