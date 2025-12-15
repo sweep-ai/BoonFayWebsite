@@ -113,21 +113,8 @@ const Results = () => {
 
             {/* Testimonial Photos - Below */}
             <div className="flex flex-col md:flex-row gap-3 md:gap-3 items-center">
-              {/* First Group: Antonio, Unknown, Gerardo - Stack on mobile */}
+              {/* First Group: Unknown, Gerardo - Stack on mobile */}
               <div className="flex flex-col sm:flex-row gap-3 items-center">
-                {/* Antonio Photo */}
-                <div className="relative">
-                  <img
-                    src="/Antonio.png"
-                    alt="Antonio transformation"
-                    className="w-40 h-60 object-cover rounded-lg shadow-lg"
-                  />
-                  <img
-                    src="/Logo.jpeg"
-                    alt="Logo"
-                    className="absolute top-2 left-2 w-6 h-6 rounded-full shadow-md"
-                  />
-                </div>
                 {/* Unknown Photo */}
                 <div className="relative">
                   <img
