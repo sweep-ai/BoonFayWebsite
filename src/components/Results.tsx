@@ -12,7 +12,7 @@ const Results = () => {
   const testimonials = [
     {
       name: "John",
-      age: 52,
+      age: 24,
       result: "Lost 25lbs and still eats out weekly",
       quote: "Boon showed me how to make smart choices without giving up my favorite foods. I'm in the best shape of my adult life.",
       beforeAfter: "25lbs lighter, 4 inches off waist",
@@ -20,7 +20,7 @@ const Results = () => {
     },
     {
       name: "Mike",
-      age: 47,
+      age: 28,
       result: "Built muscle while traveling for work",
       quote: "The at home workouts were a game-changer. I actually got stronger during my busiest semester.",
       beforeAfter: "15lbs muscle gain, energy through the roof",
@@ -65,7 +65,7 @@ const Results = () => {
                       alt={testimonial.name}
                       className={`w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border-2 border-primary shadow-lg ${
                         testimonial.name === 'John' || testimonial.name === 'Mike' 
-                          ? 'object-center' 
+                          ? 'object-[50%_60%]' 
                           : ''
                       }`}
                     />

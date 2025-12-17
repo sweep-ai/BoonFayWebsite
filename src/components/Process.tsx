@@ -5,18 +5,18 @@ import { Analytics } from "@vercel/analytics/next"
 const pillars = [
   {
     icon: Dumbbell,
-    title: 'Workout Programming',
-    description: '16 weeks of fully customized workouts structured around instructional videos so you’re never left with any guesswork.'
+    title: 'Gains Accelerator',
+    description: '5 weeks of fully customized workouts structured around instructional videos so you’re never left with any guesswork.'
   },
   {
     icon: Utensils,
-    title: 'Macro-Based Meal Planning',
+    title: 'Project 6 Pack',
     description: 'Macro-based meal planning based off your existing diet and preferences. Macronutrients broken down within each meal.'
   },
   {
     icon: Users,
-    title: '24/7 Accountability Coaching',
-    description: 'Around the clock accountability coaching with weekly check-ins to ensure progress.'
+    title: 'Accountability',
+    description: 'Around the clock accountability coaching combined withweekly check-ins to ensure your making consistent progress.'
   }
 ];
 
@@ -26,7 +26,7 @@ const Process = () => {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-12 md:mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
-            The Three Pillars of My 16-Week Transformation Program
+            The Three Pillars of My 5-Week GPA System
           </h2>
         </div>
         <div className="grid gap-8 md:grid-cols-3">

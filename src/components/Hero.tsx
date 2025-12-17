@@ -103,7 +103,7 @@ const Hero = () => {
                     100% Money Back Guarantee
                   </h2>
                   <p className="text-lg md:text-xl text-gray-800 mb-4 leading-relaxed">
-                    I believe in this program so much, I'm putting my money where my mouth is. Give me 16 weeks, follow the plan, and if you don't make progress, I'll refund you every dollar.
+                    I believe in this program so much, I'm putting my money where my mouth is. Give me 5 weeks, follow the plan, and if you don't lose 10lbs, I'll refund you every dollar plus $100 for wasting your time.
                   </p>
                   <p className="text-xl md:text-2xl font-bold text-gray-900 text-glow-white">
                     No excuses. No risk.
@@ -146,14 +146,14 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* <div className="flex items-center w-full my-6 pb-6">
+          <div className="flex items-center w-full my-6 pb-6">
             <div className="flex-grow border-t border-muted" />
             <span className="mx-4 text-muted-foreground text-sm">or</span>
             <div className="flex-grow border-t border-muted" />
-          </div> */}
+          </div>
 
           {/* Secondary CTA: Booking Consultation in a glowing card */}
-          {/* <div className="relative w-full max-w-md mb-8">
+          <div className="relative w-full max-w-md mb-8">
             <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-white to-gray-400 opacity-70 blur-md glow-white" />
             <div className="relative bg-card/80 backdrop-blur-md rounded-xl shadow-2xl z-10 p-6">
               <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Free Fitness Consultation</h3>
@@ -180,7 +180,7 @@ const Hero = () => {
                 Book a FREE Fitness Consultation
               </Button>
             </div>
-          </div> */}
+          </div>
         </div>
       </section>
 
