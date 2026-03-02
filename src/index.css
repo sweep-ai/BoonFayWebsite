@@ -10,6 +10,41 @@
 All colors MUST be HSL.
 */
 
+@layer utilities {
+  @keyframes testimonial-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .testimonial-marquee {
+    --marquee-duration: 38s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonial-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: testimonial-marquee var(--marquee-duration) linear infinite;
+    will-change: transform;
+  }
+
+  .testimonial-marquee:hover .testimonial-marquee-track {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .testimonial-marquee-track {
+      animation: none;
+      transform: none;
+    }
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

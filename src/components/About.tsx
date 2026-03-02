@@ -24,16 +24,17 @@ const About = () => {
           <div className="space-y-6 md:space-y-8 animate-fade-in order-last lg:order-first" style={{ animationDelay: '0.2s' }}>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6">Meet Boon!</h2>
             <p className="text-base md:text-lg text-white/90 leading-relaxed mb-4 md:mb-6">
-              My name is Boon Fay, I am a NASM certified personal trainer and former Division I college baseball player. After gaining significant weight for athletics, I personally lost over 65 pounds in one year, and completely transformed my body and mindset in the process.
+            My name is Boon Fay. I'm a certified personal trainer and former Division I college baseball player who knows firsthand what college can do to your body.
             </p>
             <p className="text-base md:text-lg text-white/90 leading-relaxed mb-4 md:mb-6">
-              With over ten years of fitness experience and a blue belt in Brazilian Jiu-Jitsu, I've combined real-world training with proven, sustainable methods to help busy men and women achieve lasting results.
+            Through endless trial and error, I lost 40 pounds on my own, figured out what actually works, and never looked back. That year taught me more than any certification ever could, because I know exactly what it feels like to be a college student trying to get in shape with a packed schedule, a social life, and academic pressures. And I know how to make it work anyway.
+           </p>
+            <p className="text-base md:text-lg text-white/90 leading-relaxed mb-4 md:mb-6">
+            My coaching is designed specifically around the college lifestyle. No meal prep that requires a full kitchen. No gym routines that eat up three hours of your day. Just simple, proven strategies that fit into your life and deliver real results.
             </p>
             <p className="text-base md:text-lg text-white/90 leading-relaxed mb-4 md:mb-6">
-              My coaching approach is built around real life. That means no extreme diets, no unrealistic gym routines, and no pressure to give up the lifestyle you enjoy. Instead, I design custom fitness and nutrition strategies that work with your schedule, family commitments, and personal goals.
-            </p>
-            <p className="text-base md:text-lg text-white/90 leading-relaxed mb-4 md:mb-6">
-              If you're ready to lose weight, build strength, and feel confident again, without sacrificing the things that matter most, you're in the right place.
+            Let's get to work.
+
             </p>
             <div className="relative mt-4">
               <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-white to-gray-400 opacity-70 blur-md glow-white" />

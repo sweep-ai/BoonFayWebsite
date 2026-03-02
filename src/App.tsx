@@ -10,6 +10,8 @@ import EmailSignup from "./pages/EmailSignup";
 import Congrats from "./pages/Congrats";
 import Payment from "./pages/Payment";
 import Calculator from "./pages/Calculator";
+import Quiz from "./pages/Quiz";
+import Resource from "./pages/Resource";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +26,8 @@ const App = () => (
           <Route path="/email-signup" element={<EmailSignup />} />
           <Route path="/congrats" element={<Congrats />} />
           <Route path="/Payment" element={<Payment />} />
+          <Route path="/quiz" element={<Quiz />} />
+          <Route path="/resource/:goal" element={<Resource />} />
           <Route path="/calculator" element={<Calculator />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

@@ -87,13 +87,6 @@ const Footer = () => {
                   <span className="text-sm md:text-base">Schedule a free call</span>
                 </div>
               </div>
-              
-              <div className="pt-3 md:pt-4">
-                <p className="text-xs md:text-sm text-white/60">
-                  Available Monday - Friday<br />
-                  9 AM - 6 PM PST
-                </p>
-              </div>
             </div>
           </div>
 
