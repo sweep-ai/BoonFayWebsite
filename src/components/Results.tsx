@@ -1,14 +1,10 @@
 
-import { useState } from 'react';
 import { Star, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import StrategyCallModal from './StrategyCallModal';
 import Process from './Process';
 import { Analytics } from "@vercel/analytics/next"
 
 const Results = () => {
-  const [showModal, setShowModal] = useState(false);
-
   const testimonials = [
     {
       name: "John",
@@ -185,7 +181,7 @@ const Results = () => {
                 Your transformation story could be next. Let's discuss your goals.
               </p>
               <Button 
-                onClick={() => window.location.href = '/payment'}
+                onClick={() => { window.location.href = '/#book-call'; }}
                 size="lg"
                 className="w-full sm:w-auto bg-card text-primary hover:bg-muted px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold hover:scale-105 transition-all duration-200"
               >
@@ -197,7 +193,6 @@ const Results = () => {
         </div>
       </section>
 
-      <StrategyCallModal isOpen={showModal} onClose={() => setShowModal(false)} />
     </>
   );
 };

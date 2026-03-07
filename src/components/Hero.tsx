@@ -16,14 +16,14 @@ const Hero = () => {
 
   return (
     <>
-      <section className="relative min-h-screen bg-background m-0 p-10 md:p-20 pt-10 pb-4 md:pb-6 flex flex-col items-center justify-center">
+      <section className="relative min-h-screen m-0 p-10 md:p-20 pt-10 pb-4 md:pb-6 flex flex-col items-center justify-center">
         <div className="container mx-auto px-4 max-w-4xl flex flex-col items-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-center mb-6 md:mb-10">
-          Lose 20+ lbs this Semester Without Missing a Single Party
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight text-center mb-6 md:mb-10">
+          Lose <span className="text-blue-400 bg-clip-text drop-shadow-lg text-glow-white">20+</span> lbs Post-Graduation Without Changing Your Diet
             {/* Drop <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent drop-shadow-lg text-glow-white">30+</span> Pounds With the Best <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent drop-shadow-lg text-glow-white">Transformation</span> Program of Your Life */}
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-medium text-center mb-8 md:mb-12 text-white/90 max-w-2xl md:max-w-3xl lg:max-w-4xl leading-relaxed md:leading-loose">
-          The 4‑Month GPA System is a carefully designed system to work around the social, emotional, and physical challenges of college life. It has a 100% success rate and guaranteed to help students drop 20+ lbs in one semester <span className="text-red-500 bg-clip-text drop-shadow-lg text-glow-white">or your money back</span>. 
+          The Post-Grad Protocol is designed to help young career focused men drop 20+ lbs after college <span className="text-blue-500 bg-clip-text drop-shadow-lg text-glow-white">or your money back</span>.
 
           </p>
 
@@ -76,10 +76,10 @@ const Hero = () => {
 
                 <Button
                   size="lg"
-                  className="w-full bg-gradient-to-r from-white to-white/90 hover:from-white/95 hover:to-white/85 text-gray-900 text-lg font-bold py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 glow-white"
+                  className="w-full min-w-0 bg-gradient-to-r from-white to-blue-500 hover:from-white/95 hover:to-blue-400 text-gray-900 text-lg sm:text-xl md:text-2xl font-bold py-4 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 glow-white whitespace-normal text-center break-words"
                   onClick={handleQuizCta}
                 >
-                  Get The College Fitness Playbook
+                  Get The Post-Grad Protocol
                 </Button>
                 {ctaClicked && (
                   <p className="mt-3 text-xs text-muted-foreground">

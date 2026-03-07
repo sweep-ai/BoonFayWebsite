@@ -1,8 +1,14 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { Play, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Play } from 'lucide-react';
 
 type GoalSlug = '6pack' | 'muscle' | 'physique';
+
+const PLAYBOOK_PATHS: Record<GoalSlug, string> = {
+  '6pack': '/post-grad-eating-guide.html',
+  muscle: '/post-grad-training-guide-v5.html',
+  physique: '/post-grad-balance-guide.html',
+};
 
 const RESOURCE_CONTENT: Record<
   GoalSlug,
@@ -11,8 +17,8 @@ const RESOURCE_CONTENT: Record<
     subheadline: string;
     heroCopy: string;
     bullets: string[];
-    ctaCopy: string;
     videoTitle: string;
+    playbookLabel: string;
   }
 > = {
   '6pack': {
@@ -26,8 +32,8 @@ const RESOURCE_CONTENT: Record<
       'How to stay lean without sacrificing weekends or social life',
       'The exact system college students use to get visible abs in one semester',
     ],
-    ctaCopy: 'Ready for 1-on-1 coaching? Get your custom plan.',
     videoTitle: '6-Pack Training Video: Abs Without the Restriction',
+    playbookLabel: 'Download Eating Playbook',
   },
   muscle: {
     headline: 'Your Muscle-Building Playbook',
@@ -40,8 +46,8 @@ const RESOURCE_CONTENT: Record<
       'Recovery strategies that work with your sleep schedule',
       'The semester-by-semester approach to adding 10lbs of lean muscle',
     ],
-    ctaCopy: 'Want a custom muscle-building plan? Let\'s get you there.',
     videoTitle: 'Muscle-Building Video: 10lbs in One Semester',
+    playbookLabel: 'Download Training Playbook',
   },
   physique: {
     headline: 'Your Dream Physique Playbook',
@@ -54,51 +60,50 @@ const RESOURCE_CONTENT: Record<
       'Time management tips so fitness fits without taking over',
       'The lifestyle-first approach to your best physique in college',
     ],
-    ctaCopy: 'Ready for a plan built around your life? Start here.',
     videoTitle: 'Dream Physique Video: Look Good, Live Better',
+    playbookLabel: 'Download Balance Playbook',
   },
 };
 
 export default function Resource() {
   const { goal } = useParams<{ goal: string }>();
-  const navigate = useNavigate();
   const slug = (goal ?? 'physique') as GoalSlug;
   const content = RESOURCE_CONTENT[slug] ?? RESOURCE_CONTENT.physique;
 
-  const goToOffers = () => navigate({ pathname: '/', hash: 'offers' });
+  const playbookUrl = PLAYBOOK_PATHS[slug];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen relative z-[1]">
       <div className="container mx-auto px-4 max-w-3xl py-12 md:py-20">
         {/* Header */}
         <div className="text-center mb-10 md:mb-14">
-          <p className="text-primary font-bold text-sm uppercase tracking-wider mb-2">
+          <p className="text-blue-500 font-bold text-sm uppercase tracking-wider mb-2">
             Your Custom Playbook
           </p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             {content.headline}
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
             {content.subheadline}
           </p>
         </div>
 
         {/* Hero copy */}
-        <div className="relative rounded-xl bg-card/80 backdrop-blur-md border border-white/10 p-6 sm:p-8 mb-10">
-          <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
+        <div className="relative rounded-xl bg-white/5 backdrop-blur-md border border-white/10 p-6 sm:p-8 mb-10">
+          <p className="text-base md:text-lg text-white/90 leading-relaxed">
             {content.heroCopy}
           </p>
         </div>
 
         {/* Video placeholder */}
         <div className="mb-10 md:mb-14">
-          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4">
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
             {content.videoTitle}
           </h2>
-          <div className="relative rounded-xl overflow-hidden bg-zinc-900 border border-white/10 aspect-video flex items-center justify-center">
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-muted-foreground">
-              <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
-                <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
+          <div className="relative rounded-xl overflow-hidden bg-zinc-900/80 border border-blue-500/20 aspect-video flex items-center justify-center">
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-white/70">
+              <div className="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center">
+                <Play className="w-8 h-8 text-blue-400 ml-1" fill="currentColor" />
               </div>
               <p className="text-sm font-medium">Video training coming soon</p>
               <p className="text-xs max-w-xs text-center">
@@ -106,18 +111,28 @@ export default function Resource() {
               </p>
             </div>
           </div>
+          <Button
+            asChild
+            variant="outline"
+            className="w-full sm:w-auto mt-4 border-blue-500/50 text-blue-400 hover:bg-blue-500/10 hover:border-blue-500 hover:text-blue-300"
+          >
+            <a href={playbookUrl} target="_blank" rel="noopener noreferrer">
+              <Download className="w-4 h-4 mr-2" />
+              {content.playbookLabel}
+            </a>
+          </Button>
         </div>
 
         {/* Bullets */}
         <div className="mb-10 md:mb-14">
-          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6">
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
             What’s inside your playbook
           </h2>
           <ul className="space-y-4">
             {content.bullets.map((bullet, i) => (
               <li key={i} className="flex items-start gap-3">
-                <span className="text-primary font-bold mt-0.5">✓</span>
-                <span className="text-base md:text-lg text-muted-foreground">{bullet}</span>
+                <span className="text-blue-500 font-bold mt-0.5">✓</span>
+                <span className="text-base md:text-lg text-white/80">{bullet}</span>
               </li>
             ))}
           </ul>
@@ -125,13 +140,13 @@ export default function Resource() {
 
         {/* Calendly inline embed */}
         <div className="mb-10 md:mb-14">
-          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2 text-center">
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-2 text-center">
             Book a free call
           </h2>
-          <p className="text-muted-foreground text-center mb-6 max-w-xl mx-auto">
+          <p className="text-white/70 text-center mb-6 max-w-xl mx-auto">
             Pick a time that works for you. We&apos;ll discuss your goals and create a custom plan.
           </p>
-          <div className="rounded-xl overflow-hidden border border-white/10 bg-card/80">
+          <div className="rounded-xl overflow-hidden border border-blue-500/20 bg-white/5">
             <iframe
               src="https://calendly.com/fayboon3/30min"
               width="100%"
@@ -141,13 +156,6 @@ export default function Resource() {
               className="min-h-[630px]"
             />
           </div>
-        </div>
-         {/* CTA */}
-         <div className="text-center mb-14 md:mb-16">
-          <p className="text-foreground mb-4">{content.ctaCopy}</p>
-          <Button size="lg" className="w-full sm:w-auto" onClick={goToOffers}>
-            View coaching options
-          </Button>
         </div>
       </div>
     </div>

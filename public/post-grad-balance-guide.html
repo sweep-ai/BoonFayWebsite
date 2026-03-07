@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Post-Grad Balance Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0A0F;--bg2:#06060A;--ac:#4D9EFF;--acd:rgba(77,158,255,0.12);--w08:rgba(255,255,255,0.08);--w12:rgba(255,255,255,0.12);--w20:rgba(255,255,255,0.22)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:#fff;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4}
+h1,h2{font-family:'Bebas Neue',sans-serif;font-weight:400;text-transform:uppercase}
+h2{font-size:clamp(2.4rem,5vw,4rem);line-height:1;letter-spacing:2px;margin-bottom:8px}
+.wrap{max-width:960px;margin:0 auto;padding:72px 48px;position:relative;z-index:1}
+.alt{background:var(--bg2)}
+.lbl{font-size:.65rem;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--ac);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.lbl::after{content:'';flex:1;height:1px;background:var(--w12);max-width:50px}
+.kicker{font-size:.95rem;color:rgba(255,255,255,.65);font-weight:500;margin-bottom:0;max-width:520px}
+.div{height:1px;background:linear-gradient(to right,transparent,rgba(77,158,255,.35),transparent);position:relative;z-index:1}
+
+/* COVER */
+.cover{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 48px;position:relative;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(77,158,255,.18) 0%,transparent 70%),var(--bg2);z-index:1;border-top:3px solid var(--ac)}
+.cover::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;border:1px solid rgba(255,255,255,.07);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.cover::after{content:'';position:absolute;width:1000px;height:1000px;border-radius:50%;border:1px solid rgba(255,255,255,.05);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.cglow{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(77,158,255,.18) 0%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.eyebrow{font-size:.65rem;font-weight:800;letter-spacing:5px;text-transform:uppercase;color:var(--ac);margin-bottom:36px;position:relative;z-index:1}
+.cover h1{font-size:clamp(5rem,12vw,11rem);line-height:.92;letter-spacing:4px;position:relative;z-index:1}
+.cover h1 em{font-style:normal;color:var(--ac);display:block}
+.csub{font-size:1.05rem;color:rgba(255,255,255,.8);margin-top:24px;max-width:440px;font-weight:500;line-height:1.6;position:relative;z-index:1}
+.pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:44px;position:relative;z-index:1}
+.pill{background:var(--w08);border:1px solid var(--w20);padding:6px 14px;border-radius:100px;font-size:.73rem;font-weight:600;color:#fff;display:flex;align-items:center;gap:5px}
+.pd{width:4px;height:4px;border-radius:50%;background:var(--ac);flex-shrink:0}
+.brand{margin-top:56px;font-size:.6rem;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,.45);font-weight:500;position:relative;z-index:1}
+
+/* ICON TILES */
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:32px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:32px}
+.tile{background:var(--w08);border:1px solid var(--w12);border-radius:18px;padding:28px 20px;text-align:center;transition:background .2s;position:relative;overflow:hidden}
+.tile:hover{background:rgba(77,158,255,.08);border-color:rgba(77,158,255,.2)}
+.tile.feat{background:var(--acd);border-color:rgba(77,158,255,.28)}
+.ti{font-size:40px;margin-bottom:12px}
+.tbadge{font-size:.55rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ac);border:1px solid rgba(77,158,255,.28);background:var(--acd);padding:3px 8px;border-radius:100px;display:inline-block;margin-bottom:10px}
+.tname{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:#fff;letter-spacing:2px;margin-bottom:6px}
+.tnote{font-size:.78rem;color:rgba(255,255,255,.7);font-weight:500;line-height:1.5}
+
+/* STAT ROW */
+.srow{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:32px;border:1px solid rgba(77,158,255,.18);border-radius:18px;overflow:hidden}
+.sc{background:var(--w08);padding:28px 16px;text-align:center;border-right:1px solid var(--w12);transition:background .2s}
+.sc:last-child{border-right:none}
+.sc:hover{background:rgba(77,158,255,.09)}
+.sc.feat{background:var(--acd)}
+.sc-ico{font-size:24px;margin-bottom:8px}
+.sc-num{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:#fff;line-height:1;letter-spacing:2px;margin-bottom:4px}
+.sc-u{font-size:.58rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--ac);margin-bottom:6px}
+.sc-n{font-size:.73rem;color:rgba(255,255,255,.7);line-height:1.45;font-weight:500}
+
+/* CALLOUT */
+.cbox{background:var(--acd);border:1px solid rgba(77,158,255,.25);border-radius:14px;padding:20px 24px;margin-top:24px;display:flex;gap:14px;align-items:flex-start}
+.cbox-i{font-size:20px;flex-shrink:0;margin-top:1px}
+.cbox-t{font-size:.88rem;color:#fff;line-height:1.65;font-weight:500}
+.cbox-t strong{color:#7DBFFF}
+
+/* WEEK TABLE */
+.wtbl{margin-top:32px;border:1px solid rgba(77,158,255,.18);border-radius:18px;overflow:hidden}
+.wth{display:grid;grid-template-columns:80px repeat(7,1fr);background:var(--acd);border-bottom:1px solid rgba(77,158,255,.18)}
+.wth-c{padding:10px 4px;font-size:.52rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--ac);text-align:center;border-right:1px solid rgba(77,158,255,.12)}
+.wth-c:first-child{text-align:left;padding-left:14px}
+.wth-c:last-child{border-right:none}
+.wtr{display:grid;grid-template-columns:80px repeat(7,1fr);border-bottom:1px solid var(--w08)}
+.wtr:last-child{border-bottom:none}
+.wtr.hi{background:rgba(77,158,255,.04)}
+.wtd{padding:10px 14px;font-size:.58rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);display:flex;align-items:center;border-right:1px solid var(--w08)}
+.wtr.hi .wtd{color:var(--ac)}
+.wtc{padding:7px 3px;border-right:1px solid var(--w08);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:52px}
+.wtc:last-child{border-right:none}
+.chip{font-size:.5rem;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:2px 5px;border-radius:5px;white-space:nowrap;text-align:center;line-height:1.3}
+.ct{background:rgba(77,158,255,.18);color:var(--ac);border:1px solid rgba(77,158,255,.3)}
+.cw{background:rgba(255,200,80,.10);color:#FFD060;border:1px solid rgba(255,200,80,.2)}
+.cs{background:rgba(180,120,255,.10);color:#C4ADFF;border:1px solid rgba(180,120,255,.22)}
+.cr{background:rgba(80,220,140,.08);color:#60DFA0;border:1px solid rgba(80,220,140,.2)}
+.cf{background:rgba(255,255,255,.05);color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.09)}
+.wleg{display:flex;gap:14px;padding:10px 14px;border-top:1px solid var(--w08);flex-wrap:wrap;background:rgba(255,255,255,.02)}
+.wli{display:flex;align-items:center;gap:5px;font-size:.56rem;font-weight:700;color:rgba(255,255,255,.45);letter-spacing:1px;text-transform:uppercase}
+.wld{width:6px;height:6px;border-radius:50%}
+
+/* COMPARE */
+.cmp{display:grid;grid-template-columns:1fr 36px 1fr;margin-top:32px;border:1px solid rgba(77,158,255,.16);border-radius:18px;overflow:hidden}
+.cmp-col{display:flex;flex-direction:column}
+.cmp-h{padding:14px 20px;font-size:.6rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;text-align:center}
+.cmp-h.bad{background:rgba(255,80,80,.08);color:rgba(255,140,140,.8);border-bottom:1px solid rgba(255,80,80,.12)}
+.cmp-h.good{background:var(--acd);color:var(--ac);border-bottom:1px solid rgba(77,158,255,.18)}
+.cmp-mid{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.03);border-left:1px solid var(--w08);border-right:1px solid var(--w08)}
+.cmp-vs{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:rgba(255,255,255,.2);letter-spacing:2px;writing-mode:vertical-rl}
+.ci{padding:11px 20px;border-bottom:1px solid var(--w08);font-size:.82rem;font-weight:600;color:#fff;display:flex;align-items:center;gap:8px}
+.ci:last-child{border-bottom:none}
+.cid{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+
+/* BAR CHART */
+.bars{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.bar-row{display:flex;align-items:center;gap:12px}
+.bar-ico{font-size:18px;width:28px;text-align:center;flex-shrink:0}
+.bar-lbl{font-size:.78rem;font-weight:700;color:#fff;min-width:148px;flex-shrink:0}
+.bar-track{flex:1;height:8px;background:rgba(255,255,255,.07);border-radius:100px;overflow:hidden}
+.bar-fill{height:100%;border-radius:100px}
+.bar-val{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--ac);min-width:36px;text-align:right;letter-spacing:1px}
+
+/* DUAL BAR (before/after per metric) */
+.dbar{display:flex;flex-direction:column;gap:3px}
+.dbar-row{display:flex;align-items:center;gap:6px}
+.dbar-tag{font-size:.55rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;width:22px;flex-shrink:0}
+
+/* IDENTITY SPLIT */
+.idsplit{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:32px;border:1px solid rgba(77,158,255,.16);border-radius:18px;overflow:hidden}
+.idc{padding:28px 24px;background:var(--w08)}
+.idc.feat{background:var(--acd)}
+.idc-h{font-size:.58rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px}
+.idc.feat .idc-h{color:var(--ac)}
+.idrow{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.06)}
+.idrow:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.id-ico{font-size:16px;flex-shrink:0;margin-top:1px}
+.id-txt{font-size:.82rem;font-weight:700;color:#fff;line-height:1.4}
+.id-sub{font-size:.7rem;color:rgba(255,255,255,.45);font-weight:500;margin-top:2px}
+
+/* RULES GRID */
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:32px}
+.rcard{background:var(--w08);border:1px solid var(--w12);border-radius:16px;padding:24px 20px;position:relative;overflow:hidden;transition:background .2s}
+.rcard:hover{background:rgba(77,158,255,.07);border-color:rgba(77,158,255,.2)}
+.rcard.wide{grid-column:span 2;background:var(--acd);border-color:rgba(77,158,255,.26)}
+.rcard::after{content:attr(data-n);font-family:'Bebas Neue',sans-serif;font-size:6rem;color:rgba(77,158,255,.06);position:absolute;bottom:-12px;right:14px;line-height:1;pointer-events:none;user-select:none}
+.rc-ico{font-size:28px;margin-bottom:12px}
+.rc-badge{font-size:.55rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ac);background:var(--acd);border:1px solid rgba(77,158,255,.26);padding:2px 8px;border-radius:100px;display:inline-block;margin-bottom:10px}
+.rc-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#fff;letter-spacing:2px;margin-bottom:10px}
+.rc-list{display:flex;flex-direction:column;gap:5px}
+.rc-item{font-size:.78rem;font-weight:600;color:rgba(255,255,255,.82);display:flex;align-items:center;gap:7px}
+.rc-item::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--ac);flex-shrink:0}
+
+/* CTA */
+.cta{background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(77,158,255,.11) 0%,transparent 70%),var(--bg2);padding:100px 48px;text-align:center;position:relative;overflow:hidden;z-index:1;border-top:1px solid rgba(77,158,255,.22)}
+.cta::before{content:'';position:absolute;width:800px;height:800px;border-radius:50%;border:1px solid rgba(255,255,255,.07);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.cta-glow{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(77,158,255,.11) 0%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.cta-in{max-width:600px;margin:0 auto;position:relative;z-index:1}
+.cta h2{font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:16px}
+.cta h2 em{color:var(--ac);font-style:normal}
+.cta p{font-size:.92rem;color:rgba(255,255,255,.7);max-width:440px;margin:0 auto;font-weight:500;line-height:1.65}
+.cta-rules{display:flex;flex-direction:column;gap:7px;margin-top:40px;text-align:left}
+.cta-rule{background:var(--w08);border:1px solid var(--w12);border-radius:10px;padding:12px 18px;display:flex;align-items:center;gap:11px;font-size:.88rem;font-weight:600;color:#fff;transition:background .15s}
+.cta-rule:hover{background:rgba(77,158,255,.11);border-color:rgba(77,158,255,.28)}
+.cdot{width:5px;height:5px;border-radius:50%;background:var(--ac);flex-shrink:0}
+.cbrand{margin-top:48px;font-size:.58rem;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,.4);font-weight:500}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cglow"></div>
+  <div class="eyebrow">The Post-Grad Protocol &nbsp;·&nbsp; Free Guide</div>
+  <h1>The Post-Grad<br><em>Balance</em><br>Guide</h1>
+  <p class="csub">Career. Body. Social life. All at the same time.</p>
+  <div class="pills">
+    <div class="pill"><div class="pd"></div>The Anchor System</div>
+    <div class="pill"><div class="pd"></div>Weekly Blueprint</div>
+    <div class="pill"><div class="pd"></div>Visual Frameworks</div>
+    <div class="pill"><div class="pd"></div>Built for Real Life</div>
+  </div>
+  <div class="brand">The Post-Grad Protocol</div>
+</div>
+
+<div class="div"></div>
+
+<!-- S01 — THREE DOMAINS -->
+<div class="wrap">
+  <div class="lbl">Section 01</div>
+  <h2>Three Things. Build Them Together.</h2>
+  <p class="kicker">Most guys treat these as competing. They feed each other when you do it right.</p>
+
+  <div class="g3">
+    <div class="tile">
+      <div class="ti">💼</div>
+      <div class="tbadge">Highest Demand</div>
+      <div class="tname">Career</div>
+      <div class="tnote">First 3 years lay the foundation that compounds for 40 years</div>
+    </div>
+    <div class="tile feat">
+      <div class="ti">🏋️</div>
+      <div class="tbadge">Most Neglected</div>
+      <div class="tname">Body</div>
+      <div class="tnote">Habits built in your 20s become your physical baseline for life</div>
+    </div>
+    <div class="tile">
+      <div class="ti">👥</div>
+      <div class="tbadge">Hardest to Maintain</div>
+      <div class="tname">Social Life</div>
+      <div class="tnote">Adult friendships need deliberate effort — not proximity</div>
+    </div>
+  </div>
+
+  <!-- MUTUAL REINFORCEMENT DIAGRAM -->
+  <div style="margin-top:16px;background:var(--w08);border:1px solid var(--w12);border-radius:18px;padding:28px 24px;">
+    <div style="font-size:.58rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--ac);margin-bottom:20px;text-align:center;">How They Feed Each Other</div>
+    <svg width="100%" viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="a1" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="rgba(77,158,255,0.55)"/></marker>
+        <marker id="a2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="rgba(77,158,255,0.25)"/></marker>
+      </defs>
+      <!-- CAREER box -->
+      <rect x="20" y="44" width="170" height="72" rx="14" fill="rgba(77,158,255,0.10)" stroke="rgba(77,158,255,0.30)" stroke-width="1.5"/>
+      <text x="105" y="73" font-family="Bebas Neue,sans-serif" font-size="20" fill="#fff" text-anchor="middle" letter-spacing="2">💼 Career</text>
+      <text x="105" y="91" font-family="Inter,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.55)" text-anchor="middle" font-weight="600">Focus · Output · Purpose</text>
+      <text x="105" y="108" font-family="Inter,sans-serif" font-size="9" fill="rgba(77,158,255,0.7)" text-anchor="middle" font-weight="700">→ less stress when fit</text>
+      <!-- BODY box -->
+      <rect x="265" y="20" width="170" height="72" rx="14" fill="rgba(77,158,255,0.20)" stroke="rgba(77,158,255,0.55)" stroke-width="1.5"/>
+      <text x="350" y="49" font-family="Bebas Neue,sans-serif" font-size="20" fill="#fff" text-anchor="middle" letter-spacing="2">🏋️ Body</text>
+      <text x="350" y="67" font-family="Inter,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.55)" text-anchor="middle" font-weight="600">Energy · Discipline · Sleep</text>
+      <text x="350" y="83" font-family="Inter,sans-serif" font-size="9" fill="rgba(77,158,255,0.7)" text-anchor="middle" font-weight="700">the engine that runs everything</text>
+      <!-- SOCIAL box -->
+      <rect x="510" y="44" width="170" height="72" rx="14" fill="rgba(77,158,255,0.10)" stroke="rgba(77,158,255,0.30)" stroke-width="1.5"/>
+      <text x="595" y="73" font-family="Bebas Neue,sans-serif" font-size="20" fill="#fff" text-anchor="middle" letter-spacing="2">👥 Social</text>
+      <text x="595" y="91" font-family="Inter,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.55)" text-anchor="middle" font-weight="600">Resilience · Mental Health</text>
+      <text x="595" y="108" font-family="Inter,sans-serif" font-size="9" fill="rgba(77,158,255,0.7)" text-anchor="middle" font-weight="700">→ handles pressure better</text>
+      <!-- arrows -->
+      <path d="M190 68 C228 52 230 44 265 44" stroke="rgba(77,158,255,0.5)" stroke-width="1.5" fill="none" marker-end="url(#a1)"/>
+      <path d="M265 56 C230 60 226 68 190 76" stroke="rgba(77,158,255,0.22)" stroke-width="1" fill="none" stroke-dasharray="4,3" marker-end="url(#a2)"/>
+      <path d="M435 44 C468 44 472 52 510 60" stroke="rgba(77,158,255,0.5)" stroke-width="1.5" fill="none" marker-end="url(#a1)"/>
+      <path d="M510 72 C474 68 468 60 435 56" stroke="rgba(77,158,255,0.22)" stroke-width="1" fill="none" stroke-dasharray="4,3" marker-end="url(#a2)"/>
+      <!-- bottom arc career to social -->
+      <path d="M105 116 C200 148 500 148 595 116" stroke="rgba(77,158,255,0.15)" stroke-width="1" fill="none" stroke-dasharray="5,4"/>
+      <text x="350" y="150" font-family="Inter,sans-serif" font-size="8.5" fill="rgba(255,255,255,0.3)" text-anchor="middle" font-weight="600">career success ↔ social confidence</text>
+    </svg>
+  </div>
+</div>
+
+<div class="div"></div>
+
+<!-- S02 — IDENTITY: TRYING VS BEING -->
+<div class="alt">
+<div class="wrap">
+  <div class="lbl">Section 02</div>
+  <h2>Trying vs Actually Building</h2>
+  <p class="kicker">Identity beats willpower. Systems beat motivation.</p>
+
+  <div class="idsplit">
+    <div class="idc">
+      <div class="idc-h">❌ Trying to Build a Life</div>
+      <div class="idrow"><div class="id-ico">🔋</div><div><div class="id-txt">Gym when motivated</div><div class="id-sub">Skips when tired or stressed</div></div></div>
+      <div class="idrow"><div class="id-ico">🍕</div><div><div class="id-txt">Eats well when things align</div><div class="id-sub">Delivery by Wednesday</div></div></div>
+      <div class="idrow"><div class="id-ico">📅</div><div><div class="id-txt">Starting Monday</div><div class="id-sub">Every week. For years.</div></div></div>
+      <div class="idrow"><div class="id-ico">😤</div><div><div class="id-txt">Relies on willpower</div><div class="id-sub">Runs out by Tuesday</div></div></div>
+      <div class="idrow"><div class="id-ico">📉</div><div><div class="id-txt">Progress resets constantly</div><div class="id-sub">Never compounds</div></div></div>
+    </div>
+    <div class="idc feat">
+      <div class="idc-h">✅ Actually Building One</div>
+      <div class="idrow"><div class="id-ico">📌</div><div><div class="id-txt">Trains on scheduled days</div><div class="id-sub">Because that is what he does</div></div></div>
+      <div class="idrow"><div class="id-ico">🛒</div><div><div class="id-txt">Stocks kitchen on Sunday</div><div class="id-sub">Good choices made in advance</div></div></div>
+      <div class="idrow"><div class="id-ico">⚡</div><div><div class="id-txt">Starts now</div><div class="id-sub">Not at some theoretical Monday</div></div></div>
+      <div class="idrow"><div class="id-ico">🏗️</div><div><div class="id-txt">Relies on systems</div><div class="id-sub">Systems outlast motivation always</div></div></div>
+      <div class="idrow"><div class="id-ico">📈</div><div><div class="id-txt">Progress compounds</div><div class="id-sub">Month 6 looks nothing like Month 1</div></div></div>
+    </div>
+  </div>
+
+  <!-- what training does beyond the gym -->
+  <div style="margin-top:16px;background:var(--w08);border:1px solid var(--w12);border-radius:18px;overflow:hidden;">
+    <div style="padding:14px 20px;background:var(--acd);border-bottom:1px solid rgba(77,158,255,.16);font-size:.58rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--ac);">What Consistent Training Actually Does</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;">
+      <div style="padding:20px 16px;text-align:center;border-right:1px solid var(--w08);">
+        <div style="font-size:28px;margin-bottom:8px;">🧠</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--ac);letter-spacing:1px;">+</div>
+        <div style="font-size:.6rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ac);margin-bottom:4px;">Focus</div>
+        <div style="font-size:.72rem;color:rgba(255,255,255,.6);font-weight:500;">Better meetings, better output</div>
+      </div>
+      <div style="padding:20px 16px;text-align:center;border-right:1px solid var(--w08);">
+        <div style="font-size:28px;margin-bottom:8px;">😴</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--ac);letter-spacing:1px;">+</div>
+        <div style="font-size:.6rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ac);margin-bottom:4px;">Sleep Quality</div>
+        <div style="font-size:.72rem;color:rgba(255,255,255,.6);font-weight:500;">Deeper recovery every night</div>
+      </div>
+      <div style="padding:20px 16px;text-align:center;border-right:1px solid var(--w08);">
+        <div style="font-size:28px;margin-bottom:8px;">📉</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--ac);letter-spacing:1px;">−</div>
+        <div style="font-size:.6rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ac);margin-bottom:4px;">Cortisol</div>
+        <div style="font-size:.72rem;color:rgba(255,255,255,.6);font-weight:500;">Pressure hits you less hard</div>
+      </div>
+      <div style="padding:20px 16px;text-align:center;">
+        <div style="font-size:28px;margin-bottom:8px;">⚡</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--ac);letter-spacing:1px;">+</div>
+        <div style="font-size:.6rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ac);margin-bottom:4px;">Daily Energy</div>
+        <div style="font-size:.72rem;color:rgba(255,255,255,.6);font-weight:500;">More on rest days than untrained</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="div"></div>
+
+<!-- S03 — TIME REALITY -->
+<div class="wrap">
+  <div class="lbl">Section 03</div>
+  <h2>You Have More Time Than You Think</h2>
+  <p class="kicker">It is not about having time. It is about where that time goes by default.</p>
+
+  <!-- 24h donut + breakdown -->
+  <div style="display:grid;grid-template-columns:220px 1fr;gap:24px;margin-top:32px;background:var(--w08);border:1px solid var(--w12);border-radius:18px;padding:28px;align-items:center;">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <!-- Work 10h / 24h = 150° -->
+      <path d="M100,100 L100,14 A86,86,0,0,1,186,100 Z" fill="rgba(255,200,80,0.72)"/>
+      <!-- Sleep 8h = 120° -->
+      <path d="M100,100 L186,100 A86,86,0,0,1,57,175 Z" fill="rgba(160,100,255,0.65)"/>
+      <!-- Free 6h = 90° -->
+      <path d="M100,100 L57,175 A86,86,0,0,1,14,100 Z" fill="rgba(77,158,255,0.80)"/>
+      <!-- Phone (subset of free) indicator arc -->
+      <path d="M100,100 L14,100 A86,86,0,0,1,38,140 Z" fill="rgba(255,80,80,0.45)"/>
+      <circle cx="100" cy="100" r="52" fill="#0A0A0F"/>
+      <text x="100" y="95" font-family="Bebas Neue,sans-serif" font-size="24" fill="#fff" text-anchor="middle">24h</text>
+      <text x="100" y="113" font-family="Inter,sans-serif" font-size="8.5" fill="rgba(255,255,255,0.45)" text-anchor="middle" font-weight="700" letter-spacing="2">YOUR DAY</text>
+    </svg>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div style="display:flex;align-items:center;gap:10px;"><div style="width:10px;height:10px;border-radius:50%;background:rgba(255,200,80,0.8);flex-shrink:0"></div><span style="font-size:.82rem;font-weight:600;color:#fff;flex:1;">💼 Work + Commute</span><span style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:#FFD060;letter-spacing:1px;">10h</span></div>
+      <div style="display:flex;align-items:center;gap:10px;"><div style="width:10px;height:10px;border-radius:50%;background:rgba(160,100,255,0.75);flex-shrink:0"></div><span style="font-size:.82rem;font-weight:600;color:#fff;flex:1;">😴 Sleep</span><span style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:#C4ADFF;letter-spacing:1px;">8h</span></div>
+      <div style="display:flex;align-items:center;gap:10px;"><div style="width:10px;height:10px;border-radius:50%;background:rgba(77,158,255,0.85);flex-shrink:0"></div><span style="font-size:.82rem;font-weight:700;color:var(--ac);flex:1;">⏰ Your Free Time</span><span style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--ac);letter-spacing:1px;">6h</span></div>
+      <div style="height:1px;background:var(--w12);margin:2px 0;"></div>
+      <div style="display:flex;align-items:center;gap:10px;"><div style="width:10px;height:10px;border-radius:50%;background:rgba(255,80,80,0.6);flex-shrink:0"></div><span style="font-size:.78rem;font-weight:600;color:rgba(255,140,140,.8);flex:1;">📱 Avg phone scrolling (free time)</span><span style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:rgba(255,140,140,.8);letter-spacing:1px;">3h</span></div>
+    </div>
+  </div>
+
+  <!-- redirect visual -->
+  <div style="margin-top:14px;background:var(--w08);border:1px solid var(--w12);border-radius:18px;padding:24px;">
+    <div style="font-size:.58rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--ac);margin-bottom:16px;">Redirect 2h of Phone Time → All Three Domains Covered</div>
+    <div class="bars">
+      <div class="bar-row"><div class="bar-ico">🏋️</div><div class="bar-lbl">Training (4h / week)</div><div class="bar-track"><div class="bar-fill" style="width:36%;background:linear-gradient(to right,#4D9EFF,#7DBFFF)"></div></div><div class="bar-val">4h</div></div>
+      <div class="bar-row"><div class="bar-ico">🛒</div><div class="bar-lbl">Sunday Prep (1h / week)</div><div class="bar-track"><div class="bar-fill" style="width:9%;background:linear-gradient(to right,#60DFA0,#4D9EFF)"></div></div><div class="bar-val">1h</div></div>
+      <div class="bar-row"><div class="bar-ico">🎉</div><div class="bar-lbl" style="color:var(--ac);font-weight:800;">Remaining for Social + Rest</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:linear-gradient(to right,rgba(77,158,255,.25),rgba(77,158,255,.55))"></div></div><div class="bar-val">30h+</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="div"></div>
+
+<!-- S04 — ANCHOR WEEK -->
+<div class="alt">
+<div class="wrap">
+  <div class="lbl">Section 04</div>
+  <h2>The Anchor Week</h2>
+  <p class="kicker">Lock three anchors. Let everything else fit around them.</p>
+
+  <div class="wtbl">
+    <div class="wth">
+      <div class="wth-c">Day</div>
+      <div class="wth-c">6am</div>
+      <div class="wth-c">9am</div>
+      <div class="wth-c">12pm</div>
+      <div class="wth-c">3pm</div>
+      <div class="wth-c">6pm</div>
+      <div class="wth-c">8pm</div>
+      <div class="wth-c">10pm</div>
+    </div>
+    <div class="wtr hi">
+      <div class="wtd">MON</div>
+      <div class="wtc"><span class="chip ct">🏋️ Train</span></div>
+      <div class="wtc"><span class="chip cw">💼 Work</span></div>
+      <div class="wtc"><span class="chip cw">💼 Work</span></div>
+      <div class="wtc"><span class="chip cw">💼 Work</span></div>
+      <div class="wtc"><span class="chip cf">🍽️ Eat</span></div>
+      <div class="wtc"><span class="chip cf">📺 Rest</span></div>
+      <div class="wtc"><span class="chip cf">😴 Sleep</span></div>
+    </div>
+    <div class="wtr">
+      <div class="wtd">TUE</div>
+      <div class="wtc"><span class="chip cf">😴 Sleep</span></div>
+      <div class="wtc"><span class="chip cw">💼 Work</span></div>
+      <div class="wtc"><span class="chip cw">💼 Work</span></div>
+      <div class="wtc"><span class="chip cw">💼 Work</span></div>
+      <div class="wtc"><span class="chip cs">👥 Dinner</span></div>
+      <div class="wtc"><span class="chip cs">👥 Social</span></div>
+      <div class="wtc"><span class="chip cf">🌙 Home</span></div>
+    </div>
+    <div class="wtr hi">
+      <div class="wtd">WED</div>
+      <div class="wtc"><span class="chip ct">🏋️ Train</span></div>
+      <div class="wtc"><span class="chip cw">💼 Work</span></div>
+      <div class="wtc"><span class="chip cw">💼 Work</span></div>
+      <div class="wtc"><span class="chip cw">💼 Work</span></div>
+      <div class="wtc"><span class="chip cf">🍽️ Eat</span></div>
+      <div class="wtc"><span class="chip cf">📺 Rest</span></div>
+      <div class="wtc"><span class="chip cf">😴 Sleep</span></div>
+    </div>
+    <div class="wtr hi">
+      <div class="wtd">THU</div>
+      <div class="wtc"><span class="chip ct">🏋️ Train</span></div>
+      <div class="wtc"><span class="chip cw">💼 Work</span></div>
+      <div class="wtc"><span class="chip cw">💼 Work</span></div>
+      <div class="wtc"><span class="chip cw">💼 Work</span></div>
+      <div class="wtc"><span class="chip cs">🍻 Out</span></div>
+      <div class="wtc"><span class="chip cs">🍻 Social</span></div>
+      <div class="wtc"><span class="chip cf">🌙 Home</span></div>
+    </div>
+    <div class="wtr">
+      <div class="wtd">FRI</div>
+      <div class="wtc"><span class="chip cf">😴 Sleep</span></div>
+      <div class="wtc"><span class="chip cw">💼 Work</span></div>
+      <div class="wtc"><span class="chip cw">💼 Work</span></div>
+      <div class="wtc"><span class="chip cw">💼 Work</span></div>
+      <div class="wtc"><span class="chip cs">🎉 Free</span></div>
+      <div class="wtc"><span class="chip cs">🎉 Social</span></div>
+      <div class="wtc"><span class="chip cf">🌙 Yours</span></div>
+    </div>
+    <div class="wtr">
+      <div class="wtd">SAT</div>
+      <div class="wtc"><span class="chip cf">☀️ Sleep In</span></div>
+      <div class="wtc"><span class="chip ct">🚶 Move</span></div>
+      <div class="wtc"><span class="chip cf">🥗 1 Good Meal</span></div>
+      <div class="wtc"><span class="chip cs">🎉 Social</span></div>
+      <div class="wtc"><span class="chip cs">🎉 Social</span></div>
+      <div class="wtc"><span class="chip cf">🌙 Yours</span></div>
+      <div class="wtc"><span class="chip cf">🌙 Yours</span></div>
+    </div>
+    <div class="wtr">
+      <div class="wtd">SUN</div>
+      <div class="wtc"><span class="chip cf">☕ Rest</span></div>
+      <div class="wtc"><span class="chip cr">🛒 Groceries</span></div>
+      <div class="wtc"><span class="chip cr">🍳 Prep</span></div>
+      <div class="wtc"><span class="chip cr">📋 Plan</span></div>
+      <div class="wtc"><span class="chip cf">📺 Rest</span></div>
+      <div class="wtc"><span class="chip cr">😴 Early</span></div>
+      <div class="wtc"><span class="chip cr">💤 Sleep</span></div>
+    </div>
+    <div class="wleg">
+      <div class="wli"><div class="wld" style="background:#4D9EFF"></div>Train</div>
+      <div class="wli"><div class="wld" style="background:#FFD060"></div>Work</div>
+      <div class="wli"><div class="wld" style="background:#C4ADFF"></div>Social</div>
+      <div class="wli"><div class="wld" style="background:#60DFA0"></div>Reset</div>
+      <div class="wli"><div class="wld" style="background:rgba(255,255,255,.3)"></div>Flexible</div>
+    </div>
+  </div>
+
+  <div class="cbox">
+    <div class="cbox-i">🔒</div>
+    <div class="cbox-t"><strong>The decision to train Wednesday morning is not made at 6:15am.</strong> It was made when you scheduled it. Scheduled anchors beat intentions every time.</div>
+  </div>
+</div>
+</div>
+
+<div class="div"></div>
+
+<!-- S05 — SLEEP -->
+<div class="wrap">
+  <div class="lbl">Section 05</div>
+  <h2>Sleep Is the Master Variable</h2>
+  <p class="kicker">Everything downstream — focus, energy, muscle, mood — runs from this.</p>
+
+  <div class="srow">
+    <div class="sc feat">
+      <div class="sc-ico">✅</div>
+      <div class="sc-num">7–8</div>
+      <div class="sc-u">Hours — Target</div>
+      <div class="sc-n">Cognitive capacity, energy, and mood all optimized</div>
+    </div>
+    <div class="sc">
+      <div class="sc-ico">⚠️</div>
+      <div class="sc-num">5–6</div>
+      <div class="sc-u">Hours — Breaks You</div>
+      <div class="sc-n">Suppresses testosterone, raises cortisol, kills focus</div>
+    </div>
+    <div class="sc">
+      <div class="sc-ico">📅</div>
+      <div class="sc-num">5</div>
+      <div class="sc-u">Protected Nights</div>
+      <div class="sc-n">5 solid + 2 late weekend = sustainable pattern</div>
+    </div>
+    <div class="sc">
+      <div class="sc-ico">🔋</div>
+      <div class="sc-num">45</div>
+      <div class="sc-u">Min Training Returns More</div>
+      <div class="sc-n">Energy investment that pays back within hours</div>
+    </div>
+  </div>
+
+  <!-- dual bar chart: 8h vs 5h -->
+  <div style="margin-top:16px;background:var(--w08);border:1px solid var(--w12);border-radius:18px;padding:24px;">
+    <div style="font-size:.58rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--ac);margin-bottom:16px;">8h Sleep vs 5h Sleep — Impact on Your Day</div>
+    <div class="bars">
+      <div class="bar-row">
+        <div class="bar-ico">🧠</div>
+        <div class="bar-lbl">Mental Focus</div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:4px;">
+          <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:.55rem;font-weight:800;color:var(--ac);width:24px;flex-shrink:0;">8h</span><div class="bar-track" style="flex:1"><div class="bar-fill" style="width:90%;background:linear-gradient(to right,#4D9EFF,#7DBFFF)"></div></div></div>
+          <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:.55rem;font-weight:800;color:rgba(255,120,120,.8);width:24px;flex-shrink:0;">5h</span><div class="bar-track" style="flex:1"><div class="bar-fill" style="width:32%;background:linear-gradient(to right,#FF6060,#FF9090)"></div></div></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-ico">💪</div>
+        <div class="bar-lbl">Gym Performance</div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:4px;">
+          <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:.55rem;font-weight:800;color:var(--ac);width:24px;flex-shrink:0;">8h</span><div class="bar-track" style="flex:1"><div class="bar-fill" style="width:85%;background:linear-gradient(to right,#4D9EFF,#7DBFFF)"></div></div></div>
+          <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:.55rem;font-weight:800;color:rgba(255,120,120,.8);width:24px;flex-shrink:0;">5h</span><div class="bar-track" style="flex:1"><div class="bar-fill" style="width:48%;background:linear-gradient(to right,#FF6060,#FF9090)"></div></div></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-ico">😊</div>
+        <div class="bar-lbl">Mood + Resilience</div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:4px;">
+          <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:.55rem;font-weight:800;color:var(--ac);width:24px;flex-shrink:0;">8h</span><div class="bar-track" style="flex:1"><div class="bar-fill" style="width:88%;background:linear-gradient(to right,#4D9EFF,#7DBFFF)"></div></div></div>
+          <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:.55rem;font-weight:800;color:rgba(255,120,120,.8);width:24px;flex-shrink:0;">5h</span><div class="bar-track" style="flex:1"><div class="bar-fill" style="width:25%;background:linear-gradient(to right,#FF6060,#FF9090)"></div></div></div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-ico">🍕</div>
+        <div class="bar-lbl">Junk Food Cravings</div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:4px;">
+          <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:.55rem;font-weight:800;color:var(--ac);width:24px;flex-shrink:0;">8h</span><div class="bar-track" style="flex:1"><div class="bar-fill" style="width:18%;background:linear-gradient(to right,#4D9EFF,#7DBFFF)"></div></div></div>
+          <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:.55rem;font-weight:800;color:rgba(255,120,120,.8);width:24px;flex-shrink:0;">5h</span><div class="bar-track" style="flex:1"><div class="bar-fill" style="width:82%;background:linear-gradient(to right,#FF6060,#FF9090)"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="div"></div>
+
+<!-- S06 — GYM VS CAREER -->
+<div class="alt">
+<div class="wrap">
+  <div class="lbl">Section 06</div>
+  <h2>The Gym Feeds Your Career</h2>
+  <p class="kicker">Skipping training to get more work done is almost always the wrong trade.</p>
+
+  <div class="cmp">
+    <div class="cmp-col">
+      <div class="cmp-h bad">❌ Skips Gym for Work Hours</div>
+      <div class="ci"><div class="cid" style="background:#FF6060"></div>Fatigue compounds by Thursday</div>
+      <div class="ci"><div class="cid" style="background:#FF6060"></div>Stress has no release valve</div>
+      <div class="ci"><div class="cid" style="background:#FF6060"></div>Sleep quality drops mid-week</div>
+      <div class="ci"><div class="cid" style="background:#FF6060"></div>Focus crashes mid-afternoon</div>
+      <div class="ci"><div class="cid" style="background:#FF6060"></div>More hours ≠ more output</div>
+    </div>
+    <div class="cmp-mid"><div class="cmp-vs">VS</div></div>
+    <div class="cmp-col">
+      <div class="cmp-h good">✅ Protects Training in Crunch</div>
+      <div class="ci"><div class="cid" style="background:#4D9EFF"></div>Energy consistent all week</div>
+      <div class="ci"><div class="cid" style="background:#4D9EFF"></div>Cortisol drops after each session</div>
+      <div class="ci"><div class="cid" style="background:#4D9EFF"></div>Sleep quality stays strong</div>
+      <div class="ci"><div class="cid" style="background:#4D9EFF"></div>Sharper in every meeting</div>
+      <div class="ci"><div class="cid" style="background:#4D9EFF"></div>25 min session &gt; zero every time</div>
+    </div>
+  </div>
+
+  <!-- social pressure handling -->
+  <div style="margin-top:16px;background:var(--w08);border:1px solid var(--w12);border-radius:18px;overflow:hidden;">
+    <div style="padding:13px 20px;background:var(--acd);border-bottom:1px solid rgba(77,158,255,.15);font-size:.58rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--ac);">Handling Social Pressure</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;">
+      <div style="padding:20px 18px;border-right:1px solid var(--w08);">
+        <div style="font-size:26px;margin-bottom:8px;">🍺</div>
+        <div style="font-size:.58rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ac);margin-bottom:5px;">Drinking Pressure</div>
+        <div style="font-size:.82rem;font-weight:700;color:#fff;margin-bottom:3px;">Be the fun one</div>
+        <div style="font-size:.73rem;color:rgba(255,255,255,.55);line-height:1.5;">Fully present. Nobody questions the fun guy.</div>
+      </div>
+      <div style="padding:20px 18px;border-right:1px solid var(--w08);">
+        <div style="font-size:26px;margin-bottom:8px;">🍽️</div>
+        <div style="font-size:.58rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ac);margin-bottom:5px;">Food Pressure</div>
+        <div style="font-size:.82rem;font-weight:700;color:#fff;margin-bottom:3px;">Order and move on</div>
+        <div style="font-size:.73rem;color:rgba(255,255,255,.55);line-height:1.5;">No commentary. Nobody cares what you ordered.</div>
+      </div>
+      <div style="padding:20px 18px;">
+        <div style="font-size:26px;margin-bottom:8px;">👥</div>
+        <div style="font-size:.58rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ac);margin-bottom:5px;">Group Dynamic</div>
+        <div style="font-size:.82rem;font-weight:700;color:#fff;margin-bottom:3px;">Let choices speak</div>
+        <div style="font-size:.73rem;color:rgba(255,255,255,.55);line-height:1.5;">Show up. Be enjoyable. No validation needed.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="div"></div>
+
+<!-- S07 — RULES -->
+<div class="wrap">
+  <div class="lbl">Section 07</div>
+  <h2>The Rules That Cover Everything</h2>
+  <p class="kicker">Defaults that hold the standard intact through any week.</p>
+
+  <div class="rgrid">
+    <div class="rcard wide" data-n="→">
+      <div style="display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:center;">
+        <div style="font-size:52px;line-height:1;">🔄</div>
+        <div>
+          <div class="rc-badge">The Core Identity Shift</div>
+          <div class="rc-title">Stop Trying. Start Being.</div>
+          <div class="rc-list">
+            <div class="rc-item">The fit man trains on scheduled days — not when he feels like it</div>
+            <div class="rc-item">Systems and identity outlast motivation and willpower every time</div>
+            <div class="rc-item">The window is your mid-20s. What you build now compounds for decades</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rcard" data-n="1">
+      <div class="rc-ico">☀️</div>
+      <div class="rc-badge">Every Day</div>
+      <div class="rc-title">Daily Non-Negotiables</div>
+      <div class="rc-list">
+        <div class="rc-item">🏋️ Train on scheduled days — no exceptions</div>
+        <div class="rc-item">🥩 Protein at every meal</div>
+        <div class="rc-item">😴 Protect weeknight sleep above almost everything</div>
+        <div class="rc-item">👥 Real connection with at least one person</div>
+      </div>
+    </div>
+
+    <div class="rcard" data-n="2">
+      <div class="rc-ico">📅</div>
+      <div class="rc-badge">Every Week</div>
+      <div class="rc-title">Weekly Anchors</div>
+      <div class="rc-list">
+        <div class="rc-item">🏋️ 3 to 4 sessions completed</div>
+        <div class="rc-item">🛒 Sunday reset — groceries, prep, early night</div>
+        <div class="rc-item">🥡 Lunch to work at least 3 times</div>
+        <div class="rc-item">🧘 At least one genuine rest period</div>
+      </div>
+    </div>
+
+    <div class="rcard" data-n="3">
+      <div class="rc-ico">💼</div>
+      <div class="rc-badge">When Work Gets Hard</div>
+      <div class="rc-title">Reduce Volume. Not Frequency.</div>
+      <div class="rc-list">
+        <div class="rc-item">📉 Cut sets — never cut sessions</div>
+        <div class="rc-item">🍳 Eat from prepped food — nutrition on autopilot</div>
+        <div class="rc-item">😴 Protect sleep above everything else</div>
+        <div class="rc-item">⚡ 25 min beats zero every single time</div>
+      </div>
+    </div>
+
+    <div class="rcard" data-n="4">
+      <div class="rc-ico">🎉</div>
+      <div class="rc-badge">When Social Gets Heavy</div>
+      <div class="rc-title">Front-Load the Week</div>
+      <div class="rc-list">
+        <div class="rc-item">📅 Move training earlier in the week</div>
+        <div class="rc-item">🍽️ Eat before every event</div>
+        <div class="rc-item">🌅 Back to routine the morning after — no guilt</div>
+        <div class="rc-item">✅ One late night breaks nothing solid</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <div class="cta-glow"></div>
+  <div class="cta-in">
+    <h2>Built for the Man<br><em>You Are Building</em></h2>
+    <p>Hold the standard. Adjust when needed. Return when you drift. The compound interest is real.</p>
+    <div class="cta-rules">
+      <div class="cta-rule"><div class="cdot"></div>🏋️ &nbsp;Train on scheduled days. The decision was made when you set it.</div>
+      <div class="cta-rule"><div class="cdot"></div>🛒 &nbsp;Own Sunday. The whole week runs from it.</div>
+      <div class="cta-rule"><div class="cdot"></div>👥 &nbsp;Show up fully to your social life. Actually enjoy it.</div>
+      <div class="cta-rule"><div class="cdot"></div>💼 &nbsp;Brutal week? Reduce volume. Never frequency.</div>
+      <div class="cta-rule"><div class="cdot"></div>🔄 &nbsp;You are not trying to be this person. You are this person.</div>
+    </div>
+    <div class="cbrand">The Post-Grad Protocol</div>
+  </div>
+</div>
+
+</body>
+</html>

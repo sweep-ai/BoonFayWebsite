@@ -12,18 +12,18 @@ const TestimonialCarousel = () => {
   const testimonials: Testimonial[] = [
     {
       name: 'James',
-      meta: 'Junior',
-      result: 'Gained 10 lbs of muscle lifting at the campus rec',
+      meta: '24',
+      result: 'Gained 10 lbs of muscle lifting before work with a 9-5',
       quote:
-        'The GPA System helped me finally train with purpose. Every workout was built around my schedule and the equipment at my campus gym. Four months in, I’m up 10 pounds of muscle and feel my strongest ever.',
+        'The Post-Grad Protocol was exactly what I needed after graduation. Every workout fit around my 9-5 and the gym I had access to. Four months in, I’m up 10 pounds of muscle and feel my strongest ever.',
       image: { kind: 'collage', src: '/UnknownTestimonial.jpeg', alt: 'James before and after' },
     },
     {
       name: 'Gerardo',
-      meta: 'Senior',
-      result: 'Lost 40 lbs in one semester while still going out every weekend',
+      meta: '22',
+      result: 'Lost 40 lbs in his first year post-grad without giving up a single weekend',
       quote:
-        "I’ve tried to get in shape before, but college always got in the way. Boon's GPA System finally made it doable. I dropped 40 pounds last semester without giving up my weekends",
+        "I've tried getting in shape since graduation but work and life always got in the way. Boon's Post-Grad Protocol finally made it doable. I dropped 40 pounds in 4 months without giving up my weekends.",
       image: { kind: 'collage', src: '/Gerardo.jpeg', alt: 'Gerardo before and after' },
     },
     {
@@ -44,21 +44,21 @@ const TestimonialCarousel = () => {
   const track = [...testimonials, ...testimonials];
 
   return (
-    <section id="testimonials" className="pt-0 md:pt-0 pb-10 md:pb-14 bg-background">
+    <section id="testimonials" className="pt-0 md:pt-0 pb-10 md:pb-14">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
             Real Results from Real Men
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            These are everyday students who dropped 20+ lbs while balancing exams, workouts and still enjoying every part of campus life.
+            Real post-grads who built the body they wanted while balancing work, life, and weekends.
           </p>
         </div>
 
         <div className="testimonial-marquee rounded-2xl bg-black/40 border border-white/10 relative">
           {/* Edge fades */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-10 sm:w-16 bg-gradient-to-r from-background to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-10 sm:w-16 bg-gradient-to-l from-background to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-10 sm:w-16 bg-gradient-to-r from-[#0A0A0F] to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-10 sm:w-16 bg-gradient-to-l from-[#0A0A0F] to-transparent z-10" />
 
           <div className="p-4 sm:p-6">
             <div className="testimonial-marquee-track gap-4 sm:gap-6">

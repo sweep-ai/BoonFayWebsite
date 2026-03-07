@@ -60,8 +60,8 @@ const QuizFunnelModal = ({ isOpen, onClose }: QuizFunnelModalProps) => {
   const nextStep = () => {
     if (step < 3) setStep(step + 1);
     else {
-      // Submit / redirect to playbook delivery or payment
-      window.location.href = '/payment';
+      // Submit / redirect to book a call
+      window.location.href = '/#book-call';
     }
   };
 

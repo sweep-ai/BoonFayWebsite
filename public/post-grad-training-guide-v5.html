@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Post-Grad Training Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green:       #0A0A0F;
+  --green-deep:  #06060A;
+  --green-mid:   #0D0D14;
+  --green-light: #111118;
+  --white:       #FFFFFF;
+  --white-90:    rgba(255,255,255,1.0);
+  --white-70:    rgba(255,255,255,0.88);
+  --white-45:    rgba(255,255,255,0.60);
+  --white-20:    rgba(255,255,255,0.22);
+  --white-12:    rgba(255,255,255,0.12);
+  --white-08:    rgba(255,255,255,0.08);
+  --accent:      #4D9EFF;
+  --accent-dim:  rgba(77,158,255,0.12);
+  --accent-glow: rgba(77,158,255,0.20);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--green);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── subtle noise texture overlay ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ── TYPOGRAPHY ── */
+h1, h2, h3 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; text-transform: uppercase; }
+h2 {
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  line-height: 1.0;
+  letter-spacing: 2px;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+h3 {
+  font-size: 1.8rem;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+p {
+  color: #FFFFFF;
+  line-height: 1.75;
+  margin-bottom: 18px;
+  font-weight: 500;
+  font-size: 1.0rem;
+}
+p:last-child { margin-bottom: 0; }
+strong { color: var(--white); font-weight: 600; }
+
+/* ── LAYOUT ── */
+.section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 96px 48px;
+  position: relative;
+  z-index: 1;
+}
+.section-alt {
+  background: var(--green-deep);
+  position: relative;
+}
+
+.section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--white-12);
+  max-width: 60px;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(77,158,255,0.35), transparent);
+  position: relative;
+  z-index: 1;
+}
+
+/* ── COVER ── */
+.cover {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 48px;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(77,158,255,0.18) 0%, transparent 70%), var(--green-deep);
+  z-index: 1;
+  border-top: 3px solid var(--accent);
+}
+
+/* decorative circles */
+.cover::before {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  border: 1px solid var(--white-08);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.cover::after {
+  content: '';
+  position: absolute;
+  width: 1000px; height: 1000px;
+  border-radius: 50%;
+  border: 1px solid var(--white-08);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.cover-glow {
+  position: absolute;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(77,158,255,0.18) 0%, transparent 65%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.cover-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.cover h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(5rem, 12vw, 11rem);
+  line-height: 0.92;
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+  letter-spacing: 4px;
+}
+.cover h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.cover-sub {
+  font-size: 1.12rem;
+  color: #FFFFFF;
+  margin-top: 32px;
+  max-width: 480px;
+  font-weight: 500;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 56px;
+  position: relative;
+  z-index: 1;
+}
+.pill {
+  background: var(--white-08);
+  border: 1px solid var(--white-20);
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.pill-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.cover-brand {
+  margin-top: 72px;
+  font-size: 0.65rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── STAT GRID ── */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 56px;
+  border: 1px solid rgba(77,158,255,0.20);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(77,158,255,0.06);
+}
+.stat-card {
+  padding: 40px 28px;
+  background: var(--white-08);
+  text-align: center;
+  border-right: 1px solid var(--white-12);
+  transition: background 0.2s;
+}
+.stat-card:last-child { border-right: none; }
+.stat-card:hover { background: rgba(77,158,255,0.10); }
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  color: #FFFFFF;
+  line-height: 1;
+  margin-bottom: 6px;
+  letter-spacing: 2px;
+}
+.stat-unit {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.stat-desc {
+  font-size: 0.875rem;
+  color: #FFFFFF;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* ── CALLOUT ── */
+.callout {
+  background: var(--accent-dim);
+  border: 1px solid rgba(77,158,255,0.25);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.callout-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+.callout-text { font-size: 1rem; color: #FFFFFF; line-height: 1.75; font-weight: 500; }
+.callout-text strong { color: #7DBFFF; }
+
+/* ── PROGRAM CARDS ── */
+.program-stack { display: flex; flex-direction: column; gap: 12px; margin-top: 40px; }
+.prog-card {
+  background: var(--white-08);
+  border: 1px solid var(--white-12);
+  border-radius: 16px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.prog-card:hover { background: rgba(77,158,255,0.08); border-color: rgba(77,158,255,0.22); }
+.prog-card.active {
+  background: var(--accent-dim);
+  border-color: rgba(77,158,255,0.28);
+}
+.prog-icon {
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  background: var(--white-12);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.prog-card.active .prog-icon { background: rgba(77,158,255,0.18); }
+.prog-content { flex: 1; }
+.prog-level {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white-45);
+  margin-bottom: 4px;
+}
+.prog-card.active .prog-level { color: var(--accent); font-weight: 700; }
+.prog-name { font-weight: 700; font-size: 1.0rem; color: #FFFFFF; margin-bottom: 4px; letter-spacing: 0.2px; }
+.prog-desc { font-size: 0.9rem; color: #FFFFFF; margin: 0; font-weight: 500; }
+.prog-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 100px;
+  background: var(--white-12);
+  color: var(--white-90);
+  border: 1px solid var(--white-20);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.prog-card.active .prog-badge {
+  background: rgba(77,158,255,0.18);
+  border-color: rgba(77,158,255,0.40);
+  color: var(--accent);
+}
+
+/* ── WEEK GRID ── */
+.week-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--white-45);
+  margin-bottom: 16px;
+  margin-top: 48px;
+}
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-bottom: 40px;
+}
+.wday {
+  background: var(--white-08);
+  border: 1px solid var(--white-12);
+  border-radius: 12px;
+  padding: 14px 6px;
+  text-align: center;
+}
+.wday.lift {
+  background: var(--accent-dim);
+  border-color: rgba(77,158,255,0.22);
+}
+.wday-name {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.60);
+  margin-bottom: 8px;
+}
+.wday.lift .wday-name { color: var(--accent); }
+.wday-icon { font-size: 18px; margin-bottom: 6px; }
+.wday-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.wday.rest .wday-label { color: var(--white-45); }
+
+/* ── WORKOUT TABLE ── */
+.workout-table {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(77,158,255,0.18);
+  margin-top: 16px;
+}
+.wt-header {
+  padding: 18px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--white-12);
+  border-bottom: 1px solid var(--white-12);
+}
+.wt-header-title { font-weight: 800; font-size: 1.0rem; color: #FFFFFF; letter-spacing: 0.3px; }
+.wt-header-sub { font-size: 0.75rem; color: rgba(255,255,255,0.70); font-weight: 400; }
+.wt-cols {
+  display: grid;
+  grid-template-columns: 1fr 60px 80px;
+  padding: 8px 28px;
+  background: var(--white-08);
+  border-bottom: 1px solid var(--white-08);
+}
+.wt-col {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  text-align: center;
+}
+.wt-col:first-child { text-align: left; }
+.wt-row {
+  display: grid;
+  grid-template-columns: 1fr 60px 80px;
+  padding: 14px 28px;
+  border-bottom: 1px solid var(--white-08);
+  align-items: center;
+  background: var(--white-08);
+  transition: background 0.15s;
+}
+.wt-row:hover { background: rgba(77,158,255,0.08); }
+.wt-row:last-child { border-bottom: none; }
+.wt-row.key {
+  background: var(--accent-dim);
+  border-left: 3px solid var(--accent);
+}
+.wt-row.key:hover { background: rgba(77,158,255,0.18); }
+.wt-ex { font-weight: 600; font-size: 0.94rem; color: #FFFFFF; letter-spacing: 0.2px; }
+.wt-note { font-size: 0.68rem; color: var(--accent); margin-top: 2px; font-weight: 500; }
+.wt-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+/* ── GOAL GRID ── */
+.goal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 40px; }
+.goal-card {
+  background: var(--white-08);
+  border: 1px solid var(--white-12);
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: background 0.2s;
+}
+.goal-card:hover { background: rgba(77,158,255,0.08); }
+.goal-icon { font-size: 36px; margin-bottom: 16px; }
+.goal-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; color: #FFFFFF; margin-bottom: 10px; letter-spacing: 2px; }
+.goal-stat {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 100px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  border: 1px solid rgba(77,158,255,0.28);
+  display: inline-block;
+  margin-bottom: 16px;
+}
+.goal-desc { font-size: 0.875rem; color: var(--white-70); line-height: 1.65; font-weight: 300; }
+
+/* ── WARNING ── */
+.warning {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--white-20);
+  border-radius: 14px;
+  padding: 22px 28px;
+  margin-top: 28px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.warn-icon { font-size: 18px; flex-shrink: 0; margin-top: 3px; }
+.warn-text { font-size: 0.92rem; color: #FFFFFF; line-height: 1.65; font-weight: 500; }
+.warn-text strong { font-weight: 700; color: var(--white); }
+
+/* ── CARDIO GRID ── */
+.cardio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 40px; }
+.cardio-card {
+  background: var(--white-08);
+  border: 1px solid var(--white-12);
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: background 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.cardio-card:hover { background: rgba(77,158,255,0.08); }
+.cardio-card.featured {
+  background: var(--accent-dim);
+  border-color: rgba(77,158,255,0.28);
+}
+.cardio-icon { font-size: 36px; margin-bottom: 14px; }
+.cardio-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid rgba(77,158,255,0.28);
+  background: var(--accent-dim);
+  padding: 4px 12px;
+  border-radius: 100px;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+.cardio-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: #FFFFFF; margin-bottom: 10px; letter-spacing: 2px; }
+.cardio-desc { font-size: 0.875rem; color: var(--white-70); line-height: 1.65; font-weight: 300; }
+
+/* ── RECOVERY GRID ── */
+.recovery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 40px; }
+.recovery-card {
+  background: var(--white-08);
+  border: 1px solid var(--white-12);
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: background 0.2s;
+}
+.recovery-card:hover { background: rgba(77,158,255,0.08); }
+.recovery-icon { font-size: 36px; margin-bottom: 16px; }
+.recovery-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: #FFFFFF; margin-bottom: 10px; letter-spacing: 2px; }
+.recovery-desc { font-size: 0.875rem; color: var(--white-70); line-height: 1.65; font-weight: 300; }
+
+/* ── DELOAD BOX ── */
+.deload-box {
+  background: var(--white-08);
+  border: 1px solid var(--white-12);
+  border-radius: 20px;
+  padding: 36px;
+  margin-top: 24px;
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+.deload-num-wrap {
+  text-align: center;
+  flex-shrink: 0;
+  background: var(--accent-dim);
+  border: 1px solid rgba(77,158,255,0.25);
+  border-radius: 14px;
+  padding: 24px 28px;
+}
+.deload-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.6rem;
+  color: #FFFFFF;
+  line-height: 1;
+}
+.deload-unit {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 6px;
+}
+.deload-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; color: #FFFFFF; margin-bottom: 10px; letter-spacing: 2px; }
+.deload-text { font-size: 0.95rem; color: #FFFFFF; line-height: 1.75; margin: 0; font-weight: 500; }
+
+/* ── CREATINE GRID ── */
+.creatine-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 32px;
+  border: 1px solid rgba(77,158,255,0.18);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.creatine-block {
+  background: var(--white-08);
+  padding: 28px 16px;
+  text-align: center;
+  border-right: 1px solid var(--white-12);
+  transition: background 0.2s;
+}
+.creatine-block:hover { background: rgba(77,158,255,0.10); }
+.creatine-block:last-child { border-right: none; }
+.creatine-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  color: #FFFFFF;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.creatine-key {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.80);
+  font-weight: 700;
+}
+
+/* ── RULE STACK ── */
+.rule-stack { display: flex; flex-direction: column; gap: 10px; margin-top: 40px; }
+.rule-row {
+  background: var(--white-08);
+  border: 1px solid var(--white-12);
+  border-radius: 14px;
+  padding: 24px 28px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  transition: background 0.2s;
+}
+.rule-row:hover { background: rgba(77,158,255,0.08); }
+.rule-row.featured {
+  background: var(--accent-dim);
+  border-color: rgba(77,158,255,0.25);
+}
+.rule-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  color: var(--white-20);
+  line-height: 1;
+  min-width: 40px;
+  flex-shrink: 0;
+}
+.rule-row.featured .rule-num { color: var(--accent); opacity: 0.4; }
+.rule-title { font-weight: 800; font-size: 1.05rem; color: #FFFFFF; margin-bottom: 6px; letter-spacing: 0.2px; }
+.rule-desc { font-size: 0.92rem; color: #FFFFFF; line-height: 1.75; margin: 0; font-weight: 500; }
+
+/* ── FOUR GRID ── */
+.four-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 40px; }
+.four-card {
+  background: var(--white-08);
+  border: 1px solid var(--white-12);
+  border-radius: 20px;
+  padding: 36px 32px;
+  transition: background 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.four-card:hover { background: rgba(77,158,255,0.08); border-color: rgba(77,158,255,0.22); }
+.four-card::before {
+  content: attr(data-num);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 8rem;
+  color: rgba(77,158,255,0.07);
+  position: absolute;
+  top: -20px;
+  right: 20px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.four-card-icon { font-size: 36px; margin-bottom: 20px; }
+.four-card-num {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.four-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: #FFFFFF; margin-bottom: 12px; letter-spacing: 2px; }
+.four-card-desc { font-size: 0.92rem; color: #FFFFFF; line-height: 1.75; margin: 0; font-weight: 500; }
+
+/* ── CTA ── */
+.cta-section {
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(77,158,255,0.12) 0%, transparent 70%), var(--green-deep);
+  padding: 112px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border-top: 1px solid rgba(77,158,255,0.25);
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  width: 800px; height: 800px;
+  border-radius: 50%;
+  border: 1px solid var(--white-08);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.cta-glow {
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(77,158,255,0.12) 0%, transparent 65%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.cta-inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
+.cta-section h2 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  color: var(--white);
+  margin-bottom: 24px;
+}
+.cta-section h2 em { color: var(--accent); }
+.cta-section p { font-size: 1.08rem; color: #FFFFFF; max-width: 520px; margin: 0 auto; font-weight: 500; }
+
+.cta-rules {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 48px;
+  text-align: left;
+}
+.cta-rule {
+  background: var(--white-08);
+  border: 1px solid var(--white-12);
+  border-radius: 12px;
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  transition: background 0.15s;
+}
+.cta-rule:hover { background: rgba(77,158,255,0.12); border-color: rgba(77,158,255,0.30); }
+.cta-rule-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.cta-brand {
+  margin-top: 64px;
+  font-size: 0.62rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  font-weight: 500;
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-glow"></div>
+  <div class="cover-eyebrow">The Post-Grad Protocol &nbsp;·&nbsp; Free Guide</div>
+  <h1>The Post-Grad<br><em>Training</em><br>Guide</h1>
+  <p class="cover-sub">How to build your best body around a full time job when you have no structure and no one holding you accountable</p>
+  <div class="cover-pills">
+    <div class="pill"><div class="pill-dot"></div>3 to 4 Days Per Week</div>
+    <div class="pill"><div class="pill-dot"></div>45 to 55 Min Sessions</div>
+    <div class="pill"><div class="pill-dot"></div>Full Program Included</div>
+    <div class="pill"><div class="pill-dot"></div>Works Around Any Job</div>
+  </div>
+  <div class="cover-brand">The Post-Grad Protocol</div>
+</div>
+
+<!-- SECTION 01 -->
+<div class="section">
+  <div class="section-label">Section 01</div>
+  <h2>Why You Fell Off After Graduation</h2>
+  <p>Nobody warns you about this part. You graduated, got the job, figured out the apartment, and somewhere in the middle of all of it your body quietly started changing in ways you didn't want. The workouts got less frequent. The energy disappeared somewhere between your morning commute and your third meeting of the day. And before you knew it months had passed without a single consistent week in the gym.</p>
+  <p>This isn't a motivation problem. It's a structure problem. College gave you a built in schedule, a gym ten minutes from your dorm, and enough rhythm that even your laziest weeks had something holding them together. Post grad life strips all of that away overnight. Nothing external is forcing your healthy habits to happen anymore and without a system to replace that structure most guys just drift. For months. Sometimes years. This guide gives you the system.</p>
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-num">3 to 4</div>
+      <div class="stat-unit">Days Per Week</div>
+      <div class="stat-desc">All you need to completely transform your physique. Not six days. Not hours of cardio. Just showing up consistently.</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">12</div>
+      <div class="stat-unit">Weeks Minimum</div>
+      <div class="stat-desc">Before you even think about changing anything. Results take time and most guys quit right before they would have seen them.</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">8am</div>
+      <div class="stat-unit">Before Work</div>
+      <div class="stat-desc">Every session you finish before 8am is a session the rest of the day cannot touch. That is the whole scheduling game.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 02 -->
+<div class="section-alt">
+<div class="section">
+  <div class="section-label">Section 02</div>
+  <h2>The Only Thing That Actually Matters</h2>
+  <p>Consistency. Everything else is just detail built on top of it. Three to four days a week in the gym, every single week, no matter how the workday went. Not perfect sessions. Not peak motivation. Just showing up and doing the work. The guy who does that for a full year will always look better than the guy who goes hard for two weeks, burns out, and starts over every few months.</p>
+  <p>While you are in there, try to do a little more than you did last session. More weight, one extra rep, better control. This is called progressive overload and it is the only mechanism that actually changes your body. Your muscles grow when they are forced to do more than they are used to. Track your lifts every session and show up the next time trying to beat what you did. That is really the whole formula.</p>
+  <div class="callout">
+    <div class="callout-icon">⚡</div>
+    <div class="callout-text"><strong>The rule that changes everything:</strong> Never miss two sessions in a row. Missing one is just a rest day. Missing two in a row is the start of a broken habit. If you miss a session the next one is non negotiable. No guilt, no waiting until Monday. You just go.</div>
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 03 -->
+<div class="section">
+  <div class="section-label">Section 03</div>
+  <h2>Train Before Work</h2>
+  <p>Every session you finish before 8am is a session nothing can cancel. The unexpected meeting, the coworker asking you to grab a drink, the exhaustion that hits around 6pm. None of it can touch a workout you already finished. This is the single most effective scheduling decision you can make as a post grad man and the difference between the guys who train consistently and the guys who just intend to.</p>
+  <p>Morning training also makes you measurably better at your job. Exercise releases brain chemicals that sharpen your focus, memory, and mood for hours afterward. You are not sacrificing career time for gym time. You are investing in the quality of every hour that follows.</p>
+  <div class="program-stack">
+    <div class="prog-card active">
+      <div class="prog-icon">🌅</div>
+      <div class="prog-content">
+        <div class="prog-level">Best Option</div>
+        <div class="prog-name">Before Work: 5:30 to 7:00am</div>
+        <p class="prog-desc">Session is done before the day can touch it. Nothing that happens after 8am can take it away from you.</p>
+      </div>
+      <div class="prog-badge">Recommended</div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-icon">🏢</div>
+      <div class="prog-content">
+        <div class="prog-level">If Mornings Don't Work</div>
+        <div class="prog-name">Straight From the Office, No Going Home First</div>
+        <p class="prog-desc">The moment you sit on your couch after work the session is over before it started. Win that transition and everything else takes care of itself.</p>
+      </div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-icon">🌙</div>
+      <div class="prog-content">
+        <div class="prog-level">Last Resort</div>
+        <div class="prog-name">Evening Workouts After 7pm</div>
+        <p class="prog-desc">Works but it's vulnerable. Decision fatigue, social invites, and plain tiredness all stack up against you at this hour.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 04 -->
+<div class="section-alt">
+<div class="section">
+  <div class="section-label">Section 04</div>
+  <h2>The Program That Fits Your Life</h2>
+  <p>The best program is the one you can actually show up to consistently around a full time job. If you are new or getting back into it after a long break start with three full body sessions per week. Once early progress slows move to the upper lower split four days a week. Whatever you choose run it for at least twelve weeks before switching anything because results take eight to twelve weeks to actually show up and most guys quit right before they would have seen them.</p>
+  <div class="program-stack">
+    <div class="prog-card">
+      <div class="prog-icon">💪</div>
+      <div class="prog-content">
+        <div class="prog-level">Beginner: 0 to 6 Months</div>
+        <div class="prog-name">Full Body 3x Per Week</div>
+        <p class="prog-desc">Monday, Wednesday, Friday. Alternate Workout A (Squat, Bench, Row) and Workout B (Squat, Overhead Press, Deadlift). Add 5 pounds to upper body lifts and 10 pounds to lower body lifts every single session.</p>
+      </div>
+      <div class="prog-badge">Start Here</div>
+    </div>
+    <div class="prog-card active">
+      <div class="prog-icon">🔥</div>
+      <div class="prog-content">
+        <div class="prog-level">Intermediate: 6 Plus Months</div>
+        <div class="prog-name">Upper Lower Split 4x Per Week</div>
+        <p class="prog-desc">Monday upper push, Tuesday lower, Wednesday off, Thursday upper pull, Friday lower, full weekend free. Your training is completely done before the weekend starts.</p>
+      </div>
+      <div class="prog-badge">Level Up</div>
+    </div>
+  </div>
+
+  <div class="week-label">Your Training Week &nbsp;·&nbsp; Upper Lower Split</div>
+  <div class="week-grid">
+    <div class="wday lift"><div class="wday-name">Mon</div><div class="wday-icon">💪</div><div class="wday-label">PUSH</div></div>
+    <div class="wday lift"><div class="wday-name">Tue</div><div class="wday-icon">🦵</div><div class="wday-label">LOWER</div></div>
+    <div class="wday rest"><div class="wday-name">Wed</div><div class="wday-icon">😴</div><div class="wday-label">REST</div></div>
+    <div class="wday lift"><div class="wday-name">Thu</div><div class="wday-icon">🏋️</div><div class="wday-label">PULL</div></div>
+    <div class="wday lift"><div class="wday-name">Fri</div><div class="wday-icon">⚡</div><div class="wday-label">LOWER</div></div>
+    <div class="wday rest"><div class="wday-name">Sat</div><div class="wday-icon">🎉</div><div class="wday-label">YOURS</div></div>
+    <div class="wday rest"><div class="wday-name">Sun</div><div class="wday-icon">🔄</div><div class="wday-label">RESET</div></div>
+  </div>
+
+  <div class="workout-table">
+    <div class="wt-header">
+      <div class="wt-header-title">Monday &nbsp;·&nbsp; Upper Push</div>
+      <div class="wt-header-sub">45 to 55 min &nbsp;·&nbsp; 3 to 4 min rest on heavy lifts</div>
+    </div>
+    <div class="wt-cols"><div class="wt-col">Exercise</div><div class="wt-col">Sets</div><div class="wt-col">Reps</div></div>
+    <div class="wt-row key"><div class="wt-ex">Barbell Bench Press<div class="wt-note">★ Primary lift. Beat last week.</div></div><div class="wt-val">4</div><div class="wt-val">6–8</div></div>
+    <div class="wt-row"><div class="wt-ex">Overhead Press</div><div class="wt-val">3</div><div class="wt-val">8–10</div></div>
+    <div class="wt-row"><div class="wt-ex">Incline Dumbbell Press</div><div class="wt-val">3</div><div class="wt-val">10–12</div></div>
+    <div class="wt-row"><div class="wt-ex">Lateral Raises</div><div class="wt-val">3</div><div class="wt-val">12–15</div></div>
+    <div class="wt-row"><div class="wt-ex">Tricep Pushdowns</div><div class="wt-val">3</div><div class="wt-val">12–15</div></div>
+  </div>
+
+  <div class="workout-table">
+    <div class="wt-header">
+      <div class="wt-header-title">Tuesday &nbsp;·&nbsp; Lower (Quad Focus)</div>
+      <div class="wt-header-sub">45 to 55 min &nbsp;·&nbsp; Eat carbs before this session</div>
+    </div>
+    <div class="wt-cols"><div class="wt-col">Exercise</div><div class="wt-col">Sets</div><div class="wt-col">Reps</div></div>
+    <div class="wt-row key"><div class="wt-ex">Barbell Back Squat<div class="wt-note">★ Primary lift. Beat last week.</div></div><div class="wt-val">4</div><div class="wt-val">6–8</div></div>
+    <div class="wt-row"><div class="wt-ex">Leg Press</div><div class="wt-val">3</div><div class="wt-val">10–12</div></div>
+    <div class="wt-row"><div class="wt-ex">Leg Extensions</div><div class="wt-val">3</div><div class="wt-val">12–15</div></div>
+    <div class="wt-row"><div class="wt-ex">Leg Curls</div><div class="wt-val">3</div><div class="wt-val">12–15</div></div>
+    <div class="wt-row"><div class="wt-ex">Calf Raises</div><div class="wt-val">4</div><div class="wt-val">15–20</div></div>
+  </div>
+
+  <div class="workout-table">
+    <div class="wt-header">
+      <div class="wt-header-title">Thursday &nbsp;·&nbsp; Upper Pull</div>
+      <div class="wt-header-sub">45 to 55 min &nbsp;·&nbsp; Back builds the physique people see from every angle</div>
+    </div>
+    <div class="wt-cols"><div class="wt-col">Exercise</div><div class="wt-col">Sets</div><div class="wt-col">Reps</div></div>
+    <div class="wt-row key"><div class="wt-ex">Barbell Row<div class="wt-note">★ Primary lift. Beat last week.</div></div><div class="wt-val">4</div><div class="wt-val">6–8</div></div>
+    <div class="wt-row"><div class="wt-ex">Pull Ups or Lat Pulldown</div><div class="wt-val">3</div><div class="wt-val">8–10</div></div>
+    <div class="wt-row"><div class="wt-ex">Seated Cable Row</div><div class="wt-val">3</div><div class="wt-val">10–12</div></div>
+    <div class="wt-row"><div class="wt-ex">Face Pulls</div><div class="wt-val">3</div><div class="wt-val">15</div></div>
+    <div class="wt-row"><div class="wt-ex">Barbell Curl</div><div class="wt-val">3</div><div class="wt-val">12–15</div></div>
+  </div>
+
+  <div class="workout-table">
+    <div class="wt-header">
+      <div class="wt-header-title">Friday &nbsp;·&nbsp; Lower (Posterior Chain)</div>
+      <div class="wt-header-sub">45 to 55 min &nbsp;·&nbsp; Hardest session of the week, get it done</div>
+    </div>
+    <div class="wt-cols"><div class="wt-col">Exercise</div><div class="wt-col">Sets</div><div class="wt-col">Reps</div></div>
+    <div class="wt-row key"><div class="wt-ex">Conventional Deadlift<div class="wt-note">★ Primary lift. Beat last week.</div></div><div class="wt-val">4</div><div class="wt-val">4–6</div></div>
+    <div class="wt-row"><div class="wt-ex">Romanian Deadlift</div><div class="wt-val">3</div><div class="wt-val">8–10</div></div>
+    <div class="wt-row"><div class="wt-ex">Hip Thrusts</div><div class="wt-val">3</div><div class="wt-val">10–12</div></div>
+    <div class="wt-row"><div class="wt-ex">Leg Curls</div><div class="wt-val">3</div><div class="wt-val">12–15</div></div>
+    <div class="wt-row"><div class="wt-ex">Walking Lunges</div><div class="wt-val">3</div><div class="wt-val">10 each</div></div>
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 05 -->
+<div class="section">
+  <div class="section-label">Section 05</div>
+  <h2>Training for Your Goal</h2>
+  <p>The program stays the same no matter what your goal is. What changes is how you eat around it. Pick where you are right now and run it.</p>
+  <div class="goal-grid">
+    <div class="goal-card">
+      <div class="goal-icon">🏗️</div>
+      <div class="goal-name">Build Muscle</div>
+      <div class="goal-stat">+200 to 300 CALS</div>
+      <div class="goal-desc">Eat slightly above maintenance and keep most sets in the 6 to 12 rep range. Hit your bodyweight in pounds as grams of protein every day. You cannot build muscle without enough protein no matter how hard you train.</div>
+    </div>
+    <div class="goal-card">
+      <div class="goal-icon">🔥</div>
+      <div class="goal-name">Lose Fat</div>
+      <div class="goal-stat">300 to 500 CALS BELOW</div>
+      <div class="goal-desc">Eat below maintenance and keep lifting just as heavy as you always have. This is where most guys go wrong. Heavy lifting tells your body to hold onto muscle while the fat drops. Add two to three cardio sessions and keep everything else identical.</div>
+    </div>
+    <div class="goal-card">
+      <div class="goal-icon">⚡</div>
+      <div class="goal-name">Both at Once</div>
+      <div class="goal-stat">MAINTENANCE</div>
+      <div class="goal-desc">Eat at maintenance with one gram of protein per pound of bodyweight and focus on getting stronger every session. Progress is slower but you never look worse in the process. For most post grad men just getting serious this is the best place to start.</div>
+    </div>
+  </div>
+  <div class="warning">
+    <div class="warn-icon">⚠️</div>
+    <div class="warn-text"><strong>The most common mistake:</strong> Eating in a deficit and switching to light weight high rep training. Your body ends up losing muscle and fat together so you get smaller but still soft. Keep lifting heavy no matter what your goal is.</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 06 -->
+<div class="section-alt">
+<div class="section">
+  <div class="section-label">Section 06</div>
+  <h2>Cardio Without Overthinking It</h2>
+  <p>Two to three sessions of 20 to 40 minutes alongside your lifting is enough when your goal is building muscle. Bump it to three to four sessions when cutting. The best pace is one where you could hold a conversation but it takes a little effort. It burns fat, helps your body recover between lifting sessions, and doesn't wreck your energy for work or training. Never do intense cardio right before you lift. A ten minute warmup is fine. A 45 minute run before squatting is not.</p>
+  <div class="cardio-grid">
+    <div class="cardio-card">
+      <div class="cardio-icon">🚶</div>
+      <div class="cardio-badge">Best Default</div>
+      <div class="cardio-name">Brisk Walk</div>
+      <div class="cardio-desc">Easiest to recover from. Burns fat without touching your recovery between lifting sessions. Perfect for rest days when you want to move without stressing your body.</div>
+    </div>
+    <div class="cardio-card featured">
+      <div class="cardio-icon">🚣</div>
+      <div class="cardio-badge">Most Underused</div>
+      <div class="cardio-name">Rowing Machine</div>
+      <div class="cardio-desc">Works your legs, back, arms, and core all at the same time. Twenty minutes on the rower is a genuinely complete session. If you hate cardio try this before you make up your mind.</div>
+    </div>
+    <div class="cardio-card">
+      <div class="cardio-icon">🚴</div>
+      <div class="cardio-badge">Good Option</div>
+      <div class="cardio-name">Bike or Light Jog</div>
+      <div class="cardio-desc">Easy on your joints and easy to keep intensity dialed in. Great if you need something low effort that still gets the blood moving.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 07 -->
+<div class="section">
+  <div class="section-label">Section 07</div>
+  <h2>Recovery Is Part of the Program</h2>
+  <p>Your muscles don't grow in the gym. They grow while you rest. Two to three rest days per week isn't laziness. It is the actual mechanism of progress. Most guys treat recovery like an afterthought and then wonder why they feel beat up and stuck. Treat it as seriously as you treat the sessions themselves.</p>
+  <div class="recovery-grid">
+    <div class="recovery-card">
+      <div class="recovery-icon">🥩</div>
+      <div class="recovery-title">Eat After Every Session</div>
+      <div class="recovery-desc">Get protein and carbs in within 45 to 60 minutes of finishing. Chicken and rice, a protein shake with a banana, Greek yogurt and granola. Use the window every single session without exception.</div>
+    </div>
+    <div class="recovery-card">
+      <div class="recovery-icon">😴</div>
+      <div class="recovery-title">Sleep 7 to 8 Hours</div>
+      <div class="recovery-desc">This is literally where muscle gets built. You cannot supplement or train your way around chronic sleep deprivation. It is the most powerful recovery tool you have and it costs nothing.</div>
+    </div>
+    <div class="recovery-card">
+      <div class="recovery-icon">🚶</div>
+      <div class="recovery-title">Move on Rest Days</div>
+      <div class="recovery-desc">A walk or some light stretching on your off days is perfect especially when your job already has you sitting at a desk for eight hours. Just move without stressing your body.</div>
+    </div>
+  </div>
+  <div class="deload-box">
+    <div class="deload-num-wrap">
+      <div class="deload-num">6 to 8</div>
+      <div class="deload-unit">Weeks</div>
+    </div>
+    <div>
+      <div class="deload-title">Take a Deload Week</div>
+      <p class="deload-text">Every six to eight weeks drop to about sixty percent of your normal weights for one full week. Same movements, just lighter. Your joints, tendons, and nervous system get to genuinely recover and you will come back noticeably stronger. Almost no post grad men do this. All of them should.</p>
+    </div>
+  </div>
+  <div style="margin-top:56px;">
+    <div class="section-label">The One Supplement Worth Taking</div>
+    <h3>Creatine Monohydrate</h3>
+    <p>The most researched supplement in existence. Improves strength output and muscle recovery with zero downsides. Costs about twenty dollars for a four month supply. If you are training consistently just start taking it today.</p>
+    <div class="creatine-grid">
+      <div class="creatine-block"><div class="creatine-val">3–5g</div><div class="creatine-key">Daily Dose</div></div>
+      <div class="creatine-block"><div class="creatine-val">Any</div><div class="creatine-key">Time of Day</div></div>
+      <div class="creatine-block"><div class="creatine-val">$20</div><div class="creatine-key">4 Month Supply</div></div>
+      <div class="creatine-block"><div class="creatine-val">3–4wk</div><div class="creatine-key">To Kick In</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 08 -->
+<div class="section-alt">
+<div class="section">
+  <div class="section-label">Section 08</div>
+  <h2>When Life Gets in the Way</h2>
+  <p>There will be brutal work weeks. There will be mornings where the alarm goes off and getting up feels genuinely impossible. This is just post grad life and it doesn't mean your routine is broken. The ability to stay consistent through the messy imperfect weeks is exactly what separates the guys who actually transform their bodies from the ones who keep starting over.</p>
+  <div class="rule-stack">
+    <div class="rule-row featured">
+      <div class="rule-num">01</div>
+      <div>
+        <div class="rule-title">Never Miss Two in a Row</div>
+        <p class="rule-desc">Missing one session is just a rest day. Missing two in a row is the beginning of a broken habit. If you miss, the next session is non negotiable. No guilt, no waiting until Monday. You just go.</p>
+      </div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-num">02</div>
+      <div>
+        <div class="rule-title">Lower the Bar on Your Worst Days</div>
+        <p class="rule-desc">Go in, do your three main compound movements, and leave. A 25 minute session beats nothing every single time. And almost every time you get yourself through the door for 25 minutes you end up doing the full workout anyway. The hardest part is always just walking in.</p>
+      </div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-num">03</div>
+      <div>
+        <div class="rule-title">Train Regardless of Where You Are</div>
+        <p class="rule-desc">When work travel comes up find the hotel gym and use it. Bodyweight work and dumbbells is more than enough to maintain your conditioning for a week. The habit of training no matter where you are is one of the most valuable ones you can build.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 09 -->
+<div class="section">
+  <div class="section-label">Section 09</div>
+  <h2>The Four Things That Move the Needle</h2>
+  <p>Everything else in this guide is just detail built on top of these four. Get these right and the rest follows on its own.</p>
+  <div class="four-grid">
+    <div class="four-card" data-num="1">
+      <div class="four-card-icon">📅</div>
+      <div class="four-card-num">01 · Show Up</div>
+      <div class="four-card-title">Consistency Every Week</div>
+      <p class="four-card-desc">Three to four sessions per week, every week, no matter what. This is the whole game. Every other variable, the program, nutrition, supplements, is just optimizing on top of this one thing. Get this right first.</p>
+    </div>
+    <div class="four-card" data-num="2">
+      <div class="four-card-icon">📈</div>
+      <div class="four-card-num">02 · Get Stronger</div>
+      <div class="four-card-title">Progressive Overload Every Session</div>
+      <p class="four-card-desc">Add weight or reps to your main lifts consistently. This is the only mechanism of muscle growth. Without it nothing else matters. Track every session and show up the next time trying to beat what you did.</p>
+    </div>
+    <div class="four-card" data-num="3">
+      <div class="four-card-icon">🥩</div>
+      <div class="four-card-num">03 · Hit Protein</div>
+      <div class="four-card-title">Your Bodyweight in Grams Daily</div>
+      <p class="four-card-desc">Your bodyweight in pounds equals your grams of protein per day. Do it through real food and use a protein shake to close the gap when you need to. You cannot build muscle without it no matter how hard you train.</p>
+    </div>
+    <div class="four-card" data-num="4">
+      <div class="four-card-icon">🌙</div>
+      <div class="four-card-num">04 · Sleep</div>
+      <div class="four-card-title">Seven to Eight Hours Every Night</div>
+      <p class="four-card-desc">This is where your body actually builds the muscle your training signals it to build. You cannot supplement or train your way around chronic sleep deprivation. It is the most powerful recovery tool you have and it is completely free.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <h2>Built for the Man<br><em>You Are Becoming</em></h2>
+    <p>The post grad man who locks these four things in and stays consistent builds a physique that most men spend their entire adult lives trying to build. Start simple. Build the habit before you try to perfect it. The compound interest of consistent training through your twenties is one of the most powerful forces available to you right now. Don't waste it.</p>
+    <div class="cta-rules">
+      <div class="cta-rule"><div class="cta-rule-dot"></div>Show up 3 to 4 times per week every week no matter what</div>
+      <div class="cta-rule"><div class="cta-rule-dot"></div>Get a little stronger every single session</div>
+      <div class="cta-rule"><div class="cta-rule-dot"></div>Hit your protein target. Your bodyweight in pounds equals your grams of protein.</div>
+      <div class="cta-rule"><div class="cta-rule-dot"></div>Sleep 7 to 8 hours. This is where the muscle actually gets built.</div>
+      <div class="cta-rule"><div class="cta-rule-dot"></div>Never miss two sessions in a row. You just go.</div>
+    </div>
+    <div class="cta-brand">The Post-Grad Protocol</div>
+  </div>
+</div>
+
+</body>
+</html>

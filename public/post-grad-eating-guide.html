@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Post-Grad Eating Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green:       #0A0A0F;
+  --green-deep:  #06060A;
+  --green-mid:   #0D0D14;
+  --green-light: #111118;
+  --white:       #FFFFFF;
+  --white-90:    rgba(255,255,255,1.0);
+  --white-70:    rgba(255,255,255,0.88);
+  --white-45:    rgba(255,255,255,0.60);
+  --white-20:    rgba(255,255,255,0.22);
+  --white-12:    rgba(255,255,255,0.12);
+  --white-08:    rgba(255,255,255,0.08);
+  --accent:      #4D9EFF;
+  --accent-dim:  rgba(77,158,255,0.12);
+  --accent-glow: rgba(77,158,255,0.20);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--green);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+h1, h2, h3 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; text-transform: uppercase; }
+h2 {
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  line-height: 1.0;
+  letter-spacing: 2px;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+h3 {
+  font-size: 1.8rem;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+p {
+  color: #FFFFFF;
+  line-height: 1.75;
+  margin-bottom: 18px;
+  font-weight: 500;
+  font-size: 1.0rem;
+}
+p:last-child { margin-bottom: 0; }
+strong { color: var(--white); font-weight: 700; }
+
+.section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 96px 48px;
+  position: relative;
+  z-index: 1;
+}
+.section-alt {
+  background: var(--green-deep);
+  position: relative;
+}
+
+.section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--white-12);
+  max-width: 60px;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(77,158,255,0.35), transparent);
+  position: relative;
+  z-index: 1;
+}
+
+/* COVER */
+.cover {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 48px;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(77,158,255,0.18) 0%, transparent 70%), var(--green-deep);
+  z-index: 1;
+  border-top: 3px solid var(--accent);
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  border: 1px solid var(--white-08);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.cover::after {
+  content: '';
+  position: absolute;
+  width: 1000px; height: 1000px;
+  border-radius: 50%;
+  border: 1px solid var(--white-08);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.cover-glow {
+  position: absolute;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(77,158,255,0.18) 0%, transparent 65%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.cover-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+.cover h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(5rem, 12vw, 11rem);
+  line-height: 0.92;
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+  letter-spacing: 4px;
+}
+.cover h1 em {
+  font-style: normal;
+  color: var(--accent);
+  display: block;
+}
+.cover-sub {
+  font-size: 1.1rem;
+  color: #FFFFFF;
+  margin-top: 32px;
+  max-width: 480px;
+  font-weight: 500;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+.cover-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 56px;
+  position: relative;
+  z-index: 1;
+}
+.pill {
+  background: var(--white-08);
+  border: 1px solid var(--white-20);
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.pill-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.cover-brand {
+  margin-top: 72px;
+  font-size: 0.65rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+/* STAT GRID */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 56px;
+  border: 1px solid rgba(77,158,255,0.20);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(77,158,255,0.06);
+}
+.stat-card {
+  padding: 40px 28px;
+  background: var(--white-08);
+  text-align: center;
+  border-right: 1px solid var(--white-12);
+  transition: background 0.2s;
+}
+.stat-card:last-child { border-right: none; }
+.stat-card:hover { background: rgba(77,158,255,0.10); }
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  color: #FFFFFF;
+  line-height: 1;
+  margin-bottom: 6px;
+  letter-spacing: 2px;
+}
+.stat-unit {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.stat-desc {
+  font-size: 0.875rem;
+  color: #FFFFFF;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* CALLOUT */
+.callout {
+  background: var(--accent-dim);
+  border: 1px solid rgba(77,158,255,0.25);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.callout-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+.callout-text { font-size: 1rem; color: #FFFFFF; line-height: 1.75; font-weight: 500; }
+.callout-text strong { color: #7DBFFF; }
+
+/* REASON STACK */
+.reason-stack { display: flex; flex-direction: column; gap: 10px; margin-top: 40px; }
+.reason-row {
+  background: var(--white-08);
+  border: 1px solid var(--white-12);
+  border-radius: 14px;
+  padding: 24px 28px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  transition: background 0.2s;
+}
+.reason-row:hover { background: rgba(77,158,255,0.08); }
+.reason-row.featured {
+  background: var(--accent-dim);
+  border-color: rgba(77,158,255,0.25);
+}
+.reason-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.4rem;
+  color: var(--white-20);
+  line-height: 1;
+  min-width: 40px;
+  flex-shrink: 0;
+}
+.reason-row.featured .reason-num { color: var(--accent); opacity: 0.5; }
+.reason-title { font-weight: 800; font-size: 1.05rem; color: #FFFFFF; margin-bottom: 6px; letter-spacing: 0.2px; }
+.reason-desc { font-size: 0.92rem; color: #FFFFFF; line-height: 1.75; margin: 0; font-weight: 500; }
+
+/* FRAMEWORK CARDS */
+.framework-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 40px; }
+.framework-card {
+  background: var(--white-08);
+  border: 1px solid var(--white-12);
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: background 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.framework-card:hover { background: rgba(77,158,255,0.08); }
+.framework-card.featured {
+  background: var(--accent-dim);
+  border-color: rgba(77,158,255,0.28);
+}
+.framework-icon { font-size: 36px; margin-bottom: 16px; }
+.framework-badge {
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid rgba(77,158,255,0.28);
+  background: var(--accent-dim);
+  padding: 4px 12px;
+  border-radius: 100px;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+.framework-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: #FFFFFF; margin-bottom: 10px; letter-spacing: 2px; }
+.framework-desc { font-size: 0.875rem; color: #FFFFFF; line-height: 1.65; font-weight: 500; }
+
+/* KITCHEN GRID */
+.kitchen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 40px; }
+.kitchen-card {
+  background: var(--white-08);
+  border: 1px solid var(--white-12);
+  border-radius: 20px;
+  padding: 32px 24px;
+  transition: background 0.2s;
+}
+.kitchen-card:hover { background: rgba(77,158,255,0.08); }
+.kitchen-card.featured {
+  background: var(--accent-dim);
+  border-color: rgba(77,158,255,0.28);
+}
+.kitchen-icon { font-size: 36px; margin-bottom: 14px; }
+.kitchen-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: #FFFFFF; margin-bottom: 14px; letter-spacing: 2px; }
+.kitchen-items { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.kitchen-items li {
+  font-size: 0.88rem;
+  color: #FFFFFF;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.4;
+}
+.kitchen-items li::before {
+  content: '';
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* WORK CARDS */
+.work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 40px; }
+.work-card {
+  background: var(--white-08);
+  border: 1px solid var(--white-12);
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: background 0.2s;
+}
+.work-card:hover { background: rgba(77,158,255,0.08); }
+.work-card.featured {
+  background: var(--accent-dim);
+  border-color: rgba(77,158,255,0.28);
+}
+.work-icon { font-size: 36px; margin-bottom: 14px; }
+.work-badge {
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid rgba(77,158,255,0.28);
+  background: var(--accent-dim);
+  padding: 4px 12px;
+  border-radius: 100px;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+.work-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: #FFFFFF; margin-bottom: 10px; letter-spacing: 2px; }
+.work-desc { font-size: 0.875rem; color: #FFFFFF; line-height: 1.65; font-weight: 500; }
+
+/* SOCIAL STACK */
+.social-stack { display: flex; flex-direction: column; gap: 10px; margin-top: 40px; }
+.social-row {
+  background: var(--white-08);
+  border: 1px solid var(--white-12);
+  border-radius: 14px;
+  padding: 24px 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: background 0.2s;
+}
+.social-row:hover { background: rgba(77,158,255,0.08); }
+.social-row.featured {
+  background: var(--accent-dim);
+  border-color: rgba(77,158,255,0.25);
+}
+.social-icon {
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  background: var(--white-12);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.social-row.featured .social-icon { background: rgba(77,158,255,0.18); }
+.social-content { flex: 1; }
+.social-label {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.60);
+  margin-bottom: 4px;
+}
+.social-row.featured .social-label { color: var(--accent); }
+.social-title { font-weight: 800; font-size: 1.05rem; color: #FFFFFF; margin-bottom: 6px; }
+.social-desc { font-size: 0.9rem; color: #FFFFFF; line-height: 1.7; margin: 0; font-weight: 500; }
+.social-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 100px;
+  background: rgba(77,158,255,0.18);
+  color: var(--accent);
+  border: 1px solid rgba(77,158,255,0.40);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ALCOHOL STATS */
+.alcohol-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 40px;
+  border: 1px solid rgba(77,158,255,0.20);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(77,158,255,0.06);
+}
+.alcohol-block {
+  background: var(--white-08);
+  padding: 36px 20px;
+  text-align: center;
+  border-right: 1px solid var(--white-12);
+  transition: background 0.2s;
+}
+.alcohol-block:last-child { border-right: none; }
+.alcohol-block:hover { background: rgba(77,158,255,0.10); }
+.alcohol-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.2rem;
+  color: #FFFFFF;
+  line-height: 1;
+  margin-bottom: 6px;
+  letter-spacing: 2px;
+}
+.alcohol-unit {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.alcohol-desc {
+  font-size: 0.8rem;
+  color: #FFFFFF;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+/* NUMBERS BOX */
+.numbers-box {
+  background: var(--white-08);
+  border: 1px solid var(--white-12);
+  border-radius: 20px;
+  padding: 36px;
+  margin-top: 40px;
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+.numbers-num-wrap {
+  text-align: center;
+  flex-shrink: 0;
+  background: var(--accent-dim);
+  border: 1px solid rgba(77,158,255,0.25);
+  border-radius: 14px;
+  padding: 24px 28px;
+  min-width: 130px;
+}
+.numbers-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.6rem;
+  color: #FFFFFF;
+  line-height: 1;
+}
+.numbers-unit {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 6px;
+}
+.numbers-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; color: #FFFFFF; margin-bottom: 10px; letter-spacing: 2px; }
+.numbers-text { font-size: 0.95rem; color: #FFFFFF; line-height: 1.75; margin: 0; font-weight: 500; }
+
+/* HABITS GRID */
+.habits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 40px; }
+.habit-card {
+  background: var(--white-08);
+  border: 1px solid var(--white-12);
+  border-radius: 20px;
+  padding: 32px 28px;
+  transition: background 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.habit-card:hover { background: rgba(77,158,255,0.08); border-color: rgba(77,158,255,0.22); }
+.habit-card::before {
+  content: attr(data-num);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 8rem;
+  color: rgba(77,158,255,0.07);
+  position: absolute;
+  top: -20px;
+  right: 20px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.habit-icon { font-size: 32px; margin-bottom: 16px; }
+.habit-label {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.habit-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: #FFFFFF; margin-bottom: 10px; letter-spacing: 2px; }
+.habit-desc { font-size: 0.92rem; color: #FFFFFF; line-height: 1.75; margin: 0; font-weight: 500; }
+
+/* WARNING */
+.warning {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--white-20);
+  border-radius: 14px;
+  padding: 22px 28px;
+  margin-top: 28px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.warn-icon { font-size: 18px; flex-shrink: 0; margin-top: 3px; }
+.warn-text { font-size: 0.92rem; color: #FFFFFF; line-height: 1.65; font-weight: 500; }
+.warn-text strong { font-weight: 800; color: var(--white); }
+
+/* CTA */
+.cta-section {
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(77,158,255,0.12) 0%, transparent 70%), var(--green-deep);
+  padding: 112px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border-top: 1px solid rgba(77,158,255,0.25);
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  width: 800px; height: 800px;
+  border-radius: 50%;
+  border: 1px solid var(--white-08);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.cta-glow {
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(77,158,255,0.12) 0%, transparent 65%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.cta-inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
+.cta-section h2 { font-size: clamp(2.4rem, 6vw, 4rem); color: var(--white); margin-bottom: 24px; }
+.cta-section h2 em { color: var(--accent); font-style: normal; }
+.cta-section p { font-size: 1.08rem; color: #FFFFFF; max-width: 520px; margin: 0 auto; font-weight: 500; }
+.cta-rules { display: flex; flex-direction: column; gap: 8px; margin-top: 48px; text-align: left; }
+.cta-rule {
+  background: var(--white-08);
+  border: 1px solid var(--white-12);
+  border-radius: 12px;
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  transition: background 0.15s;
+}
+.cta-rule:hover { background: rgba(77,158,255,0.12); border-color: rgba(77,158,255,0.30); }
+.cta-rule-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+.cta-brand {
+  margin-top: 64px;
+  font-size: 0.62rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  font-weight: 500;
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-glow"></div>
+  <div class="cover-eyebrow">The Post-Grad Protocol &nbsp;·&nbsp; Free Guide</div>
+  <h1>The Post-Grad<br><em>Eating</em><br>Guide</h1>
+  <p class="cover-sub">How to eat well when you have a job, a social life, and a fridge you actually have to stock yourself</p>
+  <div class="cover-pills">
+    <div class="pill"><div class="pill-dot"></div>Protein First Framework</div>
+    <div class="pill"><div class="pill-dot"></div>Real World Nutrition</div>
+    <div class="pill"><div class="pill-dot"></div>No Meal Prep Required</div>
+    <div class="pill"><div class="pill-dot"></div>Survives Your Social Life</div>
+  </div>
+  <div class="cover-brand">The Post-Grad Protocol</div>
+</div>
+
+<!-- SECTION 01 -->
+<div class="section">
+  <div class="section-label">Section 01</div>
+  <h2>Why Your Nutrition Fell Apart After Graduation</h2>
+  <p>In college someone else handled the food. The dining hall was open three times a day and all you had to do was show up. Post grad life removes all of that basically overnight and replaces it with a refrigerator you have to stock yourself, a kitchen you have to cook in yourself, and a schedule that leaves you with almost no time or energy to figure any of it out.</p>
+  <p>This is not a discipline problem. Most post grad men genuinely want to eat well. The problem is nobody ever actually taught them how to do it in the context of real adult life. A full time job, a social calendar, and zero mental energy left at 7pm on a Tuesday. That is the actual environment your nutrition has to survive in. That is exactly what this guide is built for.</p>
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-num">180g</div>
+      <div class="stat-unit">Daily Protein Target</div>
+      <div class="stat-desc">Your bodyweight in pounds equals your grams of protein per day. A 180 pound man needs 180 grams. This one number fixes most of the problem.</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">80%</div>
+      <div class="stat-unit">Consistency Goal</div>
+      <div class="stat-desc">Make solid choices 80 percent of the time and the other 20 percent barely touches your progress. You do not need to be perfect. You just need to be consistent.</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">$50</div>
+      <div class="stat-unit">Weekly Grocery Bill</div>
+      <div class="stat-desc">What a full week of high protein meals actually costs when you have the right staples. Less than two nights of delivery.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 02 -->
+<style>
+.failure-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 48px;
+}
+.failure-card {
+  background: var(--white-08);
+  border: 1px solid var(--white-12);
+  border-radius: 20px;
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s, border-color 0.2s;
+}
+.failure-card:hover {
+  background: rgba(77,158,255,0.08);
+  border-color: rgba(77,158,255,0.22);
+}
+.failure-card.wide {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  background: var(--accent-dim);
+  border-color: rgba(77,158,255,0.28);
+}
+.failure-card.wide:hover {
+  background: rgba(77,158,255,0.16);
+}
+.failure-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.failure-num::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(77,158,255,0.25);
+  max-width: 40px;
+}
+.failure-graphic {
+  margin-bottom: 20px;
+}
+.failure-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  color: #FFFFFF;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+.failure-desc {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.90);
+  line-height: 1.7;
+  font-weight: 500;
+  margin: 0;
+}
+.failure-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid rgba(77,158,255,0.28);
+  padding: 5px 12px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+/* ghost number watermark */
+.failure-card::after {
+  content: attr(data-n);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 9rem;
+  color: rgba(77,158,255,0.05);
+  position: absolute;
+  bottom: -20px;
+  right: 16px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+/* energy bar for decision fatigue */
+.energy-bar-wrap { margin: 16px 0 4px; }
+.energy-bar-label {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 6px;
+}
+.energy-bar {
+  height: 8px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.10);
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.energy-fill {
+  height: 100%;
+  border-radius: 100px;
+  background: linear-gradient(to right, #4D9EFF, #7DBFFF);
+}
+.energy-fill.low { background: linear-gradient(to right, #FF6B6B, #FF9E9E); }
+/* social calendar visual */
+.social-cal {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  margin: 16px 0;
+}
+.cal-day {
+  background: rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 8px 4px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.10);
+}
+.cal-day.danger {
+  background: rgba(77,158,255,0.18);
+  border-color: rgba(77,158,255,0.35);
+}
+.cal-day-name {
+  font-size: 0.52rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 5px;
+}
+.cal-day.danger .cal-day-name { color: var(--accent); }
+.cal-day-icon { font-size: 14px; }
+/* fridge visual */
+.fridge-visual {
+  display: flex;
+  gap: 6px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+.fridge-item {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.fridge-item.empty {
+  background: rgba(255,80,80,0.08);
+  border-color: rgba(255,80,80,0.20);
+  color: rgba(255,130,130,0.70);
+  text-decoration: line-through;
+}
+/* cooking timer */
+.cook-options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 16px 0;
+}
+.cook-opt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.60);
+}
+.cook-opt.chosen {
+  background: rgba(77,158,255,0.12);
+  color: #FFFFFF;
+}
+.cook-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.20);
+  flex-shrink: 0;
+}
+.cook-opt.chosen .cook-dot { background: var(--accent); }
+</style>
+
+<div class="section-alt">
+<div class="section">
+  <div class="section-label">Section 02</div>
+  <h2>Why It Keeps Going Wrong</h2>
+  <p>There are five reasons post grad nutrition falls apart and none of them have anything to do with willpower. Understanding what is actually working against you is the first step to building something that holds up in real life.</p>
+
+  <div class="failure-grid">
+
+    <!-- 01 — wide card -->
+    <div class="failure-card wide" data-n="">
+      <div>
+        <div class="failure-num">01 &nbsp;·&nbsp; The Biggest One</div>
+        <div class="failure-tag">🏠 Root Cause</div>
+        <div class="failure-title">No Food Environment</div>
+        <p class="failure-desc">In college the food was just there. Post grad life hands you an empty refrigerator and expects you to build your entire food environment from scratch every single week on top of everything else. Most guys never do it deliberately so they default to whatever takes the least effort.</p>
+      </div>
+      <div>
+        <div class="fridge-visual">
+          <div class="fridge-item">🥩 Chicken</div>
+          <div class="fridge-item">🥚 Eggs</div>
+          <div class="fridge-item empty">🥦 Broccoli</div>
+          <div class="fridge-item empty">🧀 Cheese</div>
+          <div class="fridge-item empty">🥛 Greek Yogurt</div>
+          <div class="fridge-item">🍕 Leftover pizza</div>
+          <div class="fridge-item">🍺 Beer</div>
+          <div class="fridge-item empty">🍚 Rice</div>
+        </div>
+        <p style="font-size:0.72rem; color:rgba(255,255,255,0.45); font-weight:600; letter-spacing:1px; text-transform:uppercase; margin-top:8px;">Your fridge on Thursday when you never stocked it Sunday</p>
+      </div>
+    </div>
+
+    <!-- 02 — decision fatigue -->
+    <div class="failure-card" data-n="2">
+      <div class="failure-num">02</div>
+      <div class="failure-tag">🧠 Mental Load</div>
+      <div class="failure-title">Decision Fatigue</div>
+      <div class="energy-bar-wrap">
+        <div class="energy-bar-label">Brain Energy &nbsp;·&nbsp; 8am</div>
+        <div class="energy-bar"><div class="energy-fill" style="width:95%"></div></div>
+        <div class="energy-bar-label">Brain Energy &nbsp;·&nbsp; 12pm</div>
+        <div class="energy-bar"><div class="energy-fill" style="width:65%"></div></div>
+        <div class="energy-bar-label">Brain Energy &nbsp;·&nbsp; 7pm (dinner time)</div>
+        <div class="energy-bar"><div class="energy-fill low" style="width:12%"></div></div>
+      </div>
+      <p class="failure-desc">By the time you get home your brain has nothing left for food. You will not make a thoughtful choice. You will make the easiest one available.</p>
+    </div>
+
+    <!-- 03 — social eating -->
+    <div class="failure-card" data-n="3">
+      <div class="failure-num">03</div>
+      <div class="failure-tag">🍻 Social Life</div>
+      <div class="failure-title">Social Eating</div>
+      <div class="social-cal">
+        <div class="cal-day"><div class="cal-day-name">Mon</div><div class="cal-day-icon">🥗</div></div>
+        <div class="cal-day danger"><div class="cal-day-name">Tue</div><div class="cal-day-icon">🍻</div></div>
+        <div class="cal-day"><div class="cal-day-name">Wed</div><div class="cal-day-icon">🥗</div></div>
+        <div class="cal-day danger"><div class="cal-day-name">Thu</div><div class="cal-day-icon">🍕</div></div>
+        <div class="cal-day danger"><div class="cal-day-name">Fri</div><div class="cal-day-icon">🥂</div></div>
+      </div>
+      <p class="failure-desc">Work lunches, client dinners, happy hours that turn into dinner. Your nutrition has to survive a social calendar actively working against it.</p>
+    </div>
+
+    <!-- 04 — grocery problem -->
+    <div class="failure-card" data-n="4">
+      <div class="failure-num">04</div>
+      <div class="failure-tag">🛒 Weekly Habit</div>
+      <div class="failure-title">The Grocery Problem</div>
+      <!-- SVG bar chart -->
+      <svg width="100%" height="80" viewBox="0 0 300 80" style="margin:16px 0;" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="20" width="60" height="55" rx="6" fill="rgba(77,158,255,0.25)" stroke="rgba(77,158,255,0.50)" stroke-width="1"/>
+        <text x="40" y="14" font-family="Inter" font-size="9" font-weight="800" fill="rgba(77,158,255,0.90)" text-anchor="middle" letter-spacing="1">OVERBUY</text>
+        <text x="40" y="48" font-family="Inter" font-size="18" fill="#FFFFFF" text-anchor="middle">🗑️</text>
+        <rect x="120" y="35" width="60" height="40" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        <text x="150" y="29" font-family="Inter" font-size="9" font-weight="800" fill="rgba(255,255,255,0.50)" text-anchor="middle" letter-spacing="1">UNDERBUY</text>
+        <text x="150" y="58" font-family="Inter" font-size="18" fill="rgba(255,255,255,0.50)" text-anchor="middle">🤷</text>
+        <rect x="230" y="10" width="60" height="65" rx="6" fill="rgba(255,100,100,0.15)" stroke="rgba(255,100,100,0.30)" stroke-width="1"/>
+        <text x="260" y="6" font-family="Inter" font-size="9" font-weight="800" fill="rgba(255,130,130,0.80)" text-anchor="middle" letter-spacing="1">DELIVERY</text>
+        <text x="260" y="48" font-family="Inter" font-size="18" fill="#FFFFFF" text-anchor="middle">📱</text>
+        <text x="260" y="68" font-family="Inter" font-size="8" font-weight="700" fill="rgba(255,130,130,0.70)" text-anchor="middle">$18/meal</text>
+      </svg>
+      <p class="failure-desc">Nobody taught you how to shop as a single adult. Most guys overbuy and waste, underbuy and run out, or default to delivery every time.</p>
+    </div>
+
+    <!-- 05 — cooking gap -->
+    <div class="failure-card" data-n="5" style="grid-column: span 2;">
+      <div class="failure-num">05</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start;">
+        <div>
+          <div class="failure-tag">🍳 Execution Gap</div>
+          <div class="failure-title">The Cooking Gap</div>
+          <p class="failure-desc">Most post grad men do not have a reliable rotation of fast high protein meals they can execute on a Tuesday night when they are tired and do not want to think. Without that rotation every weeknight dinner is a new problem to solve, and tired brains do not solve problems well.</p>
+        </div>
+        <div>
+          <div class="energy-bar-label" style="margin-bottom:10px;">Tuesday 7pm &nbsp;·&nbsp; What actually happens</div>
+          <div class="cook-options">
+            <div class="cook-opt"><div class="cook-dot"></div>Cook a balanced high protein meal</div>
+            <div class="cook-opt"><div class="cook-dot"></div>Prep vegetables and rice</div>
+            <div class="cook-opt chosen"><div class="cook-dot"></div>📱 Order DoorDash again &nbsp;·&nbsp; $22</div>
+          </div>
+          <p style="font-size:0.72rem; color:rgba(255,255,255,0.40); font-weight:600; letter-spacing:1px; text-transform:uppercase; margin-top:10px;">No plan = easiest path wins every time</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 03 -->
+<div class="section">
+  <div class="section-label">Section 03</div>
+  <h2>The Three Things That Fix All of It</h2>
+  <p>You do not need a complicated nutrition plan. You need three principles that hold up in real life when you are tired, busy, and socially active. Get these right and everything else falls into place.</p>
+  <div class="framework-grid">
+    <div class="framework-card featured">
+      <div class="framework-icon">🥩</div>
+      <div class="framework-badge">Most Important</div>
+      <div class="framework-name">Protein First</div>
+      <div class="framework-desc">Build every single meal around a protein source before anything else. Protein builds and preserves muscle, keeps you fuller longer than anything else, stabilizes your blood sugar so you stop crashing at 3pm, and burns more calories during digestion than carbs or fat. Start here and the rest gets way easier.</div>
+    </div>
+    <div class="framework-card">
+      <div class="framework-icon">🏠</div>
+      <div class="framework-badge">Game Changer</div>
+      <div class="framework-name">Design Your Environment</div>
+      <div class="framework-desc">Your nutrition is determined far more by what is in your kitchen than by your discipline at 7pm. If your fridge has quality food in it you will eat quality food. The most powerful nutritional decision you make each week is not what you choose on Wednesday night. It is what you put in your kitchen on Sunday.</div>
+    </div>
+    <div class="framework-card">
+      <div class="framework-icon">🎯</div>
+      <div class="framework-badge">The Standard</div>
+      <div class="framework-name">80 Percent Consistency</div>
+      <div class="framework-desc">Aim for 80 percent solid choices and the other 20 barely registers on your progress. The work lunch where everyone orders burgers, the Saturday brunch, the late night food after going out. None of these damage your results when the baseline is solid. You do not need to be perfect. You just need a reliable default.</div>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:40px;">
+    <div class="callout-icon">💡</div>
+    <div class="callout-text"><strong>The one number that matters most:</strong> Your bodyweight in pounds is your daily protein target in grams. A 180 pound man needs 180 grams per day. Hit this consistently and everything else in your nutrition improves on its own. Start there before you think about anything else.</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 04 -->
+<div class="section-alt">
+<div class="section">
+  <div class="section-label">Section 04</div>
+  <h2>What to Keep in Your Kitchen</h2>
+  <p>You do not need a fully stocked gourmet kitchen. You need about fifteen items spread across your fridge, freezer, and pantry that let you build a solid high protein meal any night of the week in under ten minutes. This is the entire foundation.</p>
+  <div class="kitchen-grid">
+    <div class="kitchen-card featured">
+      <div class="kitchen-icon">🧊</div>
+      <div class="kitchen-name">The Fridge</div>
+      <ul class="kitchen-items">
+        <li>Eggs</li>
+        <li>Large tub of Greek yogurt</li>
+        <li>At least one cooked protein</li>
+        <li>Bag of spinach</li>
+        <li>Cherry tomatoes</li>
+        <li>Shredded cheese</li>
+        <li>Fruit of any kind</li>
+      </ul>
+    </div>
+    <div class="kitchen-card">
+      <div class="kitchen-icon">❄️</div>
+      <div class="kitchen-name">The Freezer</div>
+      <ul class="kitchen-items">
+        <li>Frozen stir fry vegetables</li>
+        <li>Frozen broccoli</li>
+        <li>Frozen chicken breasts</li>
+        <li>Frozen shrimp</li>
+        <li>Edamame</li>
+      </ul>
+    </div>
+    <div class="kitchen-card">
+      <div class="kitchen-icon">🗄️</div>
+      <div class="kitchen-name">The Pantry</div>
+      <ul class="kitchen-items">
+        <li>White rice and a rice cooker</li>
+        <li>Canned tuna</li>
+        <li>Canned black beans and chickpeas</li>
+        <li>Oats and pasta</li>
+        <li>Olive oil and soy sauce</li>
+        <li>Hot sauce, garlic powder, salt</li>
+      </ul>
+    </div>
+  </div>
+  <div class="warning" style="margin-top:32px;">
+    <div class="warn-icon">💰</div>
+    <div class="warn-text"><strong>The math is obvious:</strong> Frozen vegetables are nutritionally identical to fresh, never go bad, and take two minutes in the microwave. A fifteen dollar rice cooker pays for itself in the first week. With these staples stocked your total weekly grocery bill runs forty five to sixty dollars. That is less than two nights of delivery.</div>
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 05 -->
+<div class="section">
+  <div class="section-label">Section 05</div>
+  <h2>Eating Well at Work</h2>
+  <p>The office is where post grad nutrition quietly falls apart for most guys. Expensive lunch options, unpredictable schedules, coworkers who want to go out, and an afternoon energy crash that keeps sending you back to the coffee machine. Here is how to handle all of it.</p>
+  <div class="work-grid">
+    <div class="work-card featured">
+      <div class="work-icon">🥡</div>
+      <div class="work-badge">Do This First</div>
+      <div class="work-name">Bring Lunch 3 Days</div>
+      <div class="work-desc">Three days of brought lunch saves you forty to sixty dollars a week and gives you three completely controlled meals where your protein and quality are entirely in your hands. Your default brought lunch takes three minutes to assemble. Cooked protein, rice, prepped vegetables, a piece of fruit. It does not need to be impressive. It just needs protein, carbs, and something green.</div>
+    </div>
+    <div class="work-card">
+      <div class="work-icon">🍽️</div>
+      <div class="work-badge">When Eating Out</div>
+      <div class="work-name">Order Smart Not Sad</div>
+      <div class="work-desc">You do not need to be the person ordering a sad salad while everyone else eats whatever they want. Almost every lunch spot has a solid option. A grilled protein with vegetables at any sit down restaurant. A bowl instead of a burrito at a Mexican spot. Same food, fewer empty calories, way more protein.</div>
+    </div>
+    <div class="work-card">
+      <div class="work-icon">⚡</div>
+      <div class="work-badge">The 3pm Crash</div>
+      <div class="work-name">Protein Not Coffee</div>
+      <div class="work-desc">That afternoon crash is not a caffeine problem. It is a protein problem at lunch. Eat enough protein at lunch and your blood sugar stays stable through the whole afternoon. When that is not possible a protein bar, Greek yogurt, or a hard boiled egg at your desk fixes it completely. Stop using coffee as the solution to a food problem.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 06 -->
+<div class="section-alt">
+<div class="section">
+  <div class="section-label">Section 06</div>
+  <h2>Navigating Happy Hours, Work Dinners and Brunch</h2>
+  <p>Post grad social life basically revolves around food and drinks. Work happy hours, client dinners, weekend brunch with friends. Your nutrition has to survive all of it without making you the awkward person who cannot relax and eat like a normal human. Here is exactly how to handle each one.</p>
+  <div class="social-stack">
+    <div class="social-row featured">
+      <div class="social-icon">🍻</div>
+      <div class="social-content">
+        <div class="social-label">Most Important Habit</div>
+        <div class="social-title">Eat Before Happy Hour. Every Single Time.</div>
+        <p class="social-desc">This is the single most impactful nutrition habit for post grad men and almost nobody does it consistently. Happy hour on an empty stomach means every bad decision becomes easy to justify. When you arrive satisfied two drinks and some snacks is a genuinely enjoyable social experience. When you arrive starving happy hour becomes dinner becomes late night food becomes 1,500 calories of nutritionally empty intake on a Tuesday night.</p>
+      </div>
+      <div class="social-badge">Non Negotiable</div>
+    </div>
+    <div class="social-row">
+      <div class="social-icon">🤝</div>
+      <div class="social-content">
+        <div class="social-label">Work Dinners</div>
+        <div class="social-title">Order Protein Forward and Move On</div>
+        <p class="social-desc">Order something protein forward and do not make your food choices anyone's topic of conversation including your own. You are there to build professional relationships. Eat something reasonable and focus on why you are actually at the table.</p>
+      </div>
+    </div>
+    <div class="social-row">
+      <div class="social-icon">🍳</div>
+      <div class="social-content">
+        <div class="social-label">Weekend Brunch</div>
+        <div class="social-title">Build Around Eggs Whenever You Can</div>
+        <p class="social-desc">Eggs give you twenty to thirty grams of protein, show up on every brunch menu in every format, and keep you genuinely full through the afternoon. Pancakes and French toast taste great and leave you hungry again in ninety minutes. Add fruit and coffee and you have an enjoyable brunch that does not undo an entire week of solid work.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 07 -->
+<div class="section">
+  <div class="section-label">Section 07</div>
+  <h2>The Alcohol Reality</h2>
+  <p>This is not an argument against drinking. It is just information that lets you make intentional choices instead of waking up on Sunday wondering what happened.</p>
+  <div class="alcohol-grid">
+    <div class="alcohol-block">
+      <div class="alcohol-num">100</div>
+      <div class="alcohol-unit">Cals Per Drink</div>
+      <div class="alcohol-desc">A standard drink is roughly 100 to 150 calories with zero nutritional value and zero satiety.</div>
+    </div>
+    <div class="alcohol-block">
+      <div class="alcohol-num">450</div>
+      <div class="alcohol-unit">Cals for 3 Drinks</div>
+      <div class="alcohol-desc">Three drinks at happy hour before you have even touched food. Add late night delivery and you see how quickly it compounds.</div>
+    </div>
+    <div class="alcohol-block">
+      <div class="alcohol-num">1500</div>
+      <div class="alcohol-unit">Cals in One Night</div>
+      <div class="alcohol-desc">A single social evening can easily exceed 1,500 calories of nutritionally empty intake when you add food to the drinks.</div>
+    </div>
+    <div class="alcohol-block">
+      <div class="alcohol-num">50%</div>
+      <div class="alcohol-unit">Consumption Cut</div>
+      <div class="alcohol-desc">Alternating alcoholic drinks with water cuts your consumption roughly in half without ever feeling like you are not participating.</div>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:32px;">
+    <div class="callout-icon">💧</div>
+    <div class="callout-text"><strong>The habit that costs nothing:</strong> Drink a large glass of water before you go to sleep after a night out. That one habit alone meaningfully improves how you feel the next morning and therefore the quality of every food choice you make the following day.</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 08 -->
+<div class="section-alt">
+<div class="section">
+  <div class="section-label">Section 08</div>
+  <h2>The Numbers That Actually Matter</h2>
+  <p>You do not need to count calories forever. You just need enough awareness to know where you actually are right now and what needs adjusting. Most guys discover things are way simpler to fix than they thought.</p>
+  <div class="numbers-box">
+    <div class="numbers-num-wrap">
+      <div class="numbers-num">1 Week</div>
+      <div class="numbers-unit">Track Everything</div>
+    </div>
+    <div>
+      <div class="numbers-title">One Week of Honest Tracking</div>
+      <p class="numbers-text">Track everything you eat for one week using a free app. Most post grad men discover they are hitting forty to sixty grams of protein per day when they need one hundred and sixty. Most guys who think their diet is the problem discover they are only two to three hundred calories over maintenance. Entirely fixable with small adjustments rather than a complete overhaul. One week of honest tracking creates months of better instincts.</p>
+    </div>
+  </div>
+  <div style="margin-top:40px;">
+    <div class="section-label">Your Three Targets</div>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-num">1g</div>
+        <div class="stat-unit">Per Pound of Bodyweight</div>
+        <div class="stat-desc">Your daily protein target in grams. Hit this first. Everything else improves on its own when you do. You naturally eat less junk because protein keeps you full.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">300</div>
+        <div class="stat-unit">Calories Below for Fat Loss</div>
+        <div class="stat-desc">Eat 300 to 500 below your maintenance level to lose fat while keeping muscle. You do not need to crash diet. A modest deficit held consistently beats an aggressive one you cannot sustain.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">200</div>
+        <div class="stat-unit">Calories Above for Muscle</div>
+        <div class="stat-desc">Eat 200 to 300 above maintenance to build muscle. For doing both at once eat at maintenance with high protein and focus on getting stronger every session.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 09 -->
+<div class="section">
+  <div class="section-label">Section 09</div>
+  <h2>The Only Rules You Need</h2>
+  <p>All of this comes down to a handful of habits that hold up in the real world. These are not rigid rules. They are defaults that make the right choice the easy choice most of the time.</p>
+  <div class="habits-grid">
+    <div class="habit-card" data-num="1">
+      <div class="habit-icon">☀️</div>
+      <div class="habit-label">Every Day</div>
+      <div class="habit-title">Daily Non Negotiables</div>
+      <p class="habit-desc">Eat protein within an hour of waking up. Hit your protein target. Eat something green. Drink enough water that you are not just relying on coffee to function. That is it. Four things every day.</p>
+    </div>
+    <div class="habit-card" data-num="2">
+      <div class="habit-icon">📅</div>
+      <div class="habit-label">Every Week</div>
+      <div class="habit-title">Weekly Setup</div>
+      <p class="habit-desc">Grocery run with a list before the week starts. Snacks ready and visible before Monday morning. Lunch brought to work at least three times. Do these three things every week and the baseline holds up on its own.</p>
+    </div>
+    <div class="habit-card" data-num="3">
+      <div class="habit-icon">🍽️</div>
+      <div class="habit-label">When Eating Out</div>
+      <div class="habit-title">Ordering Framework</div>
+      <p class="habit-desc">Build the meal around protein first. Bowl over burrito. Grilled over fried when you have no strong preference either way. A reasonable choice beats a perfect choice you never actually make.</p>
+    </div>
+    <div class="habit-card" data-num="4">
+      <div class="habit-icon">🔄</div>
+      <div class="habit-label">When Things Go Wrong</div>
+      <div class="habit-title">The Reset Rule</div>
+      <p class="habit-desc">One bad meal is not a bad day. One bad day is not a bad week. The next meal is always a completely fresh start. Get back on track immediately, not at some theoretical Monday morning reset that never comes.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <h2>Built for the Man<br><em>You Are Building</em></h2>
+    <p>The nutrition habits you lock in during your first years post graduation become the baseline you carry for the rest of your adult life. You are not just trying to drop twenty pounds. You are building the version of yourself who handles his health the same way he handles his career. With intention, consistency, and the understanding that the small decisions made every single day are what produce the outcomes that actually matter.</p>
+    <div class="cta-rules">
+      <div class="cta-rule"><div class="cta-rule-dot"></div>Eat protein within an hour of waking up every single day</div>
+      <div class="cta-rule"><div class="cta-rule-dot"></div>Hit your protein target. Your bodyweight in pounds is your gram goal.</div>
+      <div class="cta-rule"><div class="cta-rule-dot"></div>Stock your kitchen on Sunday before the week starts</div>
+      <div class="cta-rule"><div class="cta-rule-dot"></div>Eat before you go out. Every single time without exception.</div>
+      <div class="cta-rule"><div class="cta-rule-dot"></div>One bad meal is not a bad day. The next meal is always a fresh start.</div>
+    </div>
+    <div class="cta-brand">The Post-Grad Protocol</div>
+  </div>
+</div>
+
+</body>
+</html>

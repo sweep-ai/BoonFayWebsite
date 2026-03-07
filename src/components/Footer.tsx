@@ -1,11 +1,6 @@
-
-import { useState } from 'react';
 import { Heart, Mail, Phone } from 'lucide-react';
-import StrategyCallModal from './StrategyCallModal';
 
 const Footer = () => {
-  const [showModal, setShowModal] = useState(false);
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -17,8 +12,7 @@ const Footer = () => {
   };
 
   return (
-    <>
-      <footer className="bg-background text-foreground py-12 md:py-16 border-t border-border">
+    <footer className="text-foreground py-12 md:py-16 border-t border-white/10">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="grid md:grid-cols-3 gap-8 md:gap-12">
             {/* Brand Column */}
@@ -65,7 +59,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <button 
-                    onClick={() => setShowModal(true)}
+                    onClick={() => scrollToSection('book-call')}
                     className="hover:text-white transition-colors text-left text-sm md:text-base"
                   >
                     Book a Call
@@ -106,10 +100,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </footer>
-
-      <StrategyCallModal isOpen={showModal} onClose={() => setShowModal(false)} />
-    </>
+    </footer>
   );
 };
 
