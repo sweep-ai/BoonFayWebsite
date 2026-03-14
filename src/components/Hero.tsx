@@ -69,25 +69,23 @@ const Hero = () => {
           </div> */}
 
           {/* Quiz CTA (replaces inline quiz in Hero) */}
-          <div className="w-full max-w-lg mb-8 md:mb-10">
+          <div className="w-full max-w-lg mb-8 md:mb-10 px-1 sm:px-0">
             <div className="relative">
-              <div className="relative bg-card/80 backdrop-blur-md rounded-xl shadow-2xl z-10 p-6 text-center">
-
-
+              <div className="relative bg-white/5 backdrop-blur-md rounded-2xl border border-blue-500/30 shadow-xl shadow-blue-500/10 z-10 p-5 sm:p-6 md:p-6 text-center">
                 <Button
                   size="lg"
-                  className="w-full min-w-0 bg-gradient-to-r from-white to-blue-500 hover:from-white/95 hover:to-blue-400 text-gray-900 text-lg sm:text-xl md:text-2xl font-bold py-4 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 glow-white whitespace-normal text-center break-words"
+                  className="w-full min-w-0 min-h-[48px] sm:min-h-[56px] md:min-h-[60px] bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white text-base sm:text-lg md:text-xl font-bold py-4 px-5 sm:py-4 sm:px-6 md:py-5 md:px-8 rounded-xl shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0A0F] whitespace-normal text-center break-words border-0 leading-snug flex items-center justify-center box-border"
                   onClick={handleQuizCta}
                 >
                   Get The Post-Grad Protocol
                 </Button>
                 {ctaClicked && (
-                  <p className="mt-3 text-xs text-muted-foreground">
+                  <p className="mt-3 text-xs text-white/60">
                     Scrolling to the quiz…
                   </p>
                 )}
-                <p className="text-sm sm:text-base text-muted-foreground mb-4 mt-4">
-                  Fill out a 2 minute quiz and get a personalized playbook + video breakdown with everyting you need.
+                <p className="text-sm sm:text-base text-white/70 mb-0 mt-4">
+                  Fill out a 2 minute quiz and get a personalized playbook + video breakdown with everything you need.
                 </p>
               </div>
             </div>
