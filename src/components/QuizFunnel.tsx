@@ -86,7 +86,7 @@ export default function QuizFunnel() {
               Customized Post-Grad Playbook
             </h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-              Get your personalized college-based playbook and video breakdown delivered instantly. Just the exact system helping college kids drop 20lbs in 1 semester.
+              Get your personalized Post-Grad Playbook and video breakdown delivered instantly. Just the exact system helping post-grads drop 20lbs in 90 days.
             </p>
           </div>
 
