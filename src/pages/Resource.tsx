@@ -20,6 +20,8 @@ const RESOURCE_CONTENT: Record<
     bullets: string[];
     bulletEmojis: string[];
     videoTitle: string;
+    loomUrl: string;
+    loomPadding: string;
     playbookLabel: string;
     section2Title: string;
     section2Copy: string;
@@ -46,6 +48,8 @@ const RESOURCE_CONTENT: Record<
     ],
     bulletEmojis: ['🥩', '🛒', '🍽️', '📊', '🔄'],
     videoTitle: 'Watch: How Post-Grads Are Getting Visible Abs Without Restriction',
+    loomUrl: 'https://www.loom.com/embed/e17933f9347241d6b5e635b30af0752b',
+    loomPadding: '53.1%',
     playbookLabel: 'Download Eating Playbook',
     section2Title: 'Real life, real results',
     section2Copy: "The playbook works because it's built around how you actually eat. Restaurants, takeout, happy hour. No meal prep marathons, no cutting out your favorite foods.",
@@ -71,6 +75,8 @@ const RESOURCE_CONTENT: Record<
     ],
     bulletEmojis: ['📋', '📈', '🥛', '⏰', '♻️'],
     videoTitle: 'Watch: The Fastest Way to Build Muscle After College',
+    loomUrl: 'https://www.loom.com/embed/63fd69d48e1948fc85ac57c7c0245c41',
+    loomPadding: '56.25%',
     playbookLabel: 'Download Training Playbook',
     section2Title: 'Built for your schedule',
     section2Copy: "3 to 4 sessions per week, 45 to 55 minutes each. Train before work and your sessions are protected from the day. The programs need minimal equipment and fit any gym.",
@@ -96,6 +102,8 @@ const RESOURCE_CONTENT: Record<
     ],
     bulletEmojis: ['⚓', '📅', '⏱️', '🍷', '✅'],
     videoTitle: 'Watch: How to Build Your Best Physique After College',
+    loomUrl: 'https://www.loom.com/embed/5064bffc92184f0090ce8dd7a705d544',
+    loomPadding: '53.1%',
     playbookLabel: 'Download Balance Playbook',
     section2Title: 'Fitness that fits',
     section2Copy: "Lock your training days and fit everything else around them. The anchor system keeps you consistent without sacrificing work, travel, or your social life.",
@@ -176,17 +184,13 @@ export default function Resource() {
           <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
             {content.videoTitle}
           </h2>
-          <div className="relative rounded-2xl overflow-hidden bg-zinc-900/80 border border-blue-500/20 aspect-video flex items-center justify-center">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent" />
-            <div className="relative flex flex-col items-center justify-center gap-3 text-white/70">
-              <div className="w-16 h-16 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center">
-                <Play className="w-8 h-8 text-blue-400 ml-1" fill="currentColor" />
-              </div>
-              <p className="text-sm font-medium text-white/60">Video training coming soon</p>
-              <p className="text-xs max-w-xs text-center text-white/40">
-                Your personalized training breakdown will appear here based on your quiz answers.
-              </p>
-            </div>
+          <div className="relative rounded-2xl overflow-hidden border border-blue-500/20" style={{ paddingBottom: content.loomPadding }}>
+            <iframe
+              src={content.loomUrl}
+              frameBorder="0"
+              allowFullScreen
+              className="absolute top-0 left-0 w-full h-full"
+            />
           </div>
           <Button
             asChild

@@ -29,7 +29,7 @@ const Hero = () => {
 
           {/* Centered Demo Video with card glow */}
           <div className="mb-8 md:mb-12 flex justify-center items-center">
-            <div className="relative inline-block max-w-sm md:max-w-md lg:max-w-lg">
+            <div className="relative inline-block max-w-xl md:max-w-2xl lg:max-w-3xl w-full">
               <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-white to-gray-400 opacity-70 blur-md pointer-events-none glow-white" />
               <div className="relative bg-muted rounded-xl overflow-hidden shadow-2xl backdrop-blur-md inline-block">
                 <video

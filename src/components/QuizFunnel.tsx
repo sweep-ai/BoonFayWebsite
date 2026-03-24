@@ -115,7 +115,9 @@ export default function QuizFunnel() {
     };
   }, [quizStep]);
 
-  const handleLeadSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleLeadSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormError('');
     const trimmedName = name.trim();
@@ -125,7 +127,31 @@ export default function QuizFunnel() {
       return;
     }
     const slug = q1 ? Q1_TO_SLUG[q1] : 'physique';
-    window.location.href = `/resource/${slug}`;
+
+    setSubmitting(true);
+    const payload = JSON.stringify({
+      email: trimmedEmail,
+      name: trimmedName,
+      goal: slug,
+      q1: q1 ?? '',
+      q2: q2 ?? '',
+      q3: q3 ?? '',
+    });
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: payload,
+        keepalive: true,
+      });
+      await res.json().catch(() => {});
+    } catch {
+      // Fallback: use sendBeacon so the request survives page navigation
+      navigator.sendBeacon('/api/subscribe', new Blob([payload], { type: 'application/json' }));
+    } finally {
+      window.location.href = `/resource/${slug}`;
+    }
   };
 
   return (
@@ -356,8 +382,8 @@ export default function QuizFunnel() {
                       {formError && (
                         <p className="text-sm text-blue-400">{formError}</p>
                       )}
-                      <Button type="submit" className="w-full" size="lg">
-                        Send me my playbook
+                      <Button type="submit" className="w-full" size="lg" disabled={submitting}>
+                        {submitting ? 'Sending...' : 'Send me my playbook'}
                       </Button>
                     </form>
 
