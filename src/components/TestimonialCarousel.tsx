@@ -29,7 +29,7 @@ const TestimonialCarousel = () => {
     {
       name: 'Robert',
       meta: '',
-      result: 'Down 30lbs in 3 months without any majore lifestyle changes',
+      result: 'Down 30lbs in 3 months without any major lifestyle changes',
       quote: 'Thanks for helping me with this weight loss journey, Boon. It\'s good to be 30 lbs lighter.',
       image: {
         kind: 'pair',

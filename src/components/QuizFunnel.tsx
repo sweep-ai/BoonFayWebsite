@@ -6,8 +6,8 @@ import { cn } from '@/lib/utils';
 
 const Q1_OPTIONS = [
   'Get a visible 6 pack without a restrictive diet',
-  'Gain up to 10lbs of muscle this semester',
-  'Get your dream physique while enjoying your college life',
+  'Gain up to 10lbs of muscle',
+  'Get your dream physique while enjoying your post-grad life',
 ];
 
 const Q1_TO_SLUG: Record<string, string> = {
@@ -16,17 +16,68 @@ const Q1_TO_SLUG: Record<string, string> = {
   [Q1_OPTIONS[2]]: 'physique',
 };
 
-const Q2_OPTIONS = [
-  "I don't have enough time",
-  "I go to the gym occasionally but never stay consistent",
-  "I don't know how to get in shape",
-];
+const Q2_BY_GOAL: Record<string, { question: string; subtitle: string; options: string[] }> = {
+  [Q1_OPTIONS[0]]: {
+    question: "What's keeping you from seeing your abs?",
+    subtitle: 'Be honest — this helps us build the right plan',
+    options: [
+      "I eat out too much and don't know what to order",
+      "My 9-5 leaves me too drained to cook or meal prep",
+      "I work out but my diet isn't dialed in",
+    ],
+  },
+  [Q1_OPTIONS[1]]: {
+    question: "What's holding you back from building muscle?",
+    subtitle: 'Pick the one that hits closest to home',
+    options: [
+      "I can't stay consistent with a gym routine after work",
+      "I don't eat enough protein — I barely cook",
+      "I train but I'm not seeing the gains I want",
+    ],
+  },
+  [Q1_OPTIONS[2]]: {
+    question: "What's getting in the way of your ideal physique?",
+    subtitle: 'No wrong answers — just pick what resonates',
+    options: [
+      "Work, happy hours, and weekends keep derailing me",
+      "I don't have a plan that fits my actual lifestyle",
+      "I've tried programs before but nothing sticks post-grad",
+    ],
+  },
+};
 
-const Q3_OPTIONS = [
-  'Just getting started',
-  "I've tried a few things but never stuck with it",
-  'I work out regularly but want better results',
-];
+const Q3_BY_GOAL: Record<string, { question: string; subtitle: string; options: string[] }> = {
+  [Q1_OPTIONS[0]]: {
+    question: 'How would you describe your current eating habits?',
+    subtitle: 'This helps us customize your nutrition playbook',
+    options: [
+      "Mostly takeout and dining out — I barely use my kitchen",
+      "I try to eat well but fall off every weekend",
+      "I eat pretty clean but need help dialing in the details",
+    ],
+  },
+  [Q1_OPTIONS[1]]: {
+    question: "What does your gym situation look like right now?",
+    subtitle: 'So we can match the plan to your setup',
+    options: [
+      "I have a gym membership but barely go",
+      "I go 2-3x a week but don't follow a real program",
+      "I train consistently but want a smarter approach",
+    ],
+  },
+  [Q1_OPTIONS[2]]: {
+    question: "How much time can you realistically commit per week?",
+    subtitle: "We'll build around your actual schedule",
+    options: [
+      "I'm slammed — maybe 2-3 hours total",
+      "I can do 3-4 sessions if they're short and efficient",
+      "Time isn't the issue — I just need the right plan",
+    ],
+  },
+};
+
+const Q2_FALLBACK = Q2_BY_GOAL[Q1_OPTIONS[2]];
+const Q3_FALLBACK = Q3_BY_GOAL[Q1_OPTIONS[2]];
 
 export default function QuizFunnel() {
   const [quizStep, setQuizStep] = useState(1);
@@ -36,12 +87,14 @@ export default function QuizFunnel() {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
   const [formError, setFormError] = useState('');
   const [slideHeight, setSlideHeight] = useState<number | null>(null);
   const slideRefs = useRef<(HTMLDivElement | null)[]>([null, null, null, null]);
 
   const progress = quizStep === 1 ? 25 : quizStep === 2 ? 50 : quizStep === 3 ? 75 : 100;
+
+  const q2Content = q1 ? (Q2_BY_GOAL[q1] ?? Q2_FALLBACK) : Q2_FALLBACK;
+  const q3Content = q1 ? (Q3_BY_GOAL[q1] ?? Q3_FALLBACK) : Q3_FALLBACK;
 
   useEffect(() => {
     const el = slideRefs.current[quizStep - 1];
@@ -67,8 +120,7 @@ export default function QuizFunnel() {
     setFormError('');
     const trimmedName = name.trim();
     const trimmedEmail = email.trim();
-    const trimmedPhone = phone.trim();
-    if (!trimmedName || !trimmedEmail || !trimmedPhone) {
+    if (!trimmedName || !trimmedEmail) {
       setFormError('Please fill in all fields');
       return;
     }
@@ -172,12 +224,12 @@ export default function QuizFunnel() {
                     </div>
 
                     <h3 className="text-2xl sm:text-3xl font-bold text-white mb-1 text-center">
-                      What's stopping you from hitting your goal?
+                      {q2Content.question}
                     </h3>
-                    <p className="text-sm text-zinc-400 mb-6 text-center">Pick the one that feels most true right now</p>
+                    <p className="text-sm text-zinc-400 mb-6 text-center">{q2Content.subtitle}</p>
 
                     <ul className="w-full max-w-xl space-y-3 mb-6 mx-auto">
-                      {Q2_OPTIONS.map((opt) => (
+                      {q2Content.options.map((opt) => (
                         <li key={opt}>
                           <button
                             type="button"
@@ -220,12 +272,12 @@ export default function QuizFunnel() {
                     </div>
 
                     <h3 className="text-2xl sm:text-3xl font-bold text-white mb-1 text-center">
-                      What's your experience with fitness?
+                      {q3Content.question}
                     </h3>
-                    <p className="text-sm text-zinc-400 mb-6 text-center">This helps personalize your playbook</p>
+                    <p className="text-sm text-zinc-400 mb-6 text-center">{q3Content.subtitle}</p>
 
                     <ul className="w-full max-w-xl space-y-3 mb-6 mx-auto">
-                      {Q3_OPTIONS.map((opt) => (
+                      {q3Content.options.map((opt) => (
                         <li key={opt}>
                           <button
                             type="button"
@@ -295,22 +347,9 @@ export default function QuizFunnel() {
                         <Input
                           id="quiz-email"
                           type="email"
-                          placeholder="you@university.edu"
+                          placeholder="you@email.com"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
-                          className="bg-white/5 border-white/20 text-white placeholder:text-zinc-500 focus-visible:ring-white/40"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="quiz-phone" className="text-zinc-300 text-sm">
-                          Phone
-                        </Label>
-                        <Input
-                          id="quiz-phone"
-                          type="tel"
-                          placeholder="(555) 123-4567"
-                          value={phone}
-                          onChange={(e) => setPhone(e.target.value)}
                           className="bg-white/5 border-white/20 text-white placeholder:text-zinc-500 focus-visible:ring-white/40"
                         />
                       </div>

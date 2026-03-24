@@ -11,8 +11,8 @@ interface QuizFunnelModalProps {
 
 const Q1_OPTIONS = [
   'Get a visible 6 pack without a restrictive diet',
-  'Gain up to 10lbs of muscle this semester',
-  'Get your dream physique while enjoying your college life',
+  'Gain up to 10lbs of muscle',
+  'Get your dream physique while enjoying your post-grad life',
 ];
 
 const Q2_OPTIONS = [

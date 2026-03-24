@@ -38,11 +38,10 @@ const Results = () => {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-12 md:mb-16 animate-fade-in">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
-              Real Results from Real Men
+              Real Results from Post-Grads
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-              These aren't 20-year-old fitness models. These are busy professionals, 
-              fathers, and real men who transformed their bodies without turning their lives upside down.
+            These are young men who transformed their body while juggling a new career, a busy schedule, and everything else life throws at you.
             </p>
           </div>
 

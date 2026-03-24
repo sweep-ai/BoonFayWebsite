@@ -21,7 +21,7 @@ const Footer = () => {
                 Boon Fay Fitness
               </h3>
               <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-              Helping men and women achieve sustainable weight loss without giving up their lifestyle. 
+              Helping men and women achieve sustainable weight loss post-grad. 
               </p>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Heart className="w-3 h-3 md:w-4 md:h-4 text-red-400" />

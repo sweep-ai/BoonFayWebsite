@@ -8,7 +8,7 @@ const About = () => {
             <div className="absolute -inset-1 rounded-xl md:rounded-2xl bg-gradient-to-r from-white to-gray-400 opacity-70 blur-md pointer-events-none glow-white" />
             <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl z-10 bg-gray-800/30">
               <img
-                src="/profile2.jpeg"
+                src="/boon_final.png"
                 alt="Professional fitness consultation"
                 className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover"
               />
@@ -19,16 +19,16 @@ const About = () => {
           <div className="space-y-6 md:space-y-8 animate-fade-in order-last lg:order-first" style={{ animationDelay: '0.2s' }}>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6">Meet Boon!</h2>
             <p className="text-base md:text-lg text-white/90 leading-relaxed mb-4 md:mb-6">
-              My name is Boon Fay. I&apos;m a certified personal trainer and former Division I college baseball player who knows firsthand what school can do to your body.
+            My name is Boon Fay. I’m a certified personal trainer and a former Division I college baseball player, and I’ve seen firsthand what the college lifestyle can do to your body.
             </p>
             <p className="text-base md:text-lg text-white/90 leading-relaxed mb-4 md:mb-6">
-              I lost over 40 pounds during my last year of college. That experience became the foundation of everything I coach. Because I know what it&apos;s like to navigate a new career, a new lifestyle, and still show up for yourself physically.
+            During my last year of college, I lost over 40 pounds. That experience really shaped the way I approach coaching, because I know what it’s like to transition into a new career, adjust to a new routine, and still try to take care of yourself physically.
             </p>
             <p className="text-base md:text-lg text-white/90 leading-relaxed mb-4 md:mb-6">
-              My coaching is designed specifically around the post-grad lifestyle. No meal prep that requires hours you don&apos;t have. No overcomplicated meal plans. No 2-hour gym sessions. Just straight-forward, proven strategies designed for post-grad men who are serious about finally building the body they&apos;ve been putting off.
+            My coaching is built specifically for the post-grad lifestyle. No meal prep that takes hours you don’t have, no overly complicated diet plans, and no two-hour gym sessions. Just straightforward, proven strategies for post-grad guys who are serious about finally building the body they’ve been putting off.
             </p>
             <p className="text-base md:text-lg text-white/90 leading-relaxed mb-4 md:mb-6">
-              The next chapter starts now. Let&apos;s make it your best one.
+            The next chapter starts now. Let’s make it your best one.
             </p>
             <div className="relative mt-4">
               <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-white to-gray-400 opacity-70 blur-md glow-white" />
