@@ -1,4 +1,5 @@
 import { Heart, Mail, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const scrollToSection = (sectionId: string) => {
@@ -90,12 +91,12 @@ const Footer = () => {
                 © 2024 Boon Fay Fitness. All rights reserved.
               </p>
               <div className="flex gap-4 md:gap-6 text-xs md:text-sm text-white/60">
-                <a href="#privacy" className="hover:text-white transition-colors">
+                <Link to="/privacy" className="hover:text-white transition-colors">
                   Privacy Policy
-                </a>
-                <a href="#terms" className="hover:text-white transition-colors">
+                </Link>
+                <Link to="/terms" className="hover:text-white transition-colors">
                   Terms of Service
-                </a>
+                </Link>
               </div>
             </div>
           </div>

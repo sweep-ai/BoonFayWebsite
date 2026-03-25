@@ -1,7 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Checkbox } from '@/components/ui/checkbox';
 import { cn } from '@/lib/utils';
 
 const Q1_OPTIONS = [
@@ -87,6 +89,7 @@ export default function QuizFunnel() {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [agreedToLegal, setAgreedToLegal] = useState(false);
   const [formError, setFormError] = useState('');
   const [slideHeight, setSlideHeight] = useState<number | null>(null);
   const slideRefs = useRef<(HTMLDivElement | null)[]>([null, null, null, null]);
@@ -124,6 +127,10 @@ export default function QuizFunnel() {
     const trimmedEmail = email.trim();
     if (!trimmedName || !trimmedEmail) {
       setFormError('Please fill in all fields');
+      return;
+    }
+    if (!agreedToLegal) {
+      setFormError('Please agree to the Privacy Policy and Terms of Service to continue.');
       return;
     }
     const slug = q1 ? Q1_TO_SLUG[q1] : 'physique';
@@ -379,6 +386,43 @@ export default function QuizFunnel() {
                           className="bg-white/5 border-white/20 text-white placeholder:text-zinc-500 focus-visible:ring-white/40"
                         />
                       </div>
+
+                      <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4">
+                        <Checkbox
+                          id="quiz-legal"
+                          checked={agreedToLegal}
+                          onCheckedChange={(v) => {
+                            setAgreedToLegal(v === true);
+                            if (v === true) setFormError('');
+                          }}
+                          className="mt-0.5 border-white/40 data-[state=checked]:bg-blue-500 data-[state=checked]:border-blue-500"
+                        />
+                        <Label
+                          htmlFor="quiz-legal"
+                          className="text-sm text-zinc-300 leading-snug cursor-pointer font-normal"
+                        >
+                          I have read and agree to the{' '}
+                          <Link
+                            to="/privacy"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-400 hover:text-blue-300 underline underline-offset-2"
+                          >
+                            Privacy Policy
+                          </Link>{' '}
+                          and{' '}
+                          <Link
+                            to="/terms"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-400 hover:text-blue-300 underline underline-offset-2"
+                          >
+                            Terms of Service
+                          </Link>
+                          . I understand how my information will be used.
+                        </Label>
+                      </div>
+
                       {formError && (
                         <p className="text-sm text-blue-400">{formError}</p>
                       )}

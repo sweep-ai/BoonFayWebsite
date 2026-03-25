@@ -11,6 +11,8 @@ import Congrats from "./pages/Congrats";
 import Calculator from "./pages/Calculator";
 import Quiz from "./pages/Quiz";
 import Resource from "./pages/Resource";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/congrats" element={<Congrats />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/resource/:goal" element={<Resource />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
           <Route path="/calculator" element={<Calculator />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
