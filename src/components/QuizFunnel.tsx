@@ -152,12 +152,27 @@ export default function QuizFunnel() {
         body: payload,
         keepalive: true,
       });
-      await res.json().catch(() => {});
-    } catch {
-      // Fallback: use sendBeacon so the request survives page navigation
-      navigator.sendBeacon('/api/subscribe', new Blob([payload], { type: 'application/json' }));
-    } finally {
+
+      const contentType = res.headers.get('content-type') ?? '';
+      const data =
+        contentType.includes('application/json')
+          ? await res.json().catch(() => ({}))
+          : {};
+
+      if (!res.ok) {
+        const msg =
+          res.status === 500 && (data as { error?: string })?.error === 'Server configuration error'
+            ? 'Service is not configured. Please try again later.'
+            : 'Could not save your details. Please try again.';
+        setFormError(msg);
+        setSubmitting(false);
+        return;
+      }
+
       window.location.href = `/resource/${slug}`;
+    } catch {
+      setFormError('Network error. Please check your connection and try again.');
+      setSubmitting(false);
     }
   };
 
@@ -426,7 +441,12 @@ export default function QuizFunnel() {
                       {formError && (
                         <p className="text-sm text-blue-400">{formError}</p>
                       )}
-                      <Button type="submit" className="w-full" size="lg" disabled={submitting}>
+                      <Button
+                        type="submit"
+                        className="w-full"
+                        size="lg"
+                        disabled={!agreedToLegal || submitting}
+                      >
                         {submitting ? 'Sending...' : 'Send me my playbook'}
                       </Button>
                     </form>

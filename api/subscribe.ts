@@ -1,11 +1,32 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
+function getJsonBody(req: VercelRequest): Record<string, unknown> {
+  const raw = req.body;
+  if (raw && typeof raw === 'object' && !Buffer.isBuffer(raw)) {
+    return raw as Record<string, unknown>;
+  }
+  if (typeof raw === 'string') {
+    try {
+      return JSON.parse(raw) as Record<string, unknown>;
+    } catch {
+      return {};
+    }
+  }
+  return {};
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { email, name, goal, q1, q2, q3 } = req.body ?? {};
+  const body = getJsonBody(req);
+  const email = typeof body.email === 'string' ? body.email : '';
+  const name = typeof body.name === 'string' ? body.name : '';
+  const goal = typeof body.goal === 'string' ? body.goal : '';
+  const q1 = typeof body.q1 === 'string' ? body.q1 : '';
+  const q2 = typeof body.q2 === 'string' ? body.q2 : '';
+  const q3 = typeof body.q3 === 'string' ? body.q3 : '';
 
   if (!email || !name) {
     return res.status(400).json({ error: 'Email and name are required' });
