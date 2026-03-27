@@ -32,9 +32,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: 'Email and name are required' });
   }
 
-  const apiKey = process.env.BREVO_API_KEY;
+  const apiKey = process.env.BREVO_API_KEY?.trim();
   if (!apiKey) {
-    console.error('BREVO_API_KEY is not set');
+    console.error('BREVO_API_KEY is not set in Vercel environment variables');
     return res.status(500).json({ error: 'Server configuration error' });
   }
 
@@ -61,9 +61,29 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
 
     if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
+      const errorData = (await response.json().catch(() => ({}))) as {
+        message?: string;
+        code?: string;
+      };
       console.error('Brevo API error:', response.status, errorData);
-      return res.status(response.status).json({ error: 'Failed to add contact', details: errorData });
+
+      // Brevo returns 401 when the API key is invalid or the server IP is not allowed
+      // (see Brevo Security → Authorized IPs). Do not forward 401 to the client; it looks
+      // like the site is broken. Return 502 with a clear owner-facing hint in logs.
+      if (response.status === 401 || response.status === 403) {
+        console.error(
+          'Brevo auth failed. Fix: (1) Brevo → Security → Authorized IPs — disable IP restriction or allow Vercel egress. (2) Vercel → Project → Settings → Environment Variables — set BREVO_API_KEY for Production (same key as local).'
+        );
+        return res.status(502).json({
+          error: 'We could not complete your signup. Please try again in a moment.',
+          code: 'BREVO_UNAUTHORIZED',
+        });
+      }
+
+      return res.status(502).json({
+        error: 'Failed to add contact',
+        details: errorData,
+      });
     }
 
     return res.status(200).json({ success: true });

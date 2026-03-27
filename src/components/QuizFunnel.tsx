@@ -160,10 +160,13 @@ export default function QuizFunnel() {
           : {};
 
       if (!res.ok) {
-        const msg =
-          res.status === 500 && (data as { error?: string })?.error === 'Server configuration error'
-            ? 'Service is not configured. Please try again later.'
-            : 'Could not save your details. Please try again.';
+        const errBody = data as { error?: string; code?: string };
+        let msg = 'Could not save your details. Please try again.';
+        if (res.status === 500 && errBody.error === 'Server configuration error') {
+          msg = 'Service is not configured. Please try again later.';
+        } else if (typeof errBody.error === 'string' && errBody.error.length > 0) {
+          msg = errBody.error;
+        }
         setFormError(msg);
         setSubmitting(false);
         return;
