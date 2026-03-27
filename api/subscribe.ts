@@ -1,15 +1,12 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 /**
- * Brevo: Create a contact
+ * Brevo Create contact (official API):
  * https://developers.brevo.com/reference/create-contact
+ * https://developers.brevo.com/docs/synchronise-contact-lists
  *
- * - POST https://api.brevo.com/v3/contacts
- * - Header: api-key (see https://developers.brevo.com/docs/authentication-schemes)
- * - Success: 201 Created (or 204 in some update cases)
- * - listIds: IDs from Brevo → Contacts → Lists (must exist on your account)
- * - attributes: only use names that exist in your Brevo account (Contacts → Settings → Contact attributes).
- *   Custom attributes like GOAL / QUIZ_Q1 must be created in Brevo first or the API returns 400.
+ * Examples in the docs use FNAME / LNAME; default attributes also include FIRSTNAME / LASTNAME.
+ * We try those first, then fall back to email + listIds only so signup still works if attributes mismatch.
  */
 
 function getJsonBody(req: VercelRequest): Record<string, unknown> {
@@ -36,6 +33,33 @@ function parseListIds(): number[] {
   return ids.length > 0 ? ids : [7];
 }
 
+type BrevoErr = { message?: string; code?: string };
+
+async function brevoCreateContact(
+  apiKey: string,
+  payload: Record<string, unknown>
+): Promise<{ ok: boolean; status: number; body: BrevoErr }> {
+  const response = await fetch('https://api.brevo.com/v3/contacts', {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'content-type': 'application/json',
+      'api-key': apiKey,
+    },
+    body: JSON.stringify(payload),
+  });
+
+  const rawText = await response.text();
+  let body: BrevoErr = {};
+  try {
+    body = rawText ? (JSON.parse(rawText) as BrevoErr) : {};
+  } catch {
+    body = { message: rawText?.slice(0, 300) };
+  }
+
+  return { ok: response.ok, status: response.status, body };
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -60,60 +84,69 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const listIds = parseListIds();
-
-  // Standard attribute FIRSTNAME always exists. Optional LASTNAME if user typed "First Last".
   const parts = name.split(/\s+/).filter(Boolean);
-  const firstName = parts[0] ?? name;
-  const lastName = parts.length > 1 ? parts.slice(1).join(' ') : undefined;
+  const first = parts[0] ?? name;
+  const last = parts.length > 1 ? parts.slice(1).join(' ') : '';
 
-  const attributes: Record<string, string> = {
-    FIRSTNAME: firstName,
-  };
-  if (lastName) {
-    attributes.LASTNAME = lastName;
-  }
-
-  // Only send quiz fields if you created matching TEXT attributes in Brevo (exact names, UPPERCASE).
   const useQuizAttrs = process.env.BREVO_SEND_QUIZ_ATTRIBUTES === 'true';
-  if (useQuizAttrs) {
-    attributes.GOAL = goal;
-    attributes.QUIZ_Q1 = q1;
-    attributes.QUIZ_Q2 = q2;
-    attributes.QUIZ_Q3 = q3;
-  }
 
-  const brevoPayload = {
+  const base = {
     email,
     listIds,
-    attributes,
     updateEnabled: true,
   };
 
-  try {
-    const response = await fetch('https://api.brevo.com/v3/contacts', {
-      method: 'POST',
-      headers: {
-        accept: 'application/json',
-        'content-type': 'application/json',
-        'api-key': apiKey,
+  const attempts: Record<string, unknown>[] = [
+    {
+      ...base,
+      attributes: {
+        FNAME: first,
+        ...(last ? { LNAME: last } : {}),
       },
-      body: JSON.stringify(brevoPayload),
+    },
+    {
+      ...base,
+      attributes: {
+        FIRSTNAME: first,
+        ...(last ? { LASTNAME: last } : {}),
+      },
+    },
+  ];
+
+  if (useQuizAttrs) {
+    attempts.push({
+      ...base,
+      attributes: {
+        FNAME: first,
+        ...(last ? { LNAME: last } : {}),
+        GOAL: goal,
+        QUIZ_Q1: q1,
+        QUIZ_Q2: q2,
+        QUIZ_Q3: q3,
+      },
     });
+  }
 
-    const rawText = await response.text();
-    let errorData: { message?: string; code?: string } = {};
-    try {
-      errorData = rawText ? (JSON.parse(rawText) as typeof errorData) : {};
-    } catch {
-      errorData = { message: rawText?.slice(0, 200) };
-    }
+  // No attributes — valid per docs ("Basic email contact" with email only); still adds to listIds
+  attempts.push({ ...base });
 
-    if (!response.ok) {
-      console.error('Brevo API error:', response.status, errorData);
+  try {
+    let lastError: { status: number; body: BrevoErr } = { status: 0, body: {} };
 
-      if (response.status === 401 || response.status === 403) {
+    for (let i = 0; i < attempts.length; i++) {
+      const result = await brevoCreateContact(apiKey, attempts[i]);
+
+      if (result.ok) {
+        console.info('Brevo contact created (strategy', i + 1, '/', attempts.length, ')');
+        return res.status(200).json({ success: true });
+      }
+
+      lastError = { status: result.status, body: result.body };
+      console.error('Brevo attempt', i + 1, '/', attempts.length, ':', result.status, result.body);
+
+      if (result.status === 401 || result.status === 403) {
         console.error(
-          'Brevo auth failed. In Brevo: Security → Authorized IPs — disable IP restriction for API (Vercel IPs are not fixed). Confirm API key has Contacts permissions.'
+          'Brevo auth: disable IP allowlist under Security → Authorized IPs, or verify api-key. See https://developers.brevo.com/docs/getting-started'
         );
         return res.status(502).json({
           error: 'We could not complete your signup. Please try again in a moment.',
@@ -121,16 +154,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         });
       }
 
-      // 400 often means unknown attribute name or invalid list id — surface hint for debugging
-      return res.status(502).json({
-        error: 'Failed to add contact',
-        code: 'BREVO_REJECTED',
-        details: errorData,
-      });
+      if (result.status !== 400 && result.status !== 404) {
+        break;
+      }
     }
 
-    // 201 Created is the usual success for new contacts per Brevo docs
-    return res.status(200).json({ success: true });
+    return res.status(502).json({
+      error: 'Failed to add contact',
+      code: 'BREVO_REJECTED',
+      details: lastError.body,
+      brevoStatus: lastError.status,
+    });
   } catch (err) {
     console.error('Brevo request failed:', err);
     return res.status(500).json({ error: 'Internal server error' });
