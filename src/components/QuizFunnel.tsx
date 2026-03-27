@@ -139,10 +139,6 @@ export default function QuizFunnel() {
     const payload = JSON.stringify({
       email: trimmedEmail,
       name: trimmedName,
-      goal: slug,
-      q1: q1 ?? '',
-      q2: q2 ?? '',
-      q3: q3 ?? '',
     });
 
     try {

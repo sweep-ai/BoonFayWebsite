@@ -1,12 +1,8 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 /**
- * Brevo Create contact (official API):
+ * Brevo: create contact with email, list, and name only (FNAME/LNAME per docs).
  * https://developers.brevo.com/reference/create-contact
- * https://developers.brevo.com/docs/synchronise-contact-lists
- *
- * Examples in the docs use FNAME / LNAME; default attributes also include FIRSTNAME / LASTNAME.
- * We try those first, then fall back to email + listIds only so signup still works if attributes mismatch.
  */
 
 function getJsonBody(req: VercelRequest): Record<string, unknown> {
@@ -31,6 +27,14 @@ function parseListIds(): number[] {
     .map((s) => parseInt(s.trim(), 10))
     .filter((n) => !Number.isNaN(n));
   return ids.length > 0 ? ids : [7];
+}
+
+/** Split full name: first token = first name, remainder = last name (if any). */
+function splitName(full: string): { first: string; last: string | undefined } {
+  const parts = full.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return { first: '', last: undefined };
+  if (parts.length === 1) return { first: parts[0], last: undefined };
+  return { first: parts[0], last: parts.slice(1).join(' ') };
 }
 
 type BrevoErr = { message?: string; code?: string };
@@ -68,10 +72,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const body = getJsonBody(req);
   const email = typeof body.email === 'string' ? body.email.trim() : '';
   const name = typeof body.name === 'string' ? body.name.trim() : '';
-  const goal = typeof body.goal === 'string' ? body.goal : '';
-  const q1 = typeof body.q1 === 'string' ? body.q1 : '';
-  const q2 = typeof body.q2 === 'string' ? body.q2 : '';
-  const q3 = typeof body.q3 === 'string' ? body.q3 : '';
 
   if (!email || !name) {
     return res.status(400).json({ error: 'Email and name are required' });
@@ -84,11 +84,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const listIds = parseListIds();
-  const parts = name.split(/\s+/).filter(Boolean);
-  const first = parts[0] ?? name;
-  const last = parts.length > 1 ? parts.slice(1).join(' ') : '';
-
-  const useQuizAttrs = process.env.BREVO_SEND_QUIZ_ATTRIBUTES === 'true';
+  const { first, last } = splitName(name);
 
   const base = {
     email,
@@ -111,24 +107,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         ...(last ? { LASTNAME: last } : {}),
       },
     },
+    { ...base },
   ];
-
-  if (useQuizAttrs) {
-    attempts.push({
-      ...base,
-      attributes: {
-        FNAME: first,
-        ...(last ? { LNAME: last } : {}),
-        GOAL: goal,
-        QUIZ_Q1: q1,
-        QUIZ_Q2: q2,
-        QUIZ_Q3: q3,
-      },
-    });
-  }
-
-  // No attributes — valid per docs ("Basic email contact" with email only); still adds to listIds
-  attempts.push({ ...base });
 
   try {
     let lastError: { status: number; body: BrevoErr } = { status: 0, body: {} };
@@ -137,7 +117,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       const result = await brevoCreateContact(apiKey, attempts[i]);
 
       if (result.ok) {
-        console.info('Brevo contact created (strategy', i + 1, '/', attempts.length, ')');
+        console.info('Brevo contact OK (attempt', i + 1, '/', attempts.length, ')');
         return res.status(200).json({ success: true });
       }
 
@@ -146,7 +126,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
       if (result.status === 401 || result.status === 403) {
         console.error(
-          'Brevo auth: disable IP allowlist under Security → Authorized IPs, or verify api-key. See https://developers.brevo.com/docs/getting-started'
+          'Brevo auth: Security → Authorized IPs, or verify api-key. https://developers.brevo.com/docs/getting-started'
         );
         return res.status(502).json({
           error: 'We could not complete your signup. Please try again in a moment.',
