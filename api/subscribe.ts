@@ -1,9 +1,11 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 /**
- * Brevo: create contact with email, list, and name only (FNAME/LNAME per docs).
+ * Brevo: POST /v3/contacts — always assign to list ID 7.
  * https://developers.brevo.com/reference/create-contact
  */
+
+const BREVO_LIST_ID = 7;
 
 function getJsonBody(req: VercelRequest): Record<string, unknown> {
   const raw = req.body;
@@ -20,16 +22,7 @@ function getJsonBody(req: VercelRequest): Record<string, unknown> {
   return {};
 }
 
-function parseListIds(): number[] {
-  const raw = process.env.BREVO_LIST_ID ?? '7';
-  const ids = raw
-    .split(/[,\s]+/)
-    .map((s) => parseInt(s.trim(), 10))
-    .filter((n) => !Number.isNaN(n));
-  return ids.length > 0 ? ids : [7];
-}
-
-/** Split full name: first token = first name, remainder = last name (if any). */
+/** First word = first name, rest = last name. */
 function splitName(full: string): { first: string; last: string | undefined } {
   const parts = full.trim().split(/\s+/).filter(Boolean);
   if (parts.length === 0) return { first: '', last: undefined };
@@ -79,20 +72,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const apiKey = process.env.BREVO_API_KEY?.trim();
   if (!apiKey) {
-    console.error('BREVO_API_KEY is not set in Vercel environment variables');
+    console.error('BREVO_API_KEY is not set');
     return res.status(500).json({ error: 'Server configuration error' });
   }
 
-  const listIds = parseListIds();
   const { first, last } = splitName(name);
 
   const base = {
     email,
-    listIds,
+    listIds: [BREVO_LIST_ID],
     updateEnabled: true,
   };
 
+  // Minimal first: guarantees contact is added to list 7 if API key + list are valid.
   const attempts: Record<string, unknown>[] = [
+    { ...base },
     {
       ...base,
       attributes: {
@@ -107,7 +101,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         ...(last ? { LASTNAME: last } : {}),
       },
     },
-    { ...base },
   ];
 
   try {
@@ -117,20 +110,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       const result = await brevoCreateContact(apiKey, attempts[i]);
 
       if (result.ok) {
-        console.info('Brevo contact OK (attempt', i + 1, '/', attempts.length, ')');
+        console.info('Brevo OK (attempt', i + 1, '/', attempts.length, ')');
         return res.status(200).json({ success: true });
       }
 
       lastError = { status: result.status, body: result.body };
-      console.error('Brevo attempt', i + 1, '/', attempts.length, ':', result.status, result.body);
+      console.error('Brevo attempt', i + 1, ':', result.status, result.body);
 
       if (result.status === 401 || result.status === 403) {
-        console.error(
-          'Brevo auth: Security → Authorized IPs, or verify api-key. https://developers.brevo.com/docs/getting-started'
-        );
         return res.status(502).json({
           error: 'We could not complete your signup. Please try again in a moment.',
           code: 'BREVO_UNAUTHORIZED',
+          details: result.body,
         });
       }
 

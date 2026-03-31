@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useCalendlyBookingTracked } from '@/hooks/useCalendlyBookingTracked';
 import Hero from '@/components/Hero';
 import QuizFunnel from '@/components/QuizFunnel';
 import About from '@/components/About';
@@ -8,6 +9,7 @@ import Footer from '@/components/Footer';
 
 const Index = () => {
   const { hash } = useLocation();
+  useCalendlyBookingTracked('home');
 
   useEffect(() => {
     if (hash === '#book-call') {

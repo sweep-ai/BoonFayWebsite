@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { trackEvent } from '@/lib/track';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -82,6 +83,10 @@ const Q2_FALLBACK = Q2_BY_GOAL[Q1_OPTIONS[2]];
 const Q3_FALLBACK = Q3_BY_GOAL[Q1_OPTIONS[2]];
 
 export default function QuizFunnel() {
+  const location = useLocation();
+  const quizPlacement = location.pathname === '/quiz' ? 'quiz_page' : 'home';
+  const quizStartedRef = useRef(false);
+
   const [quizStep, setQuizStep] = useState(1);
   const [q1, setQ1] = useState<string | null>(null);
   const [q2, setQ2] = useState<string | null>(null);
@@ -168,6 +173,15 @@ export default function QuizFunnel() {
         return;
       }
 
+      await trackEvent(
+        'quiz_submit',
+        {
+          quiz_placement: quizPlacement,
+          goal_slug: slug,
+        },
+        { idempotency_key: `quiz_submit_${trimmedEmail.toLowerCase()}` }
+      );
+
       window.location.href = `/resource/${slug}`;
     } catch {
       setFormError('Network error. Please check your connection and try again.');
@@ -232,6 +246,10 @@ export default function QuizFunnel() {
                           <button
                             type="button"
                             onClick={() => {
+                              if (!quizStartedRef.current) {
+                                quizStartedRef.current = true;
+                                void trackEvent('quiz_start', { quiz_placement: quizPlacement });
+                              }
                               setQ1(opt);
                               setTimeout(() => setQuizStep(2), 250);
                             }}

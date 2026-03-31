@@ -1,4 +1,7 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { trackEvent } from '@/lib/track';
+import { useCalendlyBookingTracked } from '@/hooks/useCalendlyBookingTracked';
 import { Play, Download, Beef, Dumbbell, Scale } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -116,10 +119,30 @@ const RESOURCE_CONTENT: Record<
   },
 };
 
+const RESOURCE_FUNNEL_EVENT: Record<GoalSlug, string> = {
+  '6pack': 'resource_page_6pack',
+  muscle: 'resource_page_muscle',
+  physique: 'resource_page_physique',
+};
+
+function normalizeGoalParam(goal: string | undefined): GoalSlug {
+  if (goal === '6pack' || goal === 'muscle' || goal === 'physique') return goal;
+  return 'physique';
+}
+
 export default function Resource() {
   const { goal } = useParams<{ goal: string }>();
-  const slug = (goal ?? 'physique') as GoalSlug;
+  const slug = normalizeGoalParam(goal);
   const content = RESOURCE_CONTENT[slug] ?? RESOURCE_CONTENT.physique;
+
+  const calendlyEmbed =
+    slug === '6pack' ? 'resource_6pack' : slug === 'muscle' ? 'resource_muscle' : 'resource_physique';
+  useCalendlyBookingTracked(calendlyEmbed);
+
+  useEffect(() => {
+    const eventName = RESOURCE_FUNNEL_EVENT[slug];
+    void trackEvent(eventName, { resource_version: slug });
+  }, [slug]);
 
   const playbookUrl = PLAYBOOK_PATHS[slug];
   const HeroIcon = content.heroIcon;
