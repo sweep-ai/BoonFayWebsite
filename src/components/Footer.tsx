@@ -36,14 +36,6 @@ const Footer = () => {
               <ul className="space-y-2 md:space-y-3 text-white/70">
                 <li>
                   <button 
-                    onClick={() => scrollToSection('about')}
-                    className="hover:text-white transition-colors text-left text-sm md:text-base"
-                  >
-                    About Boon
-                  </button>
-                </li>
-                <li>
-                  <button 
                     onClick={() => scrollToSection('results')}
                     className="hover:text-white transition-colors text-left text-sm md:text-base"
                   >
@@ -59,12 +51,12 @@ const Footer = () => {
                   </button>
                 </li>
                 <li>
-                  <button 
-                    onClick={() => scrollToSection('book-call')}
-                    className="hover:text-white transition-colors text-left text-sm md:text-base"
+                  <Link
+                    to={{ pathname: '/', hash: 'book-call' }}
+                    className="hover:text-white transition-colors text-left text-sm md:text-base inline-block"
                   >
                     Book a Call
-                  </button>
+                  </Link>
                 </li>
               </ul>
             </div>

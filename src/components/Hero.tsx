@@ -1,22 +1,19 @@
 import { useState } from 'react';
+import { useCalendlyBookingTracked } from '@/hooks/useCalendlyBookingTracked';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
+  useCalendlyBookingTracked('home');
   const [ctaClicked, setCtaClicked] = useState(false);
 
-  const handleQuizCta = () => {
+  const handlePricingCta = () => {
     setCtaClicked(true);
-    const el = document.getElementById('quiz');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      return;
-    }
-    window.location.href = '/quiz';
+    document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
     <>
-      <section className="relative min-h-screen m-0 p-10 md:p-20 pt-10 pb-4 md:pb-6 flex flex-col items-center justify-center">
+      <section className="relative min-h-screen m-0 p-10 md:p-20 pt-10 pb-12 md:pb-16 flex flex-col items-center justify-center">
         <div className="container mx-auto px-4 max-w-4xl flex flex-col items-center">
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight text-center mb-6 md:mb-10">
           Lose <span className="text-blue-400 bg-clip-text drop-shadow-lg text-glow-white">20+</span> lbs Post-Graduation Without Changing Your Diet
@@ -68,26 +65,45 @@ const Hero = () => {
             </div>
           </div> */}
 
-          {/* Quiz CTA (replaces inline quiz in Hero) */}
+          {/* Pricing CTA */}
           <div className="w-full max-w-lg mb-8 md:mb-10 px-1 sm:px-0">
             <div className="relative">
               <div className="relative bg-white/5 backdrop-blur-md rounded-2xl border border-blue-500/30 shadow-xl shadow-blue-500/10 z-10 p-5 sm:p-6 md:p-6 text-center">
                 <Button
                   size="lg"
                   className="w-full min-w-0 min-h-[48px] sm:min-h-[56px] md:min-h-[60px] bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white text-base sm:text-lg md:text-xl font-bold py-4 px-5 sm:py-4 sm:px-6 md:py-5 md:px-8 rounded-xl shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0A0F] whitespace-normal text-center break-words border-0 leading-snug flex items-center justify-center box-border"
-                  onClick={handleQuizCta}
+                  onClick={handlePricingCta}
                 >
                   Get The Post-Grad Protocol
                 </Button>
                 {ctaClicked && (
                   <p className="mt-3 text-xs text-white/60">
-                    Scrolling to the quiz…
+                    Scrolling to pricing…
                   </p>
                 )}
                 <p className="text-sm sm:text-base text-white/70 mb-0 mt-4">
-                  Fill out a 2 minute quiz and get a personalized playbook + video breakdown with everything you need.
+                  See plans, pricing, and the money-back guarantee below.
                 </p>
               </div>
+            </div>
+          </div>
+
+          <div id="book-call" className="w-full max-w-3xl mx-auto mt-10 md:mt-14 scroll-mt-8 px-1 sm:px-0">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-2">
+              Book a free call
+            </h2>
+            <p className="text-muted-foreground text-center mb-6 max-w-xl mx-auto">
+              Pick a time that works for you. We&apos;ll discuss your goals and create a custom plan.
+            </p>
+            <div className="rounded-xl overflow-hidden border border-white/10 bg-card/80">
+              <iframe
+                src="https://calendly.com/fayboon3/30min"
+                width="100%"
+                height="630"
+                frameBorder="0"
+                title="Schedule a call with Boon"
+                className="w-full border-0 min-h-[500px] sm:min-h-[630px]"
+              />
             </div>
           </div>
 

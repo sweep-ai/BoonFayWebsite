@@ -1,11 +1,7 @@
 import { useEffect } from 'react';
 import { trackEvent } from '@/lib/track';
 
-type EmbedLocation =
-  | 'home'
-  | 'resource_6pack'
-  | 'resource_muscle'
-  | 'resource_physique';
+type EmbedLocation = 'home' | 'resource_page';
 
 /**
  * Listens for Calendly inline embed completion (postMessage).
