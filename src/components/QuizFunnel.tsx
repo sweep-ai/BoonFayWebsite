@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { trackEvent } from '@/lib/track';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
+import TestimonialCarousel from '@/components/TestimonialCarousel';
 
 const DEFAULT_GOAL_SLUG = 'physique';
 
 export default function QuizFunnel() {
+  const captureRef = useRef<HTMLDivElement | null>(null);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [agreedToLegal, setAgreedToLegal] = useState(false);
@@ -81,66 +83,75 @@ export default function QuizFunnel() {
   return (
     <section id="protocol" className="py-16 md:py-20 pt-24 md:pt-28">
       <div className="container mx-auto px-4 max-w-3xl">
-        <div className="text-center mb-10 md:mb-12">
-          <p className="text-blue-400 bg-clip-text drop-shadow-lg text-glow-white text-5xl md:text-4xl font-extrabold text-primary mb-2">FREE</p>
+        <div className="text-center">
+          <p className="text-blue-400 drop-shadow-lg text-glow-white text-5xl md:text-4xl font-extrabold mb-2">
+            FREE
+          </p>
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
             Customized Post-Grad Playbook
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Get your personalized Post-Grad Playbook and video breakdown delivered instantly. Just the exact system helping post-grads drop 20lbs in 90 days.
           </p>
+          <div className="mt-6 flex justify-center">
+            <Button
+              type="button"
+              size="lg"
+              className="w-full max-w-xs px-8"
+              onClick={() => captureRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+            >
+              Get it now
+            </Button>
+          </div>
         </div>
 
-        <div className="relative w-full">
-          <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-white to-gray-400 opacity-70 blur-md glow-white" />
-          <div
-            className="relative rounded-xl shadow-2xl z-10 overflow-hidden p-6 sm:p-8 backdrop-blur-md"
-            style={{
-              backgroundImage:
-                'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.08) 1px, transparent 0)',
-              backgroundSize: '20px 20px',
-              backgroundColor: 'rgb(24 24 27)',
-            }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-blue-950/40 pointer-events-none rounded-xl" />
+        <div className="relative w-full mt-10 md:mt-12">
+          <img
+            src="/course-mockup.png"
+            alt=""
+            aria-hidden="true"
+            className="pointer-events-none absolute left-1/2 top-0 md:top-0 -translate-x-1/2 -translate-y-44 md:-translate-y-56 w-[880px] sm:w-[1040px] max-w-none opacity-100 blur-0 saturate-100 -rotate-6 drop-shadow-[0_40px_120px_rgba(0,0,0,0.65)]"
+          />
 
-            <div className="relative z-10">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-1 text-center">
-                Get your personalized playbook
+          <div
+            ref={captureRef}
+            className="relative z-10 w-full max-w-sm mx-auto mt-56 sm:mt-64 md:mt-72"
+          >
+            <div
+              className="relative rounded-2xl shadow-2xl z-10 overflow-hidden p-4 backdrop-blur-md border border-white/15 bg-zinc-950/90"
+              style={{
+                backgroundImage: 'linear-gradient(180deg, rgba(59,130,246,0.14) 0%, rgba(0,0,0,0) 55%)',
+              }}
+            >
+              <div className="absolute inset-0 pointer-events-none rounded-2xl ring-1 ring-white/5" />
+
+              <div className="relative z-10">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-1 text-center">
+                Get your free training
               </h3>
-              <p className="text-sm text-zinc-400 mb-6 text-center">
-                Enter your details below and we&apos;ll send your custom training video instantly.
+              <p className="text-sm text-zinc-300/70 mb-4 text-center">
+                Enter your details and we&apos;ll send it instantly.
               </p>
 
-              <form onSubmit={handleLeadSubmit} className="w-full max-w-xl space-y-4 mb-6 mx-auto">
-                <div className="space-y-2">
-                  <Label htmlFor="quiz-name" className="text-zinc-300 text-sm">
-                    Name
-                  </Label>
-                  <Input
-                    id="quiz-name"
-                    type="text"
-                    placeholder="Your name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="bg-white/5 border-white/20 text-white placeholder:text-zinc-500 focus-visible:ring-white/40"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="quiz-email" className="text-zinc-300 text-sm">
-                    Email
-                  </Label>
-                  <Input
-                    id="quiz-email"
-                    type="email"
-                    placeholder="you@email.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="bg-white/5 border-white/20 text-white placeholder:text-zinc-500 focus-visible:ring-white/40"
-                  />
-                </div>
+              <form onSubmit={handleLeadSubmit} className="w-full space-y-3 mb-4 mx-auto">
+                <Input
+                  id="quiz-name"
+                  type="text"
+                  placeholder="Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="bg-white/5 border-white/20 text-white placeholder:text-zinc-500 focus-visible:ring-white/40"
+                />
+                <Input
+                  id="quiz-email"
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="bg-white/5 border-white/20 text-white placeholder:text-zinc-500 focus-visible:ring-white/40"
+                />
 
-                <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4">
+                <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-3">
                   <Checkbox
                     id="quiz-legal"
                     checked={agreedToLegal}
@@ -152,7 +163,7 @@ export default function QuizFunnel() {
                   />
                   <Label
                     htmlFor="quiz-legal"
-                    className="text-sm text-zinc-300 leading-snug cursor-pointer font-normal"
+                    className="text-xs text-zinc-300 leading-snug cursor-pointer font-normal"
                   >
                     I have read and agree to the{' '}
                     <Link
@@ -182,13 +193,35 @@ export default function QuizFunnel() {
                 <Button
                   type="submit"
                   className="w-full"
-                  size="lg"
+                  size="default"
                   disabled={!agreedToLegal || submitting}
                 >
                   {submitting ? 'Sending...' : 'Send me my playbook'}
                 </Button>
               </form>
+              </div>
             </div>
+
+            <div className="mt-6 md:mt-7 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-4 sm:p-5">
+              <ul className="space-y-3 text-sm sm:text-base text-white/75">
+                <li className="flex items-start gap-3">
+                  <span className="mt-0.5 text-blue-400">✓</span>
+                  <span>Free access to the full Post-Grad Fitness Course (eating, training, and social life)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-0.5 text-blue-400">✓</span>
+                  <span>Learn the exact system I used to lose 65 lbs and help guys like Anthony drop 11 lbs in 30 days</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-0.5 text-blue-400">✓</span>
+                  <span>Finally build the body you want while navigating your first years out of school</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="relative z-20 mt-12 md:mt-16">
+            <TestimonialCarousel />
           </div>
         </div>
       </div>
