@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
+import courseMockupImg from '@/assets/course-mockup.png';
 
 const DEFAULT_GOAL_SLUG = 'physique';
 
@@ -105,23 +106,22 @@ export default function QuizFunnel() {
           </div>
         </div>
 
-        <div className="relative w-full mt-10 md:mt-12 overflow-x-hidden">
+        <div className="relative isolate w-full mt-10 md:mt-12">
           <img
-            src="/course-mockup.png"
+            src={courseMockupImg}
             alt=""
-            aria-hidden="true"
+            aria-hidden
             loading="eager"
             decoding="async"
-            className="pointer-events-none absolute left-1/2 -translate-x-1/2 h-auto
-              top-6 w-[min(92vw,420px)] max-w-[min(92vw,420px)] -translate-y-6
-              sm:top-0 sm:w-[880px] sm:max-w-none sm:-translate-y-44
-              md:-translate-y-56 md:w-[1040px]
-              opacity-100 blur-0 saturate-100 -rotate-6 drop-shadow-[0_40px_120px_rgba(0,0,0,0.65)]"
+            fetchPriority="high"
+            className="pointer-events-none z-0 h-auto max-w-none opacity-100 blur-0 saturate-100 -rotate-6 drop-shadow-[0_40px_120px_rgba(0,0,0,0.65)]
+              relative mx-auto block w-[min(92vw,560px)]
+              sm:absolute sm:left-1/2 sm:top-0 sm:z-0 sm:block sm:w-[880px] sm:max-w-none sm:-translate-x-1/2 sm:-translate-y-44 md:-translate-y-56 md:w-[1040px]"
           />
 
           <div
             ref={captureRef}
-            className="relative z-10 w-full max-w-sm mx-auto mt-56 sm:mt-64 md:mt-72"
+            className="relative z-10 w-full max-w-sm mx-auto mt-8 sm:mt-64 md:mt-72"
           >
             <div
               className="relative rounded-2xl shadow-2xl z-10 overflow-hidden p-4 backdrop-blur-md border border-white/15 bg-zinc-950/90"
