@@ -109,14 +109,17 @@ export default function QuizFunnel() {
         <div className="relative isolate w-full mt-10 md:mt-12">
           <img
             src={courseMockupImg}
+            width={660}
+            height={910}
             alt=""
             aria-hidden
             loading="eager"
             decoding="async"
             fetchPriority="high"
-            className="pointer-events-none z-0 h-auto max-w-none opacity-100 blur-0 saturate-100 -rotate-6 drop-shadow-[0_40px_120px_rgba(0,0,0,0.65)]
-              relative mx-auto block w-[min(92vw,560px)]
-              sm:absolute sm:left-1/2 sm:top-0 sm:z-0 sm:block sm:w-[880px] sm:max-w-none sm:-translate-x-1/2 sm:-translate-y-44 md:-translate-y-56 md:w-[1040px]"
+            className="pointer-events-none z-0 h-auto w-full max-w-[min(92vw,560px)] opacity-100
+              relative mx-auto block sm:max-w-none
+              sm:absolute sm:left-1/2 sm:top-0 sm:z-0 sm:block sm:w-[880px] sm:-translate-x-1/2 sm:-translate-y-44 md:-translate-y-56 md:w-[1040px]
+              sm:-rotate-6 sm:drop-shadow-[0_40px_120px_rgba(0,0,0,0.65)]"
           />
 
           <div
