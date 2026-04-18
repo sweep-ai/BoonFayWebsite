@@ -105,12 +105,18 @@ export default function QuizFunnel() {
           </div>
         </div>
 
-        <div className="relative w-full mt-10 md:mt-12">
+        <div className="relative w-full mt-10 md:mt-12 overflow-x-hidden">
           <img
             src="/course-mockup.png"
             alt=""
             aria-hidden="true"
-            className="pointer-events-none absolute left-1/2 top-0 md:top-0 -translate-x-1/2 -translate-y-44 md:-translate-y-56 w-[880px] sm:w-[1040px] max-w-none opacity-100 blur-0 saturate-100 -rotate-6 drop-shadow-[0_40px_120px_rgba(0,0,0,0.65)]"
+            loading="eager"
+            decoding="async"
+            className="pointer-events-none absolute left-1/2 -translate-x-1/2 h-auto
+              top-6 w-[min(92vw,420px)] max-w-[min(92vw,420px)] -translate-y-6
+              sm:top-0 sm:w-[880px] sm:max-w-none sm:-translate-y-44
+              md:-translate-y-56 md:w-[1040px]
+              opacity-100 blur-0 saturate-100 -rotate-6 drop-shadow-[0_40px_120px_rgba(0,0,0,0.65)]"
           />
 
           <div
