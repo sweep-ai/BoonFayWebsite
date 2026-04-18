@@ -124,7 +124,7 @@ export default function QuizFunnel() {
 
           <div
             ref={captureRef}
-            className="relative z-10 w-full max-w-sm mx-auto mt-8 sm:mt-64 md:mt-72"
+            className="relative z-10 w-full max-w-sm mx-auto max-sm:-mt-40 sm:mt-64 md:mt-72"
           >
             <div
               className="relative rounded-2xl shadow-2xl z-10 overflow-hidden p-4 backdrop-blur-md border border-white/15 bg-zinc-950/90"
