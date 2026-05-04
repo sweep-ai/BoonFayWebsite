@@ -82,17 +82,15 @@ export default function QuizFunnel() {
   };
 
   return (
-    <section id="protocol" className="py-16 md:py-20 pt-24 md:pt-28">
+    <section id="protocol" className="py-16 md:py-20 pt-3 md:pt-4">
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center">
-          <p className="text-blue-400 drop-shadow-lg text-glow-white text-5xl md:text-4xl font-extrabold mb-2">
-            FREE
-          </p>
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-            Customized Post-Grad Playbook
+
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+            THE ONLY FITNESS PROTOCOL YOU'LL NEED AFTER GRADUATION
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Get your personalized Post-Grad Playbook and video breakdown delivered instantly. Just the exact system helping post-grads drop 20lbs in 90 days.
+            Get your personalized Post-Grad Playbook and video breakdown delivered instantly. The exact system helping post-grads drop 20lbs in 90 days.
           </p>
           <div className="mt-6 flex justify-center">
             <Button
@@ -135,12 +133,9 @@ export default function QuizFunnel() {
               <div className="absolute inset-0 pointer-events-none rounded-2xl ring-1 ring-white/5" />
 
               <div className="relative z-10">
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-1 text-center">
-                Get your free training
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-1 text-center pb-4">
+                All I need is your email
               </h3>
-              <p className="text-sm text-zinc-300/70 mb-4 text-center">
-                Enter your details and we&apos;ll send it instantly.
-              </p>
 
               <form onSubmit={handleLeadSubmit} className="w-full space-y-3 mb-4 mx-auto">
                 <Input
@@ -149,7 +144,7 @@ export default function QuizFunnel() {
                   placeholder="Name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="bg-white/5 border-white/20 text-white placeholder:text-zinc-500 focus-visible:ring-white/40"
+                  className="bg-white border-zinc-200 text-zinc-900 placeholder:text-zinc-500 focus-visible:ring-blue-500/30"
                 />
                 <Input
                   id="quiz-email"
@@ -157,7 +152,7 @@ export default function QuizFunnel() {
                   placeholder="Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="bg-white/5 border-white/20 text-white placeholder:text-zinc-500 focus-visible:ring-white/40"
+                  className="bg-white border-zinc-200 text-zinc-900 placeholder:text-zinc-500 focus-visible:ring-blue-500/30"
                 />
 
                 <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-3">
@@ -201,7 +196,7 @@ export default function QuizFunnel() {
                 )}
                 <Button
                   type="submit"
-                  className="w-full"
+                  className="w-full bg-blue-600 text-white hover:bg-blue-700"
                   size="default"
                   disabled={!agreedToLegal || submitting}
                 >
@@ -211,22 +206,22 @@ export default function QuizFunnel() {
               </div>
             </div>
 
-            <div className="mt-6 md:mt-7 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-4 sm:p-5">
-              <ul className="space-y-3 text-sm sm:text-base text-white/75">
-                <li className="flex items-start gap-3">
-                  <span className="mt-0.5 text-blue-400">✓</span>
-                  <span>Free access to the full Post-Grad Fitness Course (eating, training, and social life)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-0.5 text-blue-400">✓</span>
-                  <span>Learn the exact system I used to lose 65 lbs and help guys like Anthony drop 11 lbs in 30 days</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-0.5 text-blue-400">✓</span>
-                  <span>Finally build the body you want while navigating your first years out of school</span>
-                </li>
-              </ul>
-            </div>
+            <ul className="mt-6 md:mt-7 space-y-3 text-sm sm:text-base text-white/75 w-full pb-10">
+              <li className="flex items-start gap-3">
+                <span className="mt-0.5 shrink-0 text-blue-400">✓</span>
+                <span>Free access to the full Post-Grad Fitness Course (eating, training, and social life)</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-0.5 shrink-0 text-blue-400">✓</span>
+                <span>
+                  Learn the exact system I used to lose 65 lbs and help guys like Anthony drop 11 lbs in 30 days
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-0.5 shrink-0 text-blue-400">✓</span>
+                <span>Finally build the body you want while navigating your first years out of school</span>
+              </li>
+            </ul>
           </div>
 
           <div className="relative z-20 mt-12 md:mt-16">
